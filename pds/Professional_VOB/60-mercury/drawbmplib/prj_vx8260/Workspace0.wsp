@@ -1,0 +1,16 @@
+Document file - DO NOT EDIT
+
+<BEGIN> CORE_INFO_TYPE
+Workspace
+<END>
+
+<BEGIN> CORE_INFO_VERSION
+2.0
+<END>
+
+<BEGIN> projectList
+$(PRJ_DIR)/prj_vx8260/drawbmp.wpj \
+	E:/ccroot/liuhuiyun_kdv40_development/kdv40_vob/60-service2/mmp/prj_vx8260/mmp.wpj \
+	E:/ccroot/liuhuiyun_kdv40_development/kdv40_vob/60-service2/vmplib/prj_vx8260/vmp.wpj
+<END>
+

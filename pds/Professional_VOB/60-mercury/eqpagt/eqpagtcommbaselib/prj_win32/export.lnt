@@ -1,0 +1,19 @@
+
+/* Generated from file: eqpagtcommbase.dsp */
+-i..\include\\
+-i..\..\..\..\60-mercury\common\include\platform_sdk\include
+-i..\..\..\..\60-mercury\common\include\\
+-i..\..\..\..\10-common\include\system1\\
+-i..\..\..\..\10-common\include\snmp\\
+-i..\..\..\..\10-common\include\platform\\
+-i..\..\..\..\10-common\include\protocol\\
+-dWIN32
+-d_DEBUG
+-d_MBCS
+-d_LIB
+..\source\eqpagtcfg.cpp
+..\source\eqpagtcommbase.cpp
+..\source\eqpagtipinfo.cpp
+..\source\eqpagtscan.cpp
+..\source\eqpagtsnmp.cpp
+..\source\eqpagtutility.cpp

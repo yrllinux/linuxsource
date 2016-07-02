@@ -1,0 +1,18 @@
+
+/* Generated from file: mp6lib.dsp */
+-i..\..\mtaccesscri2\include
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-common\include\mcu
+-i..\..\..\10-common\include\platform
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\protocol
+-dWIN32
+-d_DEBUG
+-d_MBCS
+-d_LIB
+-d_AFXDLL /* which then implies */ -d_MT -d_DLL 
+..\source\mp.cpp
+..\source\mpdata.cpp
+..\source\mpinst.cpp
+..\source\mputility.cpp

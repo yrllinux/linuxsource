@@ -1,0 +1,293 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Recorder.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Recorder.ico"
+IDI_KDC                 ICON    DISCARDABLE     "res\\KDC.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 Recorder"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Recorder 4.0",IDC_STATIC_RECVER,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005",IDC_STATIC_VERSION_DEC,40,25,119,8
+    DEFPUSHBUTTON   "Ok",IDOK,178,34,50,14,WS_GROUP
+END
+
+IDD_RECORDER_DIALOG DIALOGEX 0, 0, 310, 339
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "KDV 录放像服务器"
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "Tree1",IDC_CHNTREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
+                    TVS_TRACKSELECT | TVS_INFOTIP | WS_BORDER | WS_TABSTOP,
+                    12,8,95,297
+    EDITTEXT        IDC_EDIT_RECADDR,203,23,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_EQPALIAS,203,37,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_EQPID,203,52,92,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_MCUADDR,203,66,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MCUPORT,203,80,92,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_MCUADDRB,299,93,6,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MCUPORTB,299,105,6,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_PLAYCHNLNUM,203,109,92,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_RECCHNLNUM,203,95,92,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_RECSTARTPORT,203,123,92,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_STARTPLAYPORT,203,137,92,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_RECSAVEPATH,203,151,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RECMACHNAME,203,165,92,12,ES_AUTOHSCROLL
+    CONTROL         "是否支持录像发布",IDC_CHECK_ISPUBLISH,"Button",
+                    BS_AUTOCHECKBOX | BS_VCENTER | WS_TABSTOP,138,207,116,10
+    EDITTEXT        IDC_EDIT_DBADDR,203,220,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DBUSERNAME,203,234,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DBPASSWORD,203,248,92,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VODFTPDIR,203,262,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VODFTPUNAME,203,276,92,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VODFTPPW,203,290,92,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Tips",IDC_INFOCONSOLE,12,309,247,21,0,WS_EX_TRANSPARENT | 
+                    WS_EX_STATICEDGE
+    LTEXT           "Status tips",IDC_STATICSTATUS,12,312,247,21
+    LTEXT           "      录像地址     :",IDC_STATIC_RECADDR,114,25,85,8
+    LTEXT           "      外设别名     :",IDC_STATIC_EQPALIAS,114,39,84,8
+    LTEXT           "      外设类型     :",IDC_STATIC_EQPTYPE,114,53,85,8,
+                    NOT WS_VISIBLE
+    LTEXT           "      外设ID       :",IDC_STATIC_EQPID,114,54,86,8
+    LTEXT           "      MCU ID       :",IDC_STATIC_MCUAID,114,81,84,8,NOT 
+                    WS_VISIBLE
+    LTEXT           "      MCU通信端口  :",IDC_STATIC_MCUAPORT,114,82,86,8
+    LTEXT           "      放像通道数   :",IDC_STATIC_PLAYCHANNELS,114,111,
+                    85,8
+    LTEXT           "      录像通道数   :",IDC_STATIC_RECCHANNELS,113,97,87,
+                    8
+    LTEXT           "      录像起始端口 :",IDC_STATIC_RECSTARTPORT,114,125,
+                    85,8
+    LTEXT           "      录像存储路径 :",IDC_STATIC_DIROFFILES,114,153,86,
+                    8
+    LTEXT           "录像机配置信息",IDC_STATIC_TOPIC,168,12,90,8
+    EDITTEXT        IDC_EDIT_EQPTYPE,203,51,92,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MCUID,203,79,92,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "      MCU地址      :",IDC_STATIC_MCUAADDR,114,68,86,8
+    LTEXT           "      数据库用户名 :",IDC_STATIC_DBUSERNAME,114,236,87,
+                    8
+    LTEXT           "      数据库密码   :",IDC_STATIC_PWOFDB,114,250,85,8
+    LTEXT           "      VOD MMS目录  :",IDC_STATIC_DIROFVOD,114,264,85,8
+    LTEXT           "      VOD MMS用户名:",IDC_STATIC_USERNAMEOFVOD,114,278,
+                    85,8
+    LTEXT           "      VOD MMS密码  :",IDC_STATIC_PWOFVOD,114,292,84,8
+    LTEXT           "      数据库地址   :",IDC_STATIC_DBADDRESS,114,222,85,8
+    LTEXT           "      录像机器名   :",IDC_MACHINENAME,114,167,85,10
+    EDITTEXT        IDC_EDIT_MCUIDB,299,81,6,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER | NOT WS_VISIBLE
+    LTEXT           "      放像起始端口 :",IDC_STATIC_PLAYSTARTPORT,114,139,
+                    85,8
+END
+
+IDD_QUITDLG DIALOG DISCARDABLE  0, 0, 158, 75
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Recorder Quit"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,27,40,43,15
+    PUSHBUTTON      "Cancel",IDCANCEL,82,40,43,15
+    CTEXT           "退出录像机？",IDC_STATIC_NOTIFY,28,17,91,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Recorder Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Recorder\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2003\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Recorder.EXE\0"
+            VALUE "ProductName", "Recorder 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_RECORDER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 305
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 333
+    END
+
+    IDD_QUITDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 129
+        BOTTOMMARGIN, 68
+        HORZGUIDE, 40
+        HORZGUIDE, 55
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 Recorder(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Recorder.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

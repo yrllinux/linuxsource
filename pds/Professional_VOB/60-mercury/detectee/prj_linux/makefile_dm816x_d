@@ -1,0 +1,38 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+TOP := ..
+
+COMMMK_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := detectee12
+
+## Define debugging symbols
+DEBUG = 1
+LINUX_COMPILER = _ARM_DM81_
+CFLAGS += -D_LINUX12_ -D_MEDIACTRL_DM816x_
+
+## Object files that compose the target(s)
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS := nipwrapper netra_nip_api brdwrapper kdvipdt kdvsys
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../common/include ../../../10-common/include/mt
+LIB_PATH += ../../../10-common/lib/debug/linux_arm_dm81xx ../../../10-common/lib/debug/linux_arm_dm81xx/nip ../../../10-common/lib/debug/linux_arm_dm81xx/nipdebug
+
+include $(COMMMK_DIR)/common.mk
+

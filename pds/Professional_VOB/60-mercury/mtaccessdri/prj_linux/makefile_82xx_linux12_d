@@ -1,0 +1,46 @@
+###
+### Copyright (c) 2006 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := mtaccessdri12
+
+## Define debugging symbols
+DEBUG = 1
+LINUX_COMPILER = _HHPPC_
+
+CFLAGS += -D_LINUX12_
+
+PWLIB_SUPPORT = 0
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS :=  driagent12 basicboardagent12 mp12 h460pinholelib mtadp12embedded lanman pxyserver_cbb cbbnipinterface_12 readlicenselib mcuprs dscagent pxyh323drv  mth323bridge watchdog12  8313_nipwrapper brdwrapper ppc_8313_nip_api kdvdatanet kdvnetbuf dataswitch kdv323adp kdvcascade kdv323 kdvmedianet kdvencrypt kdvlog osp nipdebug ppc_82xx_dataswitch ppc_82xx_nip_api ppc_82xx_nip_zzip kdvsys rt dl pthread
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/algorithm ../../../10-common/include/platform ../../../10-common/include/pwlib/ptlib ../../../10-common/include/protocol ../../common/include ../../../10-common/include/cbb/license
+
+LIB_PATH += ../../../10-common/lib/debug/linux_ppc_82xx ../../../10-common/lib/debug/linux_ppc_82xx/nip ../../../10-common/lib/debug/linux_ppc_82xx/nipdebug
+
+ifeq ($(PWLIB_SUPPORT),1)
+   PWLIB_PATH = pwlib
+endif
+
+
+include $(COMM_DIR)/common.mk

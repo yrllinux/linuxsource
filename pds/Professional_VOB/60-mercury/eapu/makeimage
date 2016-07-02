@@ -1,0 +1,51 @@
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=./image/autorun.inf
+file3=../../10-common/version/release/os_linux/eapu/kdveapu
+file4=../../10-common/version/release/ti_d647/mainctrl_hd_256M.out
+file5=../../10-common/version/release/os_linux/mpu/mpu_b/update.linux
+file6=../../10-common/version/release/os_linux/mpu/mpu_b/u-boot.bin
+file7=../../10-common/version/release/linux_ppc_82xx/detectee12
+
+f1=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+
+rm -fr app
+mkdir app
+
+for file in $file1 $file2 $file3
+do
+cp -f $file ./app/
+done
+
+cp -f $file4 ./app/mainctrl_hd.out
+cp -f $file7 ./app/detectee
+
+chmod 777 -R app/*
+
+
+./mkyaffs2image ./app eapu.image convert
+sleep 3
+./mkos -i $file5 -a eapu.image -b $file6 -v "$4.6.1 eapu version:@pid:0x0443" -o kdveapu.bin
+
+cp -f kdveapu.bin ../../10-common/version/release/os_linux/eapu/
+gzip kdveapu.bin
+mv -f kdveapu.bin.gz ../../10-common/version/release/os_linux/eapu/
+
+cp -f $file4 ../../10-common/version/release/os_linux/mpu/mpu_b/mainctrl_hd.out
+
+rm -fr app
+
+fi

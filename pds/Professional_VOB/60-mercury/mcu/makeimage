@@ -1,0 +1,152 @@
+file0=../../10-common/lib/release/linux_ppc_82xx/nipdebug/ppc82xx_debugmisc.ko
+file00=../../10-common/lib/release/linux_ppc_85xx/nipdebug/ppc85xx_debugmisc.ko
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=./image/module.cfg
+file3=./image/autorun.inf
+file4=../../10-common/version/release/os_linux/mcu/bcsr.ko
+file5=../../10-common/version/release/os_linux/mcu/led_k.ko
+file6=../../10-common/version/release/linux_ppc_82xx/mcu
+file7=../../10-common/version/release/linux_ppc_82xx/detectee
+file101=../../10-common/version/release/linux_ppc_82xx/kdvlogserver
+
+
+rm -rf err.txt
+
+f1=1
+for file in $file0 $file1 $file2 $file3 $file4 $file5 $file6 $file101 $file7
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist >> err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+ 
+rm -fr app
+
+mkdir app
+
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7
+do
+cp -f $file ./app/
+done
+cp -f $file0 ./app/debugmisc.ko
+cp -f $file101 ./app/logs
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o mcu.image
+mv -f mcu.image    ../../10-common/version/release/os_linux/mcu
+
+rm -fr app
+
+fi
+
+file7=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file8=./image/module_8000b.cfg
+file9=./image/autorun_8000b.inf
+file10=../../10-common/version/release/map/MediaCtrl
+file11=../../10-common/version/release/os_linux/kdv8000b/bcsr.ko
+file12=../../10-common/version/release/os_linux/kdv8000b/led_k.ko
+file13=../../10-common/version/release/linux_ppc_82xx/eqtdev.ko
+file14=../../10-common/version/release/linux_ppc_82xx/mcu_8000b
+file15=../../10-common/version/config/mcu/conf/mtcap.ini
+
+f2=1
+for file in $file7 $file8 $file9 $file10 $file11 $file12 $file13 $file14 $file15 $file101
+do
+
+if [ ! -f $file ]
+then
+f2=0
+echo err : $file not exist
+echo err : $file not exist >> err.txt
+fi
+done
+
+if [ $f2 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+cp -f $file7  ./app/
+cp -f ./image/module_8000b.cfg ./app/module.cfg
+cp -f ./image/autorun_8000b.inf ./app/autorun.inf
+cp -f ../../10-common/version/release/map/MediaCtrl ./app/
+cp -f ../../10-common/version/release/os_linux/kdv8000b/bcsr.ko ./app/
+cp -f ../../10-common/version/release/os_linux/kdv8000b/led_k.ko ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/eqtdev.ko ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/mcu_8000b ./app/
+cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+cp -f $file0 ./app/debugmisc.ko
+cp -f $file101 ./app/logs
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o mcu_8000b.image
+mv -f mcu_8000b.image    ../../10-common/version/release/os_linux/mcu
+
+rm -fr app
+
+fi
+
+
+file0=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file1=./image/module.cfg
+file2=./image/autorun.inf
+file3=../../10-common/version/release/linux_ppc_82xx/mcu2
+file4=../../10-common/version/release/os_linux/mpc2/update.linux
+file5=../../10-common/version/release/os_linux/mpc2/u-boot.bin
+file6=../../10-common/version/release/linux_ppc_82xx/detectee12
+file101=../../10-common/version/release/linux_ppc_82xx/kdvlogserver
+f1=1
+for file in $file0 $file1 $file2 $file3 $file4 $file5 $file101 $file6
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist >> err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+ 
+rm -fr app
+
+mkdir app
+
+for file in $file0 $file1 $file2
+do
+cp -f $file ./app/
+done
+cp -f $file3 ./app/mcu
+cp -f $file6 ./app/detectee
+cp -f $file101 ./app/logs
+
+chmod 777 -R app/*
+./mkyaffs2image ./app mcu2.image convert
+
+chmod 777 mcu2.image
+
+sleep 3
+./mkos -i $file4 -a mcu2.image -b $file5 -v "$4.6.1 mcu version:@pid:0x043D" -o mcu2.bin
+cp -f mcu2.bin ../../10-common/version/release/os_linux/mcu/
+
+rm -fr app
+
+fi
+
+
+
+
+
+
+

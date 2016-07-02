@@ -1,0 +1,38 @@
+###
+### Copyright (c) 2006 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in mcu linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := detectee
+
+## Define debugging symbols
+DEBUG = 1
+LINUX_COMPILER =
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+
+## Libraries to include in shared object file
+LIBS :=  kdvipdt kdvsys
+
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../../10-common/include/mt
+LIB_PATH += ../../../10-common/lib/debug/linux/8khlib/ ../../../10-common/lib/debug/linux/
+
+include $(COMM_DIR)/common.mk

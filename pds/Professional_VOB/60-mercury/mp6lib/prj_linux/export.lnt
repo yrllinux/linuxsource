@@ -1,0 +1,20 @@
+
+/* mp6lib */
+-esym(40, ptrdiff_t)
+
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-common\include\mcu
+-i..\..\..\10-common\include\platform
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\protocol
+std_linux.lnt
+env-vc6.lnt
+-d_PPC_
+//-d_LINUX12_
+//-dHARD_CODEC
+//-d_MDSC_BRD_
+..\source\mp.cpp
+..\source\mpdata.cpp
+..\source\mpinst.cpp
+..\source\mputility.cpp

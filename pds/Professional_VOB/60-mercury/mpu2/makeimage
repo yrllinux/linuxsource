@@ -1,0 +1,100 @@
+
+file1=../../10-common/version/release/linux_arm_dm81xx/apploader/apploader
+file2=./image/autorun.inf
+file3=./image/sysconfig.sh
+file4=./image/mpu2.sh
+file5=../../10-common/version/release/os_linux/mpu2/mpu2
+file6=../../10-common/version/release/os_linux/mpu2/update.linux
+file7=../../10-common/version/release/os_linux/mpu2/u-boot.bin
+
+
+
+file9=./image/dft_16to9.bmp
+file11=./kdvlog.ini
+file12=../../10-common/version/release/linux_arm_dm81xx/kdvlogserver
+file13=../../10-common/version/release/os_linux/mpu2/cmemk.ko
+file14=../../10-common/version/release/linux_arm_dm81xx/ti816x.xe674
+file15=../../10-common/version/release/linux_arm_dm81xx/ti816x_hdvpss_server.xem3
+file16=../../10-common/version/release/linux_arm_dm81xx/vc3_m3video_debug.xem3
+file17=../../10-common/version/release/linux_arm_dm81xx/loadmodules_ti8168.sh
+file18=../../10-common/version/release/linux_arm_dm81xx/prcm_config_app
+file19=../../10-common/version/release/linux_arm_dm81xx/staticpic.bmp
+file20=../../10-common/version/release/os_linux/mpu2/syslink.ko
+file21=../../10-common/version/release/linux_arm_dm81xx/detectee12
+afilempu2ep=(../../10-common/version/release/os_linux/mpu2ep/boot.scr
+							../../10-common/version/release/os_linux/mpu2ep/boot_ep
+							../../10-common/version/release/os_linux/mpu2ep/bootep
+							../../10-common/version/release/linux_arm_dm81xx/kernel.img
+							../../10-common/version/release/os_linux/mpu2ep/sw_port
+							../../10-common/version/release/os_linux/mpu2ep/u-boot.bin							
+							../../10-common/version/release/os_linux/mpu2ep/linux.ios
+							../../10-common/version/release/os_linux/mpu2ep/mpu2ep-child.bin
+							)
+mpu2fontfile=../font/kdvuni.ttf
+
+
+
+
+f1=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file8 $file9 $file11 $file12 $file13 $file14 $file15 $file16 $file17 $file18 $file19 $file20 ${afilempu2ep[@]}\
+ $mpu2fontfile $file21 
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+mkdir app
+mkdir app/mpu2ep
+
+for file in $file1 $file2 $file3 $file4 $file5 $file9 $file11 $file13 $file14 $file15 $file16 $file17  $file18 $file19 $file20
+do
+cp -f $file ./app/
+done
+
+for filempu2ep in ${afilempu2ep[@]}
+do
+ cp -f $filempu2ep ./app/mpu2ep
+done
+
+mkdir app/font
+cp -f $mpu2fontfile ./app/font
+
+cp -f $file12 ./app/logs
+
+cp -f $file21 ./app/detectee
+
+chmod 777 -R app/*
+
+
+
+./mkyaffs2image ./app kdvmpu2.image
+sleep 3
+./mkos -i $file6 -a kdvmpu2.image -b $file7 -v "mpu2 version:@pid:0x044F" -o  kdvmpu2.bin
+
+
+echo mkos done,print u-boot.bin file path:$file7
+
+
+cp -f kdvmpu2.bin  ../../10-common/version/release/os_linux/mpu2/
+
+gzip kdvmpu2.bin
+mv -f kdvmpu2.bin.gz  ../../10-common/version/release/os_linux/mpu2/
+
+rm -fr app
+rm -f mpu2.image
+rm -f update.linux
+rm -f u-boot.bin
+
+file7absolute=$(cd ../../10-common/version/release/os_linux/mpu2; pwd)
+echo u-boot.bin absolute path:$file7absolute
+
+fi

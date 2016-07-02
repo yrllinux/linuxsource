@@ -1,0 +1,18 @@
+[apps]
+
+app = /usr/bin/mp8000b;
+type = 0;
+app = /usr/bin/watchdog;
+type = 0;
+
+app = /usr/bin/kdvgk;
+type = 0;
+
+app = /usr/bin/sysconfig.sh;
+type = 0;
+
+app = /usr/bin/pxyserverapp;
+type = 0;
+
+app = /usr/bin/dcserver_r;
+type = 0;

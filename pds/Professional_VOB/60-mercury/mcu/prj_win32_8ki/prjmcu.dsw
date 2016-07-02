@@ -1,0 +1,170 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# 警告: 不能编辑或删除该工作区文件！
+
+###############################################################################
+
+Project: "hdu2lib"="..\..\hdu2lib\prj_hdu2lib\hdu2lib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "mcuagtlib"="..\..\mcuagtlib\prj_win32_8ki\mcuagtlib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "mpu2"="..\..\mpu2\prj_win32\mpu2.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "mpu2lib"="..\..\mpu2lib\prj_win32_8ki\mpu2lib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "prjMcu"=".\prjmcu.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name mcuagtlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name prjMp
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name prjMtadpWin32
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "prjMp"="..\..\mplib\prj_win32\prjmp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "prjMtadpWin32"="..\..\mtadplib\prj_win32\prjmtadpwin32.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "prj_hdu2"="..\..\hdu2\prj_hdu2\prj_hdu2.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "vmp8ki"="..\..\vmp8ki\prj_win32\vmp8ki.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "winbrdwrapper"="..\..\winbrdwrapper\prj_win32\winbrdwrapper.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "windataswitch"="..\..\windataswitch\prj_win32\windataswitch.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "winmmp"="..\..\mmp8ke\prj_win32_8ki\winmmp.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

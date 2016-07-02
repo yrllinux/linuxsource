@@ -1,0 +1,15 @@
+/* apu2lib */
+-i..\include
+-i..\..\common\include
+-i..\..\eqpbaselib\include
+-i..\..\..\10-Common\include\platform
+-i..\..\..\10-Common\include\mcu
+-i..\..\..\10-Common\include\system1
+-i..\..\..\10-Common\include\protocol
+-d_PPC_
+-d_LINUX12_
+-dHARD_CODEC
+..\source\apu2chnnl.cpp
+..\source\apu2eqp.cpp
+..\source\apu2inst.cpp
+..\source\libInit.cpp

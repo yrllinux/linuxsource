@@ -1,0 +1,250 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\kdvmediavod.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\kdvmediavod.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_KDVMEDIAVOD_DIALOG DIALOGEX 0, 0, 320, 139
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "kdvmediavod"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    LTEXT           "",IDC_STATUS,0,125,319,14,SS_SUNKEN
+    LTEXT           "服务器端口：",IDC_STATIC_SERVERPORT,12,52,51,8
+    LTEXT           "服务器IP：",IDC_STATIC_SERVERIP,12,26,48,8
+    EDITTEXT        IDC_SERVERPORT,68,49,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_ROOTPATH,68,78,178,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "根路径：",IDC_STATIC_ROOTPATH,12,82,53,8
+    PUSHBUTTON      "退出",IDCANCEL,261,57,50,14
+    EDITTEXT        IDC_SERVERIP,67,23,102,14,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "English",IDC_BTN_ENGLISH,261,77,50,14
+    PUSHBUTTON      "中文",IDC_BTN_CHINESE,261,77,50,14
+    PUSHBUTTON      "配置...",IDC_CONFIG,261,37,50,14
+    PUSHBUTTON      "用户管理...",IDC_USERMANAGE,261,18,50,14
+END
+
+IDD_SERVERCONFIG_DIALOG DIALOG DISCARDABLE  0, 0, 255, 140
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Config"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,66,113,50,14
+    PUSHBUTTON      "取消",IDCANCEL,134,113,50,14
+    LTEXT           "服务器地址",IDC_SERVERIP,23,21,41,8
+    LTEXT           "服务器端口",IDC_SERVERPORT,23,39,41,8
+    LTEXT           "发送起始端口",IDC_SENDSTARTPORT,23,57,49,8
+    LTEXT           "MTU大小",IDC_MTUSIZE,23,93,32,8
+    CONTROL         "IPAddress1",IDC_SERVER_IP,"SysIPAddress32",WS_TABSTOP,
+                    82,17,100,14
+    EDITTEXT        IDC_EDIT_SERVERPORT,82,35,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_SENDSTARTPORT,82,53,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FILESAVEPATH,82,71,102,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MTUSIZE,82,89,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "浏览...",IDC_SCANFILE,191,73,30,12
+    LTEXT           "根路径",IDC_FILESAVEPATH,23,74,25,8
+END
+
+IDD_USERMANAGE_DIALOG DIALOG DISCARDABLE  0, 0, 245, 121
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "User"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,47,92,50,14
+    PUSHBUTTON      "取消",IDCANCEL,105,92,50,14
+    CONTROL         "List2",IDC_USERANDPASS_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
+                    WS_TABSTOP,32,30,152,52
+    PUSHBUTTON      "添加...",IDC_ADDUSER,192,39,36,13
+    PUSHBUTTON      "删除",IDC_DELUSER,192,61,36,13
+END
+
+IDD_ADDUSER_DIALOG DIALOG DISCARDABLE  0, 0, 153, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add User"
+FONT 10, "宋体"
+BEGIN
+    EDITTEXT        IDC_USERNAME_EDIT,71,19,40,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD_EDIT,71,38,40,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "确定",IDOK,39,66,33,14
+    PUSHBUTTON      "取消",IDCANCEL,81,66,33,14
+    LTEXT           "用户名",IDC_USERNAME_STATIC,17,20,39,8
+    LTEXT           "密码",IDC_PASSWORD_STATIC,16,41,32,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "kdvmediavod Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "kdvmediavod\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "kdvmediavod.EXE\0"
+            VALUE "ProductName", "kdvmediavod 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SERVERCONFIG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 133
+    END
+
+    IDD_USERMANAGE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 238
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_ADDUSER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 146
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\kdvmediavod.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

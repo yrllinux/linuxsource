@@ -1,0 +1,14 @@
+
+/* driagent */
+-i..\..\BasicBoardAgent\include
+-i..\include
+-i..\..\..\common\include
+-i..\..\..\..\10-common\include\mcu
+-i..\..\..\..\10-common\include\platform
+-i..\..\..\..\10-common\include\system1
+-i..\..\..\..\10-common\include\protocol
+-d_PPC_
+-d_LINUX12_
+..\source\dri_agent.cpp
+..\source\dri_config.cpp
+..\source\driinit.cpp

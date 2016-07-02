@@ -1,0 +1,41 @@
+#=====================================================================
+# 说明：本 Makefile 用来编译 linux 版本的 APU2 程序
+#---------------------------------------------------------------------
+
+#[指定当前路径为工作路径]
+#---------------------------------------------------------------------
+
+TOP := ..
+COMMMK_DIR := $(TOP)/../common/linux_compile
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET 	:= apu2
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER = _PPC_8377_
+PWLIB_SUPPORT = 0
+CFLAGS := -DHARD_CODEC -D_LINUX12_
+
+## Object files that compose the target(s)
+OBJS := $(SRC_DIR)/apu2 \
+				$(SRC_DIR)/apu2agent \
+
+## Libraries to include in shared object file
+LIBS := apu2 eqpbase basicboardagent apu2codecwrapper kdvmedianet kdvlog mediacommon nipwrapper brdwrapper kdvencrypt kdvsys osp nipdebug mca powerpc8377_nip_api powerpc8377_api
+LIBS += rt dl pthread
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include \
+						$(TOP)/../common/include \
+						$(TOP)/../../10-common/include/mcu \
+						$(TOP)/../../10-common/include/platform \
+						$(TOP)/../../10-common/include/system1 \
+						$(TOP)/../../10-common/include/protocol \
+						$(TOP)/../../60-mercury/apu2lib/include \
+						$(TOP)/../../60-mercury/eqpbaselib/include
+						
+LIB_PATH += $(TOP)/../../10-common/lib/release/linux_ppc_8377_2637
+
+include $(COMMMK_DIR)/common.mk

@@ -1,0 +1,7 @@
+[autorun]
+app = /usr/bin/kdvhdi; 
+type = 0;
+app = /usr/bin/mcugk; 
+type = 0;
+app = /usr/bin/logs;
+type = 0;

@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+E:\ccroot\svn_pds\Professional_VOB\60-mercury\usblicense\usblicense.uv2
+Project File Date:  11/13/2013
+
+<h2>Output:</h2>
+Build target 'Target 1'
+custom translating usblicense.rc...
+compiling usblicense.c...
+USBLICENSE.C(14): error C202: 'i': undefined identifier
+USBLICENSE.C(16): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+custom translating usblicense.rc...
+compiling usblicense.c...
+linking...
+Program Size: data=9.0 xdata=6 code=219
+creating hex file from "usblicense"...
+User command #1: hexbin usblicense.hex usblicense.bin
+User command #2: elelink usblicense.bin usblicense.res
+"usblicense" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+custom translating usblicense.rc...
+compiling usblicense.c...
+linking...
+Program Size: data=9.0 xdata=6 code=219
+creating hex file from "usblicense"...
+User command #1: hexbin usblicense.hex usblicense.bin
+User command #2: elelink usblicense.bin usblicense.res
+"usblicense" - 0 Error(s), 0 Warning(s).

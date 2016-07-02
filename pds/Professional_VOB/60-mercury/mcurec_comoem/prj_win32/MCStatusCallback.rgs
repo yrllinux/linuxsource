@@ -1,0 +1,26 @@
+HKCR
+{
+	Mcu.MCStatusCallback.1 = s 'MCStatusCallback Class'
+	{
+		CLSID = s '{6ECC9307-B056-4050-9E1B-5855D98C11D1}'
+	}
+	Mcu.MCStatusCallback = s 'MCStatusCallback Class'
+	{
+		CLSID = s '{6ECC9307-B056-4050-9E1B-5855D98C11D1}'
+		CurVer = s 'Mcu.MCStatusCallback.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6ECC9307-B056-4050-9E1B-5855D98C11D1} = s 'MCStatusCallback Class'
+		{
+			ProgID = s 'Mcu.MCStatusCallback.1'
+			VersionIndependentProgID = s 'Mcu.MCStatusCallback'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{46BA0407-84A5-4B30-B184-78B583ACD320}'
+		}
+	}
+}

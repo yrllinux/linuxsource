@@ -1,0 +1,33 @@
+#!/bin/sh
+echo basicboardagent 
+cd basicboardagent/prj_linux
+./compile.bat
+cd ..
+cd ..
+
+echo criagent 
+cd cri_agent/prj_linux
+./compile.bat
+cd ..
+cd ..
+
+echo driagent
+cd dri_agent/prj_linux
+./compile.bat
+cd ..
+cd ..
+
+echo imtagent
+cd imt_agent/prj_linux
+./compile.bat
+cd ..
+cd ..
+
+echo mmpagent
+cd mmp_agent/prj_linux
+./compile.bat
+cd ..
+cd ..
+
+
+

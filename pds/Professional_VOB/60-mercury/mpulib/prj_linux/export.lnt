@@ -1,0 +1,17 @@
+/*mpulib*/
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-Common\include\platform
+-i..\..\..\10-Common\include\mcu
+-i..\..\..\10-Common\include\system1
+-i..\..\..\10-Common\include\protocol
+-d_PPC_
+-d_LINUX12_
+..\source\main.cpp
+..\source\mpubas.cpp
+..\source\mpubashwtest.cpp
+..\source\mpustruct.cpp
+..\source\mpusvmp.cpp
+..\source\mpuutility.cpp
+..\source\mpuvmphwtest.cpp
+

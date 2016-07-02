@@ -1,0 +1,15 @@
+
+/* eapulib*/
+-i..\..\..\10-common\include\platform
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-common\include\mcu
+-i..\..\..\10-common\include\mt
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\protocol
+-d_PPC_
+//-d_LINUX12_
+-dHARD_CODEC
+..\source\eapuinst.cpp
+..\source\eaputestinst.cpp
+..\source\libinit.cpp

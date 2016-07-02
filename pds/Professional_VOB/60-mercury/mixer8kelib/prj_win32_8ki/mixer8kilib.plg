@@ -1,0 +1,31 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mixer8kilib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP76.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\common\include\platform_sdk\include" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\algorithm" /I "..\..\..\10-common\include\protocol" /I "..\..\..\10-common\include\platform" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_AFXDLL" /D "_8KI_" /FR"Debug/" /Fp"Debug/mixer8kilib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\mixer8kelib\source\audbasinst.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mixer8kelib\source\audmixer.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mixer8kelib\source\audmixinst.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP76.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\10-common\lib\debug\win32_8000i\mixer_8000i.lib"  ".\Debug\audbasinst.obj" ".\Debug\audmixer.obj" ".\Debug\audmixinst.obj" "
+<h3>Output Window</h3>
+Compiling...
+audbasinst.cpp
+audmixer.cpp
+audmixinst.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+mixer_8000i.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,3 @@
+cri_agent.o 
+cri_config.o 
+criinit.o 

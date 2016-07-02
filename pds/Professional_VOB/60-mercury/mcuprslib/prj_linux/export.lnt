@@ -1,0 +1,14 @@
+
+/* prslib */
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-common\include\platform
+-i..\..\..\10-common\include\mcu
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\nms1
+-i..\..\..\10-common\include\protocol
+-d_8KE_
+-d_X86_
+..\source\mcuprs.cpp
+..\source\mcuprsguard.cpp
+..\source\mcuprsinst.cpp

@@ -1,0 +1,12 @@
+
+/* baslib */
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-Common\include\platform
+-i..\..\..\10-Common\include\mcu
+-i..\..\..\10-Common\include\system1
+-i..\..\..\10-Common\include\protocol
+-d_PPC_
+-dHARD_CODEC
+..\source\basApp.cpp
+..\source\basInst.cpp

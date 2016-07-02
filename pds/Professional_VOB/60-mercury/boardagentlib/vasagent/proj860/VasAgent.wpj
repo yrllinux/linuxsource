@@ -1,0 +1,339 @@
+Document file - DO NOT EDIT
+
+<BEGIN> BUILD_RULE_VasAgent.out
+
+<END>
+
+<BEGIN> BUILD_RULE_archive
+
+<END>
+
+<BEGIN> BUILD_RULE_objects
+
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_AR
+arppc
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_ARCHIVE
+$(PRJ_DIR)/../../../../10-common/lib/debug/860/VasAgent.a
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_AS
+ccppc
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_CC
+ccppc
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_CFLAGS
+-g \
+	-mcpu=860 \
+	-mlongcall \
+	-nostdinc \
+	-DRW_MULTI_THREAD \
+	-D_REENTRANT \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-I$(PRJ_DIR)/../include \
+	-I$(PRJ_DIR)/../../../common \
+	-I$(PRJ_DIR)/../../../../10-common/include/mcu \
+	-I$(PRJ_DIR)/../../../../10-common/include/platform \
+	-I$(PRJ_DIR)/../../../../10-common/include/system1 \
+	-DCPU=PPC860 \
+	-D_VXWORKS_
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_CFLAGS_AS
+-g \
+	-mcpu=860 \
+	-ansi \
+	-nostdinc \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-P \
+	-x \
+	assembler-with-cpp \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-DCPU=PPC860
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_CPP
+ccppc -E -P -xc
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_LD
+ldppc
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_LDDEPS
+
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_LDFLAGS
+-X -N
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_LD_PARTIAL_FLAGS
+-X -r
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} {$(WIND_BASE)/target/src/} {$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_VasAgentDebug_TC
+::tc_PPC860gnu
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_AR
+arppc
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_ARCHIVE
+$(PRJ_DIR)/../../../../10-common/lib/release/860/VasAgent.a
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_AS
+ccppc
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_CC
+ccppc
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_CFLAGS
+-O2 \
+	-mcpu=860 \
+	-mlongcall \
+	-nostdinc \
+	-DRW_MULTI_THREAD \
+	-D_REENTRANT \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-I$(PRJ_DIR)/../include \
+	-I$(PRJ_DIR)/../../../common \
+	-I$(PRJ_DIR)/../../../../10-common/include/mcu \
+	-I$(PRJ_DIR)/../../../../10-common/include/platform \
+	-I$(PRJ_DIR)/../../../../10-common/include/system1 \
+	-DCPU=PPC860 \
+	-D_VXWORKS_
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_CFLAGS_AS
+-g \
+	-mcpu=860 \
+	-ansi \
+	-nostdinc \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-P \
+	-x \
+	assembler-with-cpp \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-DCPU=PPC860
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_CPP
+ccppc -E -P -xc
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_LD
+ldppc
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_LDDEPS
+
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_LDFLAGS
+-X -N
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_LD_PARTIAL_FLAGS
+-X -r
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} {$(WIND_BASE)/target/src/} {$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_VasAgentRelease_TC
+::tc_PPC860gnu
+<END>
+
+<BEGIN> BUILD__CURRENT
+VasAgentDebug
+<END>
+
+<BEGIN> BUILD__LIST
+VasAgentDebug VasAgentRelease
+<END>
+
+<BEGIN> CORE_INFO_TYPE
+::prj_vxApp
+<END>
+
+<BEGIN> CORE_INFO_VERSION
+2.0
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasagent.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasagent.cpp_dependencies
+$(PRJ_DIR)/../../../../10-common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../../common/evagtsvc.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../common/vasagent.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/kdvsys.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/agtcomm.h \
+	$(PRJ_DIR)/../../../common/mcuagtstruct.h \
+	$(PRJ_DIR)/../../../common/mculeaf.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brdDrvLib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasagent.cpp_objects
+vasagent.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasagent.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasguard.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasguard.cpp_dependencies
+$(PRJ_DIR)/../include/vasguard.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/kdvsys.h \
+	$(PRJ_DIR)/../../../common/mcuagtstruct.h \
+	$(PRJ_DIR)/../../../common/mculeaf.h \
+	$(PRJ_DIR)/../../../common/vasagent.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/agtcomm.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brdDrvLib.h \
+	$(PRJ_DIR)/../../../common/evagtsvc.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcuconst.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasguard.cpp_objects
+vasguard.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasguard.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasinit.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasinit.cpp_dependencies
+$(PRJ_DIR)/../../../../10-common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../../common/vasagent.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/kdvsys.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/agtcomm.h \
+	$(PRJ_DIR)/../../../common/mcuagtstruct.h \
+	$(PRJ_DIR)/../../../common/mculeaf.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brdDrvLib.h \
+	$(PRJ_DIR)/../include/vasguard.h \
+	$(PRJ_DIR)/../../../common/evagtsvc.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../common/agentver.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasinit.cpp_objects
+vasinit.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/vasinit.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> PROJECT_FILES
+$(PRJ_DIR)/../source/vasagent.cpp \
+	$(PRJ_DIR)/../source/vasguard.cpp \
+	$(PRJ_DIR)/../source/vasinit.cpp
+<END>
+
+<BEGIN> userComments
+<Enter description here>
+<END>
+

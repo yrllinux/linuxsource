@@ -1,0 +1,395 @@
+Document file - DO NOT EDIT
+
+<BEGIN> BUILD_MpDebug_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_AR
+arppc
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_ARCHIVE
+$(PRJ_DIR)/../../../10-Common/lib/debug/8260/mp.a
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_AS
+ccppc
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_CC
+ccppc
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_CFLAGS
+-g \
+	-O0 \
+	-mstrict-align \
+	-ansi \
+	-mlongcall \
+	-nostdinc \
+	-DRW_MULTI_THREAD \
+	-D_REENTRANT \
+	-fvolatile \
+	-mlongcall \
+	-fno-builtin \
+	-fno-for-scope \
+	-msoft-float \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-I$(PRJ_DIR)/../include \
+	-I$(PRJ_DIR)/../../common/include \
+	-I$(PRJ_DIR)/../../../10-Common/include/mcu \
+	-I$(PRJ_DIR)/../../../10-Common/include/system1 \
+	-I$(PRJ_DIR)/../../../10-Common/include/platform \
+	-I$(PRJ_DIR)/../../../10-Common/include/protocol \
+	-DCPU=PPCEC603 \
+	-D_VXWORKS_ \
+	-DCPU=PPCEC603
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_CFLAGS_AS
+-g \
+	-mstrict-align \
+	-ansi \
+	-nostdinc \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-P \
+	-x \
+	assembler-with-cpp \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-DCPU=PPCEC603
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_CPP
+ccppc -E -P -xc
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_LD
+ldppc
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_LDDEPS
+
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_LDFLAGS
+-X -N
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_LD_PARTIAL_FLAGS
+-X -r
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_MpDebug_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_MpDebug_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} {$(WIND_BASE)/target/src/} {$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_MpDebug_TC
+::tc_PPCEC603gnu
+<END>
+
+<BEGIN> BUILD_MpRelease_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_AR
+arppc
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_ARCHIVE
+$(PRJ_DIR)/../../../10-Common/lib/release/8260/mp.a
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_AS
+ccppc
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_CC
+ccppc
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_CFLAGS
+-O2 \
+	-mstrict-align \
+	-ansi \
+	-mlongcall \
+	-nostdinc \
+	-DRW_MULTI_THREAD \
+	-D_REENTRANT \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-msoft-float \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-I$(PRJ_DIR)/../include \
+	-I$(PRJ_DIR)/../../common/include \
+	-I$(PRJ_DIR)/../../../10-Common/include/mcu \
+	-I$(PRJ_DIR)/../../../10-Common/include/system1 \
+	-I$(PRJ_DIR)/../../../10-Common/include/platform \
+	-I$(PRJ_DIR)/../../../10-Common/include/protocol \
+	-DCPU=PPCEC603 \
+	-D_VXWORKS_
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_CFLAGS_AS
+-g \
+	-mstrict-align \
+	-ansi \
+	-nostdinc \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-P \
+	-x \
+	assembler-with-cpp \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-DCPU=PPCEC603
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_CPP
+ccppc -E -P -xc
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_LD
+ldppc
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_LDDEPS
+
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_LDFLAGS
+-X -N
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_LD_PARTIAL_FLAGS
+-X -r
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_MpRelease_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_MpRelease_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} {$(WIND_BASE)/target/src/} {$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_MpRelease_TC
+::tc_PPCEC603gnu
+<END>
+
+<BEGIN> BUILD_RULE_archive
+
+<END>
+
+<BEGIN> BUILD_RULE_mp.out
+
+<END>
+
+<BEGIN> BUILD_RULE_objects
+
+<END>
+
+<BEGIN> BUILD__CURRENT
+MpRelease
+<END>
+
+<BEGIN> BUILD__LIST
+MpDebug MpRelease
+<END>
+
+<BEGIN> CORE_INFO_TYPE
+::prj_vxApp
+<END>
+
+<BEGIN> CORE_INFO_VERSION
+2.0
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/mp.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/mp.cpp_dependencies
+$(PRJ_DIR)/../include/mp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/brddrvlib.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../common/include/evmp.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcustruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/kdvsys.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/vccommon.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvdef.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvDef.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/ummessagestruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/umconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/md5.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/dataswitch.h \
+	$(PRJ_DIR)/../../common/include/bindmp.h \
+	$(PRJ_DIR)/../../common/include/mcuver.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/mp.cpp_objects
+mp.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../source/mp.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpdata.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpdata.cpp_dependencies
+$(PRJ_DIR)/../include/mp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/brddrvlib.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../common/include/evmp.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcustruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/kdvsys.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/vccommon.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvdef.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvDef.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/ummessagestruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/umconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/md5.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/dataswitch.h
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpdata.cpp_objects
+mpdata.o
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpdata.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpinst.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpinst.cpp_dependencies
+$(PRJ_DIR)/../include/mp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/brddrvlib.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../common/include/evmp.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcustruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/kdvsys.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/vccommon.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvdef.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvDef.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/ummessagestruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/umconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/md5.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/dataswitch.h \
+	$(PRJ_DIR)/../../common/include/boardagent.h
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpinst.cpp_objects
+mpinst.o
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mpinst.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mputility.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mputility.cpp_dependencies
+$(PRJ_DIR)/../include/mp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/brddrvlib.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../common/include/evmp.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcustruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/kdvsys.h \
+	$(PRJ_DIR)/../../../10-Common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/vccommon.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvdef.h \
+	$(PRJ_DIR)/../../../10-Common/include/system1/kdvDef.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/ummessagestruct.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/umconst.h \
+	$(PRJ_DIR)/../../../10-Common/include/protocol/md5.h \
+	$(PRJ_DIR)/../../../10-Common/include/platform/dataswitch.h
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mputility.cpp_objects
+mputility.o
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhangbaoqing_kdv40_dev/kdv40_vob/60-service2/mplib/source/mputility.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> PROJECT_FILES
+$(PRJ_DIR)/../source/mp.cpp \
+	$(PRJ_DIR)/../source/mputility.cpp \
+	$(PRJ_DIR)/../source/mpdata.cpp \
+	$(PRJ_DIR)/../source/mpinst.cpp
+<END>
+
+<BEGIN> userComments
+<Enter description here>
+<END>
+

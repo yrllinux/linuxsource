@@ -1,0 +1,52 @@
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=./image/autorun.inf
+file3=../../10-common/version/release/os_linux/mpu/mpu_a/mpu
+file4=../../10-common/version/release/ti_d647/mainctrl_hd_256M.out
+file5=../../10-common/version/release/os_linux/mpu/mpu_a/update.linux
+file6=../../10-common/version/release/os_linux/mpu/mpu_a/u-boot.bin
+file7=./image/dft_16to9.bmp
+file8=../../10-common/version/release/linux_ppc_82xx/detectee12
+
+f1=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file8
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+
+rm -fr app
+mkdir app
+
+for file in $file1 $file2 $file3 $file7
+do
+cp -f $file ./app/
+done
+
+cp -f $file4 ./app/mainctrl_hd.out
+cp -f $file8 ./app/detectee
+
+chmod 777 -R app/*
+
+
+./mkyaffs2image ./app mpu.image convert
+sleep 3
+./mkos -i $file5 -a mpu.image -b $file6 -v "$4.6.1 mpu version:@pid:0x0436" -o kdvmpu.bin
+
+cp -f kdvmpu.bin ../../10-common/version/release/os_linux/mpu/mpu_a/
+gzip kdvmpu.bin
+mv -f kdvmpu.bin.gz ../../10-common/version/release/os_linux/mpu/mpu_a/
+
+cp -f $file4 ../../10-common/version/release/os_linux/mpu/mpu_a/mainctrl_hd.out
+
+rm -fr app
+
+fi

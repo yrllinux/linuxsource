@@ -1,0 +1,15 @@
+
+/* apu2 */
+-i..\include
+-i..\..\eqpbaselib\include
+-i..\..\apu2lib\include
+-i..\..\common\include
+-i..\..\..\10-Common\include\platform
+-i..\..\..\10-Common\include\mcu
+-i..\..\..\10-Common\include\system1
+-i..\..\..\10-Common\include\protocol
+-d_PPC_
+-d_LINUX12_
+-dHARD_CODEC
+..\source\apu2.cpp
+..\source\apu2agent.cpp

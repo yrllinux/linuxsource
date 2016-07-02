@@ -1,0 +1,324 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\mwt.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\mwt.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 mwt"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "mwt 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2006",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_MWT_DIALOG DIALOGEX 0, 0, 448, 394
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MAC地址写入工具"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "...",IDC_BTN_BROWSE,415,23,20,14
+    DEFPUSHBUTTON   "添加序列号(&A)",IDC_BTN_ADDSN,373,81,62,14
+    EDITTEXT        IDC_ET_TARGETNUM,397,229,40,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    PUSHBUTTON      "开始写入(&W)",IDOK,373,275,62,14
+    EDITTEXT        IDC_ET_SN,69,81,118,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ET_MAC4SN,252,81,112,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "查阅历史序列号(&H)",IDC_BTN_LOG,29,195,83,14
+    PUSHBUTTON      "修改",IDC_BTN_MODIFYMAC,248,229,50,14,NOT WS_VISIBLE
+    EDITTEXT        IDC_ET_FILENAME,117,24,294,14,ES_AUTOHSCROLL
+    CONTROL         "不同目录(10\\u-Boot.bin)",IDC_RD_DIFFFOLDER,"Button",
+                    BS_AUTORADIOBUTTON,118,247,112,10
+    CONTROL         "不同文件名(u-Boot_10.bin)",IDC_RD_DIFFNAME,"Button",
+                    BS_AUTORADIOBUTTON,229,247,116,10
+    CONTROL         "从右侧序号自动增量",IDC_CK_AUTO,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,321,195,88,
+                    10
+    PUSHBUTTON      "输入序列号-MAC对照",IDC_BTN_SNLIST,321,195,91,14,NOT 
+                    WS_VISIBLE
+    LTEXT           "原始Bootrom文件：",IDC_STATIC,26,26,69,8
+    LTEXT           "单个设备写入地址数：",IDC_STATIC,26,47,81,8
+    EDITTEXT        IDC_ET_MACNUM,117,44,40,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER
+    LTEXT           "起始写入MAC地址：",IDC_STATIC,26,232,69,8
+    GROUPBOX        "Boot 文件信息",IDC_STATIC,15,10,425,55
+    GROUPBOX        "MAC 配置",IDC_STATIC,15,220,425,79
+    EDITTEXT        IDC_ET_MACADDR,117,229,180,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "设备序列号：",IDC_STATIC,327,197,49,8,NOT WS_VISIBLE
+    LTEXT           "要写入目标设备个数：",IDC_STATIC,305,232,81,8
+    LTEXT           "目标Bootrom文件存储：",IDC_STATIC,26,247,85,8
+    CONTROL         "Progress1",IDC_PROGRESS_WRITE,"msctls_progress32",
+                    WS_BORDER,25,262,298,9
+    GROUPBOX        "序列号管理",IDC_STATIC,15,67,425,149
+    LTEXT           "",IDC_ST_PROGRESS,25,279,294,11
+    PUSHBUTTON      "刷新(&R)",IDC_BTN_REFRESH,165,43,57,14
+    PUSHBUTTON      "显示/修改&MAC",IDC_BTN_SHOWMAC,373,43,62,14
+    CONTROL         "写入时补足文件到 512KB",IDC_CK_FILL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,330,262,104,10
+    GROUPBOX        "结果输出",IDC_STATIC,15,302,425,85
+    EDITTEXT        IDC_ET_RESULT,26,313,407,68,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_VSCROLL
+    LTEXT           "序列号：",IDC_STATIC,26,84,33,8
+    LTEXT           "<==> MAC地址：",IDC_STATIC,192,83,58,8
+    CONTROL         "List1",IDC_LS_MACSN,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,27,97,408,93
+    PUSHBUTTON      "删除序列号(&D)",IDC_BTN_DELSN,373,195,62,14
+END
+
+IDD_SHOWMAC DIALOG DISCARDABLE  0, 0, 251, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MAC 地址显示/修改"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "关闭(&C)",IDOK,183,113,50,14
+    LTEXT           "Boot文件名：",IDC_STATIC,15,19,57,8
+    EDITTEXT        IDC_ET_FILENAME,87,17,124,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "...",IDC_BTN_BROWSE,219,17,14,14
+    LTEXT           "MAC 地址个数：",IDC_STATIC,15,41,65,8
+    EDITTEXT        IDC_ET_MACNUM,87,37,40,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER
+    LTEXT           "MAC 地址：",IDC_STATIC,15,63,65,8
+    EDITTEXT        IDC_ET_MAC1,87,62,122,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ET_MAC2,87,85,122,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "修改 &MAC",IDC_BTN_MODIFY,15,113,50,14
+END
+
+IDD_SNCFG DIALOG DISCARDABLE  0, 0, 415, 289
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "序列号-MAC指定"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_ET_SN,67,193,166,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ET_MAC1,67,217,166,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ET_MAC2,67,241,166,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CB_NUM,315,191,48,44,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "增加(&A)",IDC_BTN_ADD,249,241,40,14
+    PUSHBUTTON      "修改(&M)",IDC_BTN_EDIT,303,241,40,14
+    PUSHBUTTON      "删除(&D)",IDC_BTN_DEL,357,241,40,14
+    PUSHBUTTON      "退出(&E)",IDOK,354,270,50,14
+    PUSHBUTTON      "取消(&C)",IDCANCEL,359,270,50,14,NOT WS_VISIBLE
+    CONTROL         "List1",IDC_LS_MACSN,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,11,9,396,168
+    GROUPBOX        "",IDC_STATIC,11,180,395,83
+    LTEXT           "序列号：",IDC_STATIC,24,196,33,8
+    LTEXT           "MAC地址个数：",IDC_STATIC,256,194,53,8
+    LTEXT           "MAC地址：",IDC_STATIC,24,222,37,8
+END
+
+IDD_LOG DIALOG DISCARDABLE  0, 0, 489, 284
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "日志浏览"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "关闭(&C)",IDCANCEL,408,258,69,19
+    CONTROL         "List1",IDC_LS_MACSN,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,14,28,463,168
+    LTEXT           "日志列表：",IDC_STATIC,14,14,41,8
+    LTEXT           "查找：",IDC_STATIC,16,209,25,8
+    COMBOBOX        IDC_CB_SEARCHTYPE,51,206,98,59,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "DateTimePicker1",IDC_DP1,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,66,243,100,15
+    CONTROL         "DateTimePicker2",IDC_DP2,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,190,243,100,15
+    LTEXT           "从",IDC_STATIC,51,246,9,8
+    LTEXT           "到",IDC_STATIC,175,246,9,8
+    PUSHBUTTON      "搜索",IDC_BTN_SEARCH,301,243,50,14
+    EDITTEXT        IDC_ET_INPUT,68,225,100,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "搜索",IDC_BTN_SEARCH2,175,225,50,14
+    PUSHBUTTON      "结果导出(&E)",IDC_BTN_EXPORT,408,207,69,19
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "mwt Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "mwt\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "mwt.EXE\0"
+            VALUE "ProductName", "mwt 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_SNCFG DLGINIT
+BEGIN
+    IDC_CB_NUM, 0x403, 2, 0
+0x0031, 
+    IDC_CB_NUM, 0x403, 2, 0
+0x0032, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 mwt(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\mwt.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

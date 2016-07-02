@@ -1,0 +1,13 @@
+
+/* audmixlib */
+-i..\..\..\10-common\include\platform
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-common\include\mcu
+-i..\..\..\10-common\include\mt
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\protocol
+-d_PPC_
+-dHARD_CODEC
+..\source\audmixer.cpp
+..\source\audmixinst.cpp

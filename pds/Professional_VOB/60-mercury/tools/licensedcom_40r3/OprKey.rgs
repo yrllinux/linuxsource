@@ -1,0 +1,26 @@
+HKCR
+{
+	Mculicense.OprKey.1 = s 'OprKey Class'
+	{
+		CLSID = s '{6E7700B3-802D-4354-B999-4B24FFF0E40F}'
+	}
+	Mculicense.OprKey = s 'OprKey Class'
+	{
+		CLSID = s '{6E7700B3-802D-4354-B999-4B24FFF0E40F}'
+		CurVer = s 'Mculicense.OprKey.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6E7700B3-802D-4354-B999-4B24FFF0E40F} = s 'OprKey Class'
+		{
+			ProgID = s 'Mculicense.OprKey.1'
+			VersionIndependentProgID = s 'Mculicense.OprKey'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{C56C28B8-04D6-44F9-8A80-FCCBC93EAA2A}'
+		}
+	}
+}

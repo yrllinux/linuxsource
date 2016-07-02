@@ -1,0 +1,89 @@
+file0=../../10-common/lib/release/linux_ppc_82xx/nipdebug/ppc82xx_debugmisc.ko
+file00=../../10-common/lib/release/linux_ppc_85xx/nipdebug/ppc85xx_debugmisc.ko
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=./image/module.cfg
+file3=./image/autorun.inf
+file4=../../10-common/version/release/os_linux/dri/8260/bcsr.ko
+file5=../../10-common/version/release/os_linux/dri/8260/led_k.ko
+file6=../../10-common/version/release/linux_ppc_82xx/mtaccessdri
+file7=../../10-common/version/release/linux_ppc_82xx/mtaccessdri12
+file8=../../10-common/version/release/os_linux/dri2/update.linux
+file9=../../10-common/version/release/os_linux/dri2/u-boot.bin
+file10=../../10-common/version/release/linux_ppc_82xx/detectee
+file11=../../10-common/version/release/linux_ppc_82xx/detectee12
+
+f1=1
+for file in $file0 $file1 $file2 $file3 $file4 $file5 $file6 $file10
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ./image/module.cfg ./app/
+cp -f ./image/autorun.inf ./app/
+cp -f ../../10-common/version/release/os_linux/dri/8260/bcsr.ko ./app/
+cp -f ../../10-common/version/release/os_linux/dri/8260/led_k.ko ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/mtaccessdri ./app/kdvdri
+cp -f $file10 ./app/
+cp -f $file0 ./app/debugmisc.ko
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o kdvdri.image
+mv -f kdvdri.image    ../../10-common/version/release/os_linux/dri/8260
+
+rm -fr app
+
+fi
+
+
+f1=1
+for file in $file1 $file2 $file3 $file7 $file8 $file9 $file11
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ./image/module.cfg ./app/
+cp -f ./image/autorun.inf ./app/
+cp -f $file11 ./app/detectee
+cp -f ../../10-common/version/release/linux_ppc_82xx/mtaccessdri12 ./app/kdvdri
+
+chmod 777 -R app/*
+./mkyaffs2image ./app kdvdri12.image convert
+chmod 777 kdvdri12.image
+
+sleep 3
+./mkos -i $file8 -a kdvdri12.image -b $file9 -v "$4.6.1 dri2 version:@pid:0x043F" -o kdvdri2.bin
+cp -f kdvdri2.bin ../../10-common/version/release/os_linux/dri2
+
+mv -f kdvdri12.image    ../../10-common/version/release/os_linux/dri/8260
+
+rm -fr app
+
+fi

@@ -1,0 +1,66 @@
+file1=../../10-common/version/release/linux_ppc_8377_2637/apploader/apploader
+
+file2=./image/autorun.inf
+file3=./image/sysconfig.sh
+file4=./image/apu2.sh
+
+file5=../../10-common/version/release/os_linux/apu2/apu2
+file6=../../10-common/version/release/os_linux/apu2/update.linux
+file7=../../10-common/version/release/os_linux/apu2/u-boot.bin
+
+file9=../../10-common/version/release/linux_ppc_8377_2637/post.bin
+
+file10=./kdvlog.ini
+file11=../../10-common/version/release/linux_ppc_8377_2637/kdvlogserver
+
+file12=../../10-common/version/release/os_linux/apu2/c667x_boot
+file13=../../10-common/version/release/os_linux/apu2/ddrinit.bin
+file14=../../10-common/version/release/linux_ppc_8377_2637/detectee12
+
+f1=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file9 $file10 $file11 $file14
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+mkdir app
+mkdir app/apu2ep
+
+for file in $file1 $file2 $file3 $file4 $file5 $file10
+do
+cp -f $file ./app/
+done
+
+for file in $file9 $file12 $file13
+do
+cp -f $file ./app/apu2ep
+done
+
+cp -f $file11 ./app/kdvlogserver
+
+cp -f $file14 ./app/detectee
+
+chmod 777 -R app/*
+
+./mkyaffs2image_powerpc ./app apu2.image convert
+sleep 3
+./mkos -i $file6 -a apu2.image -b $file7 -v "apu2 version:@pid:0x0451" -o  kdvapu2.bin
+
+cp -f kdvapu2.bin  ../../10-common/version/release/os_linux/apu2/
+
+gzip kdvapu2.bin
+mv -f kdvapu2.bin.gz  ../../10-common/version/release/os_linux/apu2/
+
+rm -fr app
+
+fi

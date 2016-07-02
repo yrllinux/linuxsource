@@ -1,0 +1,60 @@
+[Info]
+Type=ShellObject
+Version=2.10.000
+
+[Data]
+Folder0=<FOLDER_DESKTOP>
+Folder1=<FOLDER_STARTMENU>
+Folder2=<FOLDER_PROGRAMS>
+Folder3=<FOLDER_STARTUP>
+Group0=Main
+Group1=Startup
+Shortcut0=Folder0\KDC Recorder
+Folder4=Folder2\Kedacom
+Folder5=Folder4\Recorder4.0
+Shortcut1=Folder5\Loader
+
+[Shortcut0]
+DisplayText=KDC Recorder
+Target=<TARGETDIR>\Recorder.exe
+Parameters=
+StartIn=<TARGETDIR>
+ShortcutKey=
+Run=Normal Window
+IconFile=<TARGETDIR>\Recorder.exe
+IconIndex=0
+Replace=Yes
+SeparateMemorySpace=No
+InternetShortcut=No
+Uninstall=Yes
+Type=Personal
+Comments=
+FileGroup0=recorder
+
+[Folder4]
+Comments=
+DisplayText=
+Shared=No
+
+[Folder5]
+Comments=
+DisplayText=
+Shared=No
+
+[Shortcut1]
+DisplayText=KDC Recoder
+Target=<TARGETDIR>\Recorder.exe
+Parameters=
+StartIn=<TARGETDIR>
+ShortcutKey=
+Run=Normal Window
+IconFile=
+IconIndex=
+Replace=Yes
+SeparateMemorySpace=No
+InternetShortcut=No
+Uninstall=Yes
+Type=Automatic
+Comments=
+FileGroup0=recorder
+

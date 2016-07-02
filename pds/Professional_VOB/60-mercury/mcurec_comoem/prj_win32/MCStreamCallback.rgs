@@ -1,0 +1,26 @@
+HKCR
+{
+	Mcu.MCStreamCallback.1 = s 'MCStreamCallback Class'
+	{
+		CLSID = s '{14072E5E-64DD-4D16-AB78-7325B66E87D2}'
+	}
+	Mcu.MCStreamCallback = s 'MCStreamCallback Class'
+	{
+		CLSID = s '{14072E5E-64DD-4D16-AB78-7325B66E87D2}'
+		CurVer = s 'Mcu.MCStreamCallback.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {14072E5E-64DD-4D16-AB78-7325B66E87D2} = s 'MCStreamCallback Class'
+		{
+			ProgID = s 'Mcu.MCStreamCallback.1'
+			VersionIndependentProgID = s 'Mcu.MCStreamCallback'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{46BA0407-84A5-4B30-B184-78B583ACD320}'
+		}
+	}
+}

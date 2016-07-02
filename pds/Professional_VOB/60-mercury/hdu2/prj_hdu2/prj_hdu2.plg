@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: prj_hdu2 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP5D.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\..\10-Common\include\platform" /I "..\..\..\10-Common\include\mcu" /I "..\..\..\10-Common\include\system1" /I "..\..\..\10-Common\include\protocol" /I "..\..\hdu2lib\include" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_AFXDLL" /Fp"Debug/prj_hdu2.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\hdu2\source\hdu2.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\hdu2\source\hdu2agent.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP5D.tmp" 
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP5E.tmp" with contents
+[
+hdu2lib.lib basicboardagent.lib kdvlog.lib osplib.lib kdvsys.lib winbrdwrapper.lib mcueqpsimu.lib kdvmedianet.lib fcnet.lib enfc.lib kdvencrypt.lib msvcrt.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/prj_hdu2.pdb" /debug /machine:I386 /out:"Debug/prj_hdu2.exe" /pdbtype:sept /libpath:"..\..\..\10-common\lib\debug\win32" 
+".\Debug\hdu2.obj"
+".\Debug\hdu2agent.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP5E.tmp"
+<h3>Output Window</h3>
+Compiling...
+hdu2.cpp
+hdu2agent.cpp
+Linking...
+LINK : fatal error LNK1104: cannot open file "hdu2lib.lib"
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+prj_hdu2.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

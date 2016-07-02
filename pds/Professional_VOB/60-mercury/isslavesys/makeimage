@@ -1,0 +1,46 @@
+file0=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file1=./image/autorun.inf
+file2=../../10-common/version/release/os_linux/is3-mpc8313/isslavesys
+file3=../../10-common/version/release/os_linux/is3-mpc8313/update.linux
+file4=../../10-common/version/release/os_linux/is3-mpc8313/u-boot.bin
+file101=../../10-common/version/release/linux_ppc_82xx/kdvlogserver
+
+f1=1
+for file in $file0 $file1 $file2 $file3 $file4 $file101
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+
+###########----make kdvisslavesys.bin----82xx
+
+mkdir app
+
+cp -f $file0 ./app/
+cp -f $file1 ./app/
+cp -f $file2 ./app/isslavesys
+cp -f $file101 ./app/logs
+
+chmod 777 -R app/*
+
+./mkyaffs2image ./app kdvisslavesys.image convert
+
+cp -f kdvisslavesys.image ../../10-common/version/release/os_linux/is3-mpc8313/
+
+sleep 3
+./mkos -i $file3 -a kdvisslavesys.image -b $file4 -v "$4.6.1 kdvisslavesys version:@pid:0x0440" -o kdvisslavesys.bin
+cp -f kdvisslavesys.bin ../../10-common/version/release/os_linux/is3-mpc8313/
+
+rm -fr app
+
+fi

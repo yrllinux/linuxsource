@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cd prj_linux
+
+./compile.bat
+cd ..
+
+echo making image...
+./makeimage
+
+cp ./conf/brdcfg.ini ../../10-common/version/release/os_linux/vpuhd/
+
+

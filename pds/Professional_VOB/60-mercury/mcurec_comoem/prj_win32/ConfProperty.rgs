@@ -1,0 +1,26 @@
+HKCR
+{
+	Mcu.ConfProperty.1 = s 'ConfProperty Class'
+	{
+		CLSID = s '{D292CBFC-1D4C-4335-9475-3E44F6A6DF6C}'
+	}
+	Mcu.ConfProperty = s 'ConfProperty Class'
+	{
+		CLSID = s '{D292CBFC-1D4C-4335-9475-3E44F6A6DF6C}'
+		CurVer = s 'Mcu.ConfProperty.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {D292CBFC-1D4C-4335-9475-3E44F6A6DF6C} = s 'ConfProperty Class'
+		{
+			ProgID = s 'Mcu.ConfProperty.1'
+			VersionIndependentProgID = s 'Mcu.ConfProperty'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{46BA0407-84A5-4B30-B184-78B583ACD320}'
+		}
+	}
+}

@@ -1,0 +1,25 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: detectee - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP80.tmp" with contents
+[
+kdvlog.lib osplib.lib kdvsys.lib basicboardagent.lib winbrdwrapper.lib criagent.lib mcuprs.lib mp.lib mtadp.lib kdvnetbuf.lib kdvcascade.lib kdv323.lib kdvmedianet.lib kdvencrypt.lib kdvdatanet.lib kdv323adp.lib dataswitch.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/detectee.pdb" /debug /machine:I386 /nodefaultlib:"msvcrtd.lib libcd.lib nafxcwd.lib" /out:"detectee.exe" /pdbtype:sept /libpath:"..\..\..\10-common\lib\debug\win32" 
+".\Debug\detectee.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP80.tmp"
+<h3>Output Window</h3>
+Linking...
+   Creating library detectee.lib and object detectee.exp
+
+
+
+<h3>Results</h3>
+detectee.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

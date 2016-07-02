@@ -1,0 +1,39 @@
+// mculicense.idl : IDL source for mculicense.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (mculicense.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(B2C0C385-31E4-44B1-BD82-95D642B4DB94),
+		dual,
+		helpstring("IOprKey Interface"),
+		pointer_default(unique)
+	]
+	interface IOprKey : IDispatch
+	{
+		[id(1), helpstring("method WriteKey")] HRESULT WriteKey([in] BSTR bsAuthCode, [in] BSTR bsLicenseKey, [in] BSTR bsLicenseContent,  [out, retval]  BSTR *pbsRetId);
+	};
+
+[
+	uuid(C56C28B8-04D6-44F9-8A80-FCCBC93EAA2A),
+	version(1.0),
+	helpstring("mculicense 1.0 Type Library")
+]
+library MCULICENSELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(6E7700B3-802D-4354-B999-4B24FFF0E40F),
+		helpstring("OprKey Class")
+	]
+	coclass OprKey
+	{
+		[default] interface IOprKey;
+	};
+};

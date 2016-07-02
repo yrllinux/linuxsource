@@ -1,0 +1,62 @@
+
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=./image/autorun.inf
+file3=./image/sysconfig.sh
+file4=./image/hdu.sh
+file5=../../10-common/version/release/os_linux/hdu/hdu_d/hdu
+file6=../../10-common/version/release/ti_d647/mainctrl_hd_128M.out
+
+file7=../../10-common/version/release/os_linux/hdu/hdu_b/update.linux
+file8=../../10-common/version/release/os_linux/hdu/hdu_d/u-boot.bin
+file9=../../10-common/version/release/os_linux/hdu/hdu_d/fpga.bin
+file10=../../10-common/version/release/os_linux/hdu/hdu_b/nip.sh
+
+file11=./image/dft_16to9.bmp
+file12=./image/dft_vga.bmp
+file13=../../10-common/version/release/linux_ppc_82xx/detectee12
+f1=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file8 $file9 $file10 $file11 $file12 $file13
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+mkdir app
+
+
+for file in $file1 $file2 $file3 $file4 $file5 $file10 $file11 $file12
+do
+cp -f $file ./app/
+done
+
+cp -f $file6 ./app/mainctrl_hd.out
+cp -f $file13 ./app/detectee
+
+chmod 777 -R app/*
+
+
+./mkyaffs2image ./app hdudvi.image convert
+sleep 3
+./mkos -i $file7 -a hdudvi.image -b $file8 -s $file9 -v "$4.6.1 hdu_d version:@pid:0x0445" -o  kdvhdu_d.bin
+
+cp -f kdvhdu_d.bin  ../../10-common/version/release/os_linux/hdu/hdu_d/
+gzip kdvhdu_d.bin
+mv -f kdvhdu_d.bin.gz  ../../10-common/version/release/os_linux/hdu/hdu_d/
+
+cp -f $file6 ../../10-common/version/release/os_linux/hdu/hdu_b/mainctrl_hd.out
+
+rm -fr app
+rm -f hdudvi.image
+rm -f update.linux
+rm -f u-boot.bin
+
+fi

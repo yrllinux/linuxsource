@@ -1,0 +1,39 @@
+###
+### Copyright (c) 2006 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in mcu linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := mcu
+
+## Define debugging symbols
+DEBUG = 2
+LINUX_COMPILER = _HHPPC_
+
+CFLAGS += -D_LINUX12_ -D_MPC_EMBEDDED_MTADP_
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+
+## Libraries to include in shared object file
+LIBS := commonlib mcuagent12 mtadp12embedded lanman readlicenselib mp12 h460pinholelib watchdog12 ftpc snmpadp_mcu ppc_82xx_snmpagent ppc_82xx_snmp kdvum kdvaddrbook kdv323adp kdv323 kdvnetbuf kdvdatanet kdvmedianet fcnet enfc kdvencrypt kdvcascade dataswitch ppc_82xx_dataswitch 8313_nipwrapper brdwrapper kdvlog osp nipdebug ppc_8313_nip_api ppc_82xx_nip_zzip kdvsys rt dl pthread
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../../10-common/include/t120 ../../../10-common/include/nms1 ../../../10-common/include/cbb/license
+
+LIB_PATH += ../../../10-common/lib/debug/linux_ppc_82xx ../../../10-common/lib/debug/linux_ppc_82xx/nip  ../../../10-common/lib/debug/linux_ppc_82xx/nipdebug
+
+include $(COMM_DIR)/common.mk

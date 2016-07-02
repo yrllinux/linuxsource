@@ -1,0 +1,44 @@
+#!/bin/sh
+
+#echo criagent 
+
+#cd criagent/prj_linux
+#./compile.bat
+#cd ..
+#cd ..
+
+#echo driagent
+#cd driagent/prj_linux
+#./compile.bat
+#cd ..
+#cd ..
+
+echo make dscagent lib
+
+cd dscagent/prj_linux
+
+./compile.bat
+
+cd ..
+cd ..
+
+echo  dsiagent 
+cd dsiagent/prj_linux
+./compile.bat
+cd ..
+cd ..
+
+#echo imtagent
+#cd imtagent/prj_linux
+#./compile.bat
+#cd ..
+#cd ..
+
+#echo mmpagent
+#cd mmpagent/prj_linux
+#./compile.bat
+#cd ..
+#cd ..
+
+
+

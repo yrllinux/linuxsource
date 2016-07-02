@@ -1,0 +1,387 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mcuagtlib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FB.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\platform" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\snmp" /I "..\..\..\10-common\include\protocol" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_8KI_" /D "_UTF8" /Fp"Debug/mcuagtlib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcuagtlib\source\AgentInterface.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcuagtlib\source\agentmsgcenter.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcuagtlib\source\AgentSnmp.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcuagtlib\source\brdguard.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcuagtlib\source\brdmanager.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcuagtlib\source\configureagent.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcuagtlib\source\ProcAlarm.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FB.tmp" 
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FC.tmp" with contents
+[
+/nologo /out:"..\..\..\10-common\lib\debug\win32\mcuagt8ki.lib" 
+".\Debug\AgentInterface.obj"
+".\Debug\agentmsgcenter.obj"
+".\Debug\AgentSnmp.obj"
+".\Debug\brdguard.obj"
+".\Debug\brdmanager.obj"
+".\Debug\configureagent.obj"
+".\Debug\ProcAlarm.obj"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FC.tmp"
+<h3>Output Window</h3>
+Compiling...
+AgentInterface.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(23) : warning C4005: 'UNKNOWN_BOARD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\boardwrapperdef.h(63) : see previous definition of 'UNKNOWN_BOARD'
+e:\svn_root\pds\professional_vob\60-mercury\mcuagtlib\source\agentinterface.cpp(2504) : warning C4244: '=' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcuagtlib\source\agentinterface.cpp(2505) : warning C4244: '=' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+agentmsgcenter.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(23) : warning C4005: 'UNKNOWN_BOARD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\boardwrapperdef.h(63) : see previous definition of 'UNKNOWN_BOARD'
+AgentSnmp.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(23) : warning C4005: 'UNKNOWN_BOARD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\boardwrapperdef.h(63) : see previous definition of 'UNKNOWN_BOARD'
+brdguard.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(23) : warning C4005: 'UNKNOWN_BOARD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\boardwrapperdef.h(63) : see previous definition of 'UNKNOWN_BOARD'
+brdmanager.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(23) : warning C4005: 'UNKNOWN_BOARD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\boardwrapperdef.h(63) : see previous definition of 'UNKNOWN_BOARD'
+configureagent.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(23) : warning C4005: 'UNKNOWN_BOARD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\boardwrapperdef.h(63) : see previous definition of 'UNKNOWN_BOARD'
+ProcAlarm.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(23) : warning C4005: 'UNKNOWN_BOARD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\boardwrapperdef.h(63) : see previous definition of 'UNKNOWN_BOARD'
+Creating library...
+
+
+
+<h3>Results</h3>
+mcuagt8ki.lib - 0 error(s), 9 warning(s)
+<h3>
+--------------------Configuration: prjMcu - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FD.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\protocol" /I "..\..\..\10-common\include\platform" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\t120" /I "..\..\..\10-common\include\nms1" /I "..\..\..\10-common\include\cbb\license" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_AFXDLL" /D "_8KI_" /D "_UTF8" /Fp"Debug/prjmcu.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\eqpbase.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\tvwall.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\dcsssn.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\eqpssn.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcsssn.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcu.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcucfg.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcudata.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuguard.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuutility.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvc.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvcdcs.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvceqp.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvcmcs.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvcmmcu.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvcmt.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvcswitch.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mcuvcvcs.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mpmanager.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mpssn.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\msmanagerssn.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\mtadpssn.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\nplusmanager.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mcu\source\vcsssn.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FD.tmp" 
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FE.tmp" with contents
+[
+mcuagt8ki.lib lanman.lib kdvlog.lib osplib.lib kdvsys.lib winbrdwrapper.lib commonlib.lib dataswitch.lib mp.lib kdv323.lib kdv323adp.lib mtadp.lib kdvaddrbook.lib kdvdatanet.lib fcnet.lib enfc.lib kdvmedianet.lib mcuprs.lib kdvnetbuf.lib kdvencrypt.lib snmpadp_mcu.lib agent_pp.lib snmp_pp.lib kdvum.lib kdvcascade.lib readlicenselib.lib hkapi.lib rockey2.lib ep1kdl20.lib h460pinholelib.lib /nologo /stack:0x7a1200 /subsystem:windows /incremental:yes /pdb:"Debug/mcu.pdb" /debug /machine:I386 /nodefaultlib:"nafxcwd.lib" /nodefaultlib:"libcd.lib" /nodefaultlib:"libcmtd.lib" /out:"mcu.exe" /pdbtype:sept /libpath:"..\..\..\10-common\lib\debug\win32" 
+".\Debug\eqpbase.obj"
+".\Debug\tvwall.obj"
+".\Debug\dcsssn.obj"
+".\Debug\eqpssn.obj"
+".\Debug\mcsssn.obj"
+".\Debug\mcu.obj"
+".\Debug\mcucfg.obj"
+".\Debug\mcudata.obj"
+".\Debug\mcuguard.obj"
+".\Debug\mcuutility.obj"
+".\Debug\mcuvc.obj"
+".\Debug\mcuvcdcs.obj"
+".\Debug\mcuvceqp.obj"
+".\Debug\mcuvcmcs.obj"
+".\Debug\mcuvcmmcu.obj"
+".\Debug\mcuvcmt.obj"
+".\Debug\mcuvcswitch.obj"
+".\Debug\mcuvcvcs.obj"
+".\Debug\mpmanager.obj"
+".\Debug\mpssn.obj"
+".\Debug\msmanagerssn.obj"
+".\Debug\mtadpssn.obj"
+".\Debug\nplusmanager.obj"
+".\Debug\vcsssn.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FE.tmp"
+<h3>Output Window</h3>
+Compiling...
+eqpbase.cpp
+tvwall.cpp
+dcsssn.cpp
+eqpssn.cpp
+mcsssn.cpp
+mcu.cpp
+mcucfg.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(242) : warning C4005: 'ERROR' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\wingdi.h(93) : see previous definition of 'ERROR'
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(682) : warning C4005: 'SIO_STOPBIT_1' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\brddrvlib.h(1107) : see previous definition of 'SIO_STOPBIT_1'
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(683) : warning C4005: 'SIO_STOPBIT_2' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\brddrvlib.h(1109) : see previous definition of 'SIO_STOPBIT_2'
+mcudata.cpp
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcudata.cpp(18748) : warning C4244: '=' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcudata.cpp(18770) : warning C4244: '=' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+mcuguard.cpp
+c:\program files\microsoft visual studio\vc98\include\windef.h(52) : warning C4005: 'MAX_PATH' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\protocol\kdvsys.h(121) : see previous definition of 'MAX_PATH'
+c:\program files\microsoft visual studio\vc98\include\windef.h(186) : warning C4005: 'MAKEWORD' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\protocol\kdvsys.h(196) : see previous definition of 'MAKEWORD'
+c:\program files\microsoft visual studio\vc98\include\windef.h(190) : warning C4005: 'LOBYTE' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\protocol\kdvsys.h(194) : see previous definition of 'LOBYTE'
+c:\program files\microsoft visual studio\vc98\include\windef.h(191) : warning C4005: 'HIBYTE' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\protocol\kdvsys.h(195) : see previous definition of 'HIBYTE'
+c:\program files\microsoft visual studio\vc98\mfc\include\afx.h(226) : warning C4005: 'ASSERT' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\protocol\kdvsys.h(208) : see previous definition of 'ASSERT'
+mcuutility.cpp
+mcuvc.cpp
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvc.cpp(1274) : warning C4244: 'argument' : conversion from 'unsigned long' to 'const unsigned short', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvc.cpp(5059) : warning C4244: '=' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvc.cpp(22410) : warning C4244: 'initializing' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvc.cpp(36060) : warning C4244: 'initializing' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+mcuvcdcs.cpp
+mcuvceqp.cpp
+mcuvcmcs.cpp
+mcuvcmmcu.cpp
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvcmmcu.cpp(6555) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvcmmcu.cpp(9565) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvcmmcu.cpp(9587) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mcu\source\mcuvcmmcu.cpp(9589) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+mcuvcmt.cpp
+mcuvcswitch.cpp
+mcuvcvcs.cpp
+mpmanager.cpp
+mpssn.cpp
+msmanagerssn.cpp
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(242) : warning C4005: 'ERROR' : macro redefinition
+        c:\program files\microsoft visual studio\vc98\include\wingdi.h(93) : see previous definition of 'ERROR'
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(682) : warning C4005: 'SIO_STOPBIT_1' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\brddrvlib.h(1107) : see previous definition of 'SIO_STOPBIT_1'
+e:\svn_root\pds\professional_vob\10-common\include\platform\brdwrapperdef.h(683) : warning C4005: 'SIO_STOPBIT_2' : macro redefinition
+        e:\svn_root\pds\professional_vob\10-common\include\platform\brddrvlib.h(1109) : see previous definition of 'SIO_STOPBIT_2'
+mtadpssn.cpp
+nplusmanager.cpp
+vcsssn.cpp
+Linking...
+LINK : fatal error LNK1104: cannot open file "mp.lib"
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+mcu.exe - 1 error(s), 21 warning(s)
+<h3>
+--------------------Configuration: prjMtadpWin32 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FF.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\mt" /I "..\..\..\10-common\include\platform" /I "..\..\..\10-common\include\radstack" /I "..\include" /I "..\..\common\include" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\protocol\h323stack" /I "..\..\..\10-common\include\protocol" /I "..\..\..\10-common\include\cbb\license" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_AFXDLL" /D "_CONFIG_FROM_FILE" /D "_8KE_" /D "_UTF8" /FR"Debug/" /Fp"Debug/prjmtadpwin32.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\mtadplib\source\gk.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mtadplib\source\mtadp.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mtadplib\source\mtadpd.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mtadplib\source\mtadputils.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP1FF.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\10-common\lib\debug\Win32\mtadp.lib"  ".\Debug\gk.obj" ".\Debug\mtadp.obj" ".\Debug\mtadpd.obj" ".\Debug\mtadputils.obj" "
+<h3>Output Window</h3>
+Compiling...
+gk.cpp
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(849) : warning C4018: '==' : signed/unsigned mismatch
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(3111) : warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5208) : warning C4101: 'temp' : unreferenced local variable
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5557) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5569) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6023) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6028) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\60-mercury\mtadplib\include\mtadp.h(160) : warning C4244: '+=' : conversion from 'unsigned long' to 'unsigned short', possible loss of data
+mtadp.cpp
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(849) : warning C4018: '==' : signed/unsigned mismatch
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(3111) : warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5208) : warning C4101: 'temp' : unreferenced local variable
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5557) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5569) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6023) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6028) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\60-mercury\mtadplib\include\mtadp.h(160) : warning C4244: '+=' : conversion from 'unsigned long' to 'unsigned short', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mtadplib\source\mtadp.cpp(1899) : warning C4244: 'argument' : conversion from 'unsigned long' to 'unsigned short', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\mtadplib\source\mtadp.cpp(9403) : warning C4018: '>' : signed/unsigned mismatch
+mtadpd.cpp
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(849) : warning C4018: '==' : signed/unsigned mismatch
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(3111) : warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5208) : warning C4101: 'temp' : unreferenced local variable
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5557) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5569) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6023) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6028) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\60-mercury\mtadplib\include\mtadp.h(160) : warning C4244: '+=' : conversion from 'unsigned long' to 'unsigned short', possible loss of data
+mtadputils.cpp
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(849) : warning C4018: '==' : signed/unsigned mismatch
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(3111) : warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5208) : warning C4101: 'temp' : unreferenced local variable
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5557) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(5569) : warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6023) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\10-common\include\protocol\h323adapter.h(6028) : warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+e:\svn_root\pds\professional_vob\60-mercury\mtadplib\include\mtadp.h(160) : warning C4244: '+=' : conversion from 'unsigned long' to 'unsigned short', possible loss of data
+Creating library...
+
+
+
+<h3>Results</h3>
+mtadp.lib - 0 error(s), 34 warning(s)
+<h3>
+--------------------Configuration: prjMp - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP200.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\platform" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\protocol" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_AFXDLL" /FR"Debug/" /Fp"Debug/prjmp.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\mplib\source\mp.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mplib\source\mpdata.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mplib\source\mpinst.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\mplib\source\mputility.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP200.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\10-common\lib\debug\win32\mp.lib"  ".\Debug\mp.obj" ".\Debug\mpdata.obj" ".\Debug\mpinst.obj" ".\Debug\mputility.obj" "
+<h3>Output Window</h3>
+Compiling...
+mp.cpp
+e:\svn_root\pds\professional_vob\60-mercury\mplib\source\mp.cpp(256) : warning C4018: '<' : signed/unsigned mismatch
+mpdata.cpp
+e:\svn_root\pds\professional_vob\60-mercury\mplib\source\mpdata.cpp(529) : warning C4244: '=' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+mpinst.cpp
+mputility.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+mp.lib - 0 error(s), 2 warning(s)
+<h3>
+--------------------Configuration: prj_hdu2 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP201.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\..\10-Common\include\platform" /I "..\..\..\10-Common\include\mcu" /I "..\..\..\10-Common\include\system1" /I "..\..\..\10-Common\include\protocol" /I "..\..\hdu2lib\include" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_AFXDLL" /Fp"Debug/prj_hdu2.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\hdu2\source\hdu2.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\hdu2\source\hdu2agent.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP201.tmp" 
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP202.tmp" with contents
+[
+hdu2lib.lib basicboardagent.lib kdvlog.lib osplib.lib kdvsys.lib winbrdwrapper.lib mcueqpsimu.lib kdvmedianet.lib fcnet.lib enfc.lib kdvencrypt.lib msvcrt.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/prj_hdu2.pdb" /debug /machine:I386 /out:"Debug/prj_hdu2.exe" /pdbtype:sept /libpath:"..\..\..\10-common\lib\debug\win32" 
+".\Debug\hdu2.obj"
+".\Debug\hdu2agent.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP202.tmp"
+<h3>Output Window</h3>
+Compiling...
+hdu2.cpp
+hdu2agent.cpp
+Linking...
+LINK : fatal error LNK1104: cannot open file "hdu2lib.lib"
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+prj_hdu2.exe - 1 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: hdu2lib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP203.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\hdu2\include" /I "..\..\..\10-Common\include\platform" /I "..\..\..\10-Common\include\mcu" /I "..\..\..\10-Common\include\system1" /I "..\..\..\10-Common\include\protocol" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_LIB" /D "HARD_CODEC" /Fp"Debug/hdu2lib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\hdu2lib\source\hdu2app.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\hdu2lib\source\hdu2inst.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\hdu2lib\source\hdu2test.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP203.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\10-Common\lib\debug\win32\hdu2lib.lib"  ".\Debug\hdu2app.obj" ".\Debug\hdu2inst.obj" ".\Debug\hdu2test.obj" "
+<h3>Output Window</h3>
+Compiling...
+hdu2app.cpp
+hdu2inst.cpp
+hdu2test.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+hdu2lib.lib - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: BasicBoardAgent - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP204.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\..\..\common\include" /I "..\include" /I "..\..\..\..\10-common\include\mcu" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_AFXDLL" /FR"Debug/" /Fp"Debug/basicboardagent.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\boardagentnewlib\basicboardagent\source\boardagentbasic.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\boardagentnewlib\basicboardagent\source\boardconfigbasic.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\boardagentnewlib\basicboardagent\source\boardguardbasic.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP204.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\..\10-common\lib\debug\win32\basicboardagent.lib"  ".\Debug\boardagentbasic.obj" ".\Debug\boardconfigbasic.obj" ".\Debug\boardguardbasic.obj" "
+<h3>Output Window</h3>
+Compiling...
+boardagentbasic.cpp
+boardconfigbasic.cpp
+boardguardbasic.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+basicboardagent.lib - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: detectee - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP205.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\..\common\include" /I "..\include" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\platform" /I "..\..\..\10-common\include\protocol" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\mt" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "_AFXDLL" /Fp"Debug/detectee.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\detectee\source\detectee.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP205.tmp" 
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP206.tmp" with contents
+[
+kdvlog.lib osplib.lib kdvsys.lib basicboardagent.lib winbrdwrapper.lib criagent.lib mcuprs.lib mp.lib mtadp.lib kdvnetbuf.lib kdvcascade.lib kdv323.lib kdvmedianet.lib kdvencrypt.lib kdvdatanet.lib kdv323adp.lib dataswitch.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/detectee.pdb" /debug /machine:I386 /nodefaultlib:"msvcrtd.lib libcd.lib nafxcwd.lib" /out:"detectee.exe" /pdbtype:sept /libpath:"..\..\..\10-common\lib\debug\win32" 
+".\Debug\detectee.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP206.tmp"
+<h3>Output Window</h3>
+Compiling...
+detectee.cpp
+e:\svn_root\pds\professional_vob\60-mercury\detectee\include\charsetutility.h(2042) : warning C4244: '=' : conversion from 'long' to 'char', possible loss of data
+Linking...
+   Creating library detectee.lib and object detectee.exp
+
+
+
+<h3>Results</h3>
+detectee.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

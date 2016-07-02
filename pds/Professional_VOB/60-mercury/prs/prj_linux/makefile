@@ -1,0 +1,37 @@
+###
+### Copyright (c) 2011 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in mcu linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := prs_8000e
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER = 
+CFLAGS += -D_8KE_
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS := prs8ke_lib kdvnetbuf kdvdatanet dataswitch kdvmedianet fcnet enfc  watchdog  simbrdwrapper watchdogclient commonlib  kdvencrypt osp kdvsys kdvlog imf svml intlc gthread-2.0 glib-2.0 rt dl pthread
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../common/include ../../../10-common/include/nms1  ../../../10-common/include/algorithm ../../../10-common/include/cbb/license ../../../10-common/include/t120
+LIB_PATH += ../../../10-common/lib/release/linux
+
+include $(COMM_DIR)/common.mk

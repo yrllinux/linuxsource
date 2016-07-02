@@ -1,0 +1,55 @@
+###
+### Copyright (c) 2006 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in mcu linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := mcu
+
+## Define debugging symbols
+DEBUG = 2
+LINUX_COMPILER = 
+
+## Object files that compose the target(s)
+OBJS := $(SRC_DIR)/dcsssn \
+$(SRC_DIR)/eqpssn \
+$(SRC_DIR)/mpssn \
+$(SRC_DIR)/mtadpssn \
+$(SRC_DIR)/msmanagerssn \
+$(SRC_DIR)/mcsssn \
+$(SRC_DIR)/mcu \
+$(SRC_DIR)/mpmanager \
+$(SRC_DIR)/mcudata \
+$(SRC_DIR)/mcuutility \
+$(SRC_DIR)/mcuguard \
+$(SRC_DIR)/mcucfg \
+$(SRC_DIR)/mcuvc \
+$(SRC_DIR)/mcuvcdcs \
+$(SRC_DIR)/mcuvceqp \
+$(SRC_DIR)/mcuvcmcs \
+$(SRC_DIR)/mcuvcmmcu \
+$(SRC_DIR)/mcuvcmt \
+$(SRC_DIR)/mcuvcswitch \
+$(SRC_DIR)/nplusmanager
+
+## Libraries to include in shared object file
+LIBS := mcuagent mtadp mp snmpadp_mcu watchdog readlicenselib simbrdwrapper kdvum kdvaddrbook kdv323adp kdv323 kdvnetbuf kdvdatanet dataswitch kdvmedianet fcnet enfc kdvencrypt kdvcascade  osp kdvsys rt dl pthread
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../../10-common/include/t120 ../../../10-common/include/nms1 ../../../10-common/include/cbb/license
+
+LIB_PATH += ../../../10-common/lib/debug/linux
+
+include $(COMM_DIR)/common.mk

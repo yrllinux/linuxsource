@@ -1,0 +1,137 @@
+file0=../../10-common/lib/release/linux_ppc_82xx/nipdebug/ppc82xx_debugmisc.ko
+file00=../../10-common/lib/release/linux_ppc_85xx/nipdebug/ppc85xx_debugmisc.ko
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=../../10-common/version/release/linux_ppc_82xx/eqtdev.ko
+file3=../../10-common/version/release/map/MediaCtrl
+
+file4=./image/module_apu.cfg
+file5=./image/autorun_apu.inf
+file6=../../10-common/version/release/os_linux/apu/bcsr.ko
+file7=../../10-common/version/release/os_linux/apu/led_k.ko
+file8=../../10-common/version/release/linux_ppc_82xx/kdvapu
+file19=../../10-common/version/release/linux_ppc_82xx/detectee
+f1=1
+for file in $file0 $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file8 $file19
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/eqtdev.ko ./app/
+cp -f ../../10-common/version/release/map/MediaCtrl ./app/
+cp -f $file0 ./app/debugmisc.ko
+
+
+cp -f ./image/module_apu.cfg ./app/module.cfg
+cp -f ./image/autorun_apu.inf ./app/autorun.inf
+cp -f ../../10-common/version/release/os_linux/apu/bcsr.ko ./app/
+cp -f ../../10-common/version/release/os_linux/apu/led_k.ko ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/kdvapu ./app/
+cp -f $file19 ./app/
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x20000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o kdvapu.image
+mv -f kdvapu.image    ../../10-common/version/release/os_linux/apu
+
+fi
+
+
+file9=./image/module_vpu.cfg
+file10=./image/autorun_vpu.inf
+file11=../../10-common/version/release/os_linux/vpu/bcsr.ko
+file12=../../10-common/version/release/os_linux/vpu/led_k.ko
+file13=../../10-common/version/release/linux_ppc_82xx/kdvvmp
+
+f2=1
+for file in $file9 $file10 $file11 $file12 $file13
+do
+
+if [ ! -f $file ]
+then
+f2=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f2 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/eqtdev.ko ./app/
+cp -f ../../10-common/version/release/map/MediaCtrl ./app/
+cp -f $file0 ./app/debugmisc.ko
+
+cp -f ./image/module_vpu.cfg ./app/module.cfg
+cp -f ./image/autorun_vpu.inf ./app/autorun.inf
+cp -f ../../10-common/version/release/os_linux/vpu/bcsr.ko ./app/
+cp -f ../../10-common/version/release/os_linux/vpu/led_k.ko ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/kdvvmp ./app/
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o kdvvpu.image
+mv -f kdvvpu.image    ../../10-common/version/release/os_linux/vpu
+
+fi
+
+
+file14=./image/module_tvwall.cfg
+file15=./image/autorun_tvwall.inf
+file16=../../10-common/version/release/os_linux/dec5/bcsr.ko
+file17=../../10-common/version/release/os_linux/dec5/led_k.ko
+file18=../../10-common/version/release/linux_ppc_82xx/kdvtvwall
+
+f3=1
+for file in $file14 $file15 $file16 $file17 $file18
+do
+
+if [ ! -f $file ]
+then
+f3=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f3 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/eqtdev.ko ./app/
+cp -f ../../10-common/version/release/map/MediaCtrl ./app/
+cp -f $file0 ./app/debugmisc.ko
+
+cp -f ./image/module_tvwall.cfg ./app/module.cfg
+cp -f ./image/autorun_tvwall.inf ./app/autorun.inf
+cp -f ../../10-common/version/release/os_linux/dec5/bcsr.ko ./app/
+cp -f ../../10-common/version/release/os_linux/dec5/led_k.ko ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/kdvtvwall ./app/
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o kdvtvwall.image
+mv -f kdvtvwall.image    ../../10-common/version/release/os_linux/dec5
+
+rm -fr app
+
+fi

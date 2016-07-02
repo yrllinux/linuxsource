@@ -1,0 +1,14 @@
+
+/*basicboardagent */
+
+-i..\..\..\common\include
+-i..\include
+-i..\..\..\..\10-common\include\mcu
+-i..\..\..\..\10-common\include\platform
+-i..\..\..\..\10-common\include\system1
+-i..\..\..\..\10-common\include\protocol
+-d_PPC_
+-d_LINUX12_
+..\source\boardagentbasic.cpp
+..\source\boardconfigbasic.cpp
+..\source\boardguardbasic.cpp

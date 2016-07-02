@@ -1,0 +1,14 @@
+
+/* Generated from file: wincri2.dsp */
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\platform
+-i..\..\..\10-common\include\protocol
+-i..\..\..\10-common\include\mcu
+-dWIN32
+-d_DEBUG
+-d_CONSOLE
+-d_MBCS
+-d_AFXDLL /* which then implies */ -d_MT -d_DLL 
+..\source\mtaccesscri.cpp

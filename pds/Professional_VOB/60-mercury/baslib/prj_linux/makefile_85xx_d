@@ -1,0 +1,47 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+
+ARC_TARGET      := bas
+
+## Define debugging symbols
+CFLAGS += -DHARD_CODEC
+DEBUG = 1
+LINUX_COMPILER = _HHPPC_
+PPC_LINUX_VERSION=_85xx_
+PWLIB_SUPPORT = 0
+
+## Object files that compose the target(s)
+
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+        
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(TOP)/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../../10-common/include/cbb/protocol ../../common/include
+
+ifeq ($(PWLIB_SUPPORT),1)
+   INC_PATH += $(PWLIBDIR)/include/ptlib/unix $(PWLIBDIR)/include
+endif
+
+INSTALL_LIB_PATH = ../../../10-common/lib/debug/linux_ppc_85xx
+
+include $(COMM_DIR)/common.mk

@@ -1,0 +1,16 @@
+/*mpu2lib*/
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-Common\include\platform
+-i..\..\..\10-Common\include\mcu
+-i..\..\..\10-Common\include\system1
+-i..\..\..\10-Common\include\protocol
+-d_PPC_
+-d_LINUX12_
+..\source\main.cpp
+..\source\mpu2bas.cpp
+..\source\mpu2struct.cpp
+..\source\mpu2vmp.cpp
+..\source\mpu2utility.cpp
+..\source\mpu2vmphwtest.cpp
+

@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: eapulib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP24D.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\..\..\10-common\include\platform" /I "..\include" /I "..\..\common\include" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\mt" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\protocol" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /D "HARD_CODEC" /FR"debug/" /Fp"debug/eapulib.pch" /YX /Fo"debug/" /Fd"debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\eapulib\source\eapuinst.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\eapulib\source\eaputestinst.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\eapulib\source\libinit.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP24D.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\10-common\lib\debug\win32\eapulib.lib"  ".\debug\eapuinst.obj" ".\debug\eaputestinst.obj" ".\debug\libinit.obj" "
+<h3>Output Window</h3>
+Compiling...
+eapuinst.cpp
+e:\svn_root\pds\professional_vob\10-common\include\system1\vccommon.h(25) : error C2065: 'vsnprintf' : undeclared identifier
+e:\svn_root\pds\professional_vob\10-common\include\system1\vccommon.h(7844) : error C2065: 'sprintf' : undeclared identifier
+c:\program files\microsoft visual studio\vc98\include\stdio.h(343) : error C2373: 'sprintf' : redefinition; different type modifiers
+eaputestinst.cpp
+e:\svn_root\pds\professional_vob\10-common\include\system1\vccommon.h(25) : error C2065: 'vsnprintf' : undeclared identifier
+e:\svn_root\pds\professional_vob\10-common\include\system1\vccommon.h(7844) : error C2065: 'sprintf' : undeclared identifier
+c:\program files\microsoft visual studio\vc98\include\stdio.h(343) : error C2373: 'sprintf' : redefinition; different type modifiers
+libinit.cpp
+e:\svn_root\pds\professional_vob\10-common\include\system1\vccommon.h(25) : error C2065: 'vsnprintf' : undeclared identifier
+e:\svn_root\pds\professional_vob\10-common\include\system1\vccommon.h(7844) : error C2065: 'sprintf' : undeclared identifier
+c:\program files\microsoft visual studio\vc98\include\stdio.h(343) : error C2373: 'sprintf' : redefinition; different type modifiers
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+eapu.exe - 9 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,99 @@
+// Please note -- this is a representative set of error suppression
+//                options.  Please adjust to suit your own policies
+//                See  manual (chapter LIVING WITH LINT)
+//                for further details.
+
+// Please note -- this is a representative set of error suppression
+//                options.  Please adjust to suit your own policies
+//                See  manual (chapter LIVING WITH LINT)
+//                for further details.
+
+
+-e974		// inhibit the C elective msg (recursive use)
+-e1960	// inhibit the C++ elective msg (MISRA C++ 2008 Required Rule)
+
+-e46	// suppress Bit fields must be int error
+
+
+//Ignoring return value of function 'Symbol'
+-esym(534,time,vsprintf,fgets,CInstance::post,OspPost,CInstance::SetTimer)	
+-esym(534,CInstance::KillTimer)
+-esym(534,OspNodeDiscCBRegQ)
+-esym(534,OspDisconnectTcpNode)
+-e534
+
+-e835	//534屏蔽掉的地方，均会重复报多次该错误，在msg中也没有对它的注解。
+
+-e705			//indirect object nominally inconsistent with format
+-e706			//indirect object nominally inconsistent with format
+
+-e1773		//Attempt to cast away const (or volatile)
+-e1904		// avoid C-style comment error
+
+-e1776	// suppress const char* convert into char* error
+
+-emacro(1924,va_start,va_end)	//C-style cast
+
+-e14		//Symbol  previously defined
+
+-e1415 
+
+-e826		//Suspicious pointer-to-pointer conversion (area too small).
+	
+-e818   //Pointer parameter 'Symbol' (Location) could be declared ptr to const
+
+-e1762	//Member function could be made const
+
+-e774		//Boolean within 'if' always evaluates to True
+
+//Loss of precision
+-e734		//
+-e713		//(unsigned long to long)
+-esym(732, OspConnectTcpNode)	//Loss of sign (initialization) (int to unsigned long))
+-emacro(732,astrncpy)
+-e732
+
+
+-e864		//Expression involving variable possibly depends on order of evaluation
+
+-e838		//Previously assigned value to variable has not been used
+
+-e1717 	//An empty prototype
+
+-e783		//Line does not end with new-line
+
+-e125
+
+-e661		//possible access of out-of-bounds pointer.(this error check work awfully in for grammer)
+
+-e1774	//Could use dynamic_cast to downcast polymorphic type
+
+-e866		//Unusual use of 'SYM' in argument to sizeof. (not know it well, so suppress it)
+
+-e1732	//new in constructor for class which has no assignment operator
+-e1733	//new in constructor for class which has no copy constructor
+
+-e1401	//member not initialized by constructor
+-e1740	//member not directly freed or zeroed by destructor
+
+
+-e717		//do...while(0)
+
+-e788		//enum constant not used within defaulted switch
+
+
+-e1786	//Implicit conversion to Boolean (int to bool)
+
+-e834		//Operator 'Name' followed by operator 'Name' is confusing.
+	
+-e602		//Comment within comment
+
+
+-e1746	//parameter in function could be made const reference
+-e1764 	//Reference parameter could be declared const ref
+
+
+
+-e507		//inhibit only for mtadplib for its special usage.
+-e666		//Expression with side effects passed to repeated parameter Integer of macro 'Symbol'
+-e701		//Shift left of signed quantity (int)

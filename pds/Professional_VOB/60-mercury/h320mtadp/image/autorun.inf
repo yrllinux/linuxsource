@@ -1,0 +1,3 @@
+[autorun]
+app = /usr/bin/h320mtadp; 
+type = 0;

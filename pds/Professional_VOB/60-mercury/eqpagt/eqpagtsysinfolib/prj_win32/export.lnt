@@ -1,0 +1,14 @@
+
+/* Generated from file: eqpagtsysinfo.dsp */
+-i..\include\\
+-i..\..\..\..\60-mercury\common\include\\
+-i..\..\..\..\60-mercury\eqpagt\eqpagtcommbaselib\include\\
+-i..\..\..\..\10-common\include\system1\\
+-i..\..\..\..\10-common\include\platform\\
+-i..\..\..\..\10-common\include\protocol\\
+-i..\..\..\..\10-common\include\snmp\\
+-dWIN32
+-d_DEBUG
+-d_MBCS
+-d_LIB
+..\source\eqpagtsysinfo.cpp

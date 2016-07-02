@@ -1,0 +1,139 @@
+#!/bin/bash
+
+FILE_HTTPD="/etc/httpd/conf/httpd.conf";
+TMPFILE="/opt/mcu/tmp_httpd.conf"
+TMPFILE2="/opt/mcu/tmp_httpd.conf2"
+
+#func:
+addVirtualHost()
+{
+#usage: addVirtualHost hostip documentroot svrname tmpfile
+	hostip=$1
+	docroot=$2
+	svrname=$3	
+	tmpfile=$4
+	
+	#echo tmpfile is $tmpfile
+	#cat >> /opt/mcu/tmp3 << MYEND
+	echo "<VirtualHost $hostip>" >> $tmpfile
+	echo "	DocumentRoot $docroot" >> $tmpfile
+    	echo "	ServerName $svrname" >> $tmpfile
+	echo "</VirtualHost>" >> $tmpfile
+	#MYEND	
+
+	return 0
+}
+
+
+checkipvalid()
+{
+#usage: checkipvalid ip
+
+	_STRIP=$1
+	# check null
+	if [ "$_STRIP" = "" ]; then	
+		return 1
+	fi
+
+	# check length:[7,15]
+	_LENGTH=`echo $_STRIP |awk '{print length($0)}'`
+	if [ $_LENGTH -gt 15 ]; then
+		return 1
+	fi
+	if [ $_LENGTH -lt 7 ]; then
+		return 1
+	fi
+	
+	# check ip should have 3 dots(4 column)
+	_COLUMN_NUM=`echo $_STRIP | awk -F. '{print NF}'`
+	if [ $_COLUMN_NUM != 4 ]; then
+		return 1
+	fi
+	
+	# check no a-z,A-Z
+	_HASALPHA=`echo $_STRIP | awk '{ if($0~/[a-z]/) {print "1"}}'`
+	if [ "$_HASALPHA" = "1" ]; then
+		return 1
+	fi
+	
+	return 0
+	
+}
+
+# comment the DocumentRoot line
+cat $FILE_HTTPD |sed '/^DocumentRoot/ c\#DocumentRoot "/opt/mcu/webroot"' > $TMPFILE
+
+#modify the DirectoryIndex (must include index.htm)
+cat $TMPFILE | sed '/^DirectoryIndex/ c\DirectoryIndex index.htm'  > $TMPFILE2
+cat $TMPFILE2 > $TMPFILE
+
+#MPC ip
+ipofmpc=`cat /opt/mcu/conf/mcucfg.ini |grep '\<MPC\>' | awk '{print $7}' | sed '/^$/d' `
+
+#GK ip
+ipofgk=`cat /opt/mcu/conf/mcucfg.ini |grep '\<GkIpAddr\>' | awk '{print $3}' |sed '/^$/d'`
+
+# remove the old Virtual host
+STARTLINE=`awk '/^# VirtualHost example:/ {print NR ; exit 0; }' $TMPFILE`
+#ENDLINE=`sed -n '$=' $TMPFILE`
+
+if [ "$STARTLINE" = "" ]; then
+	echo "STARTLINE is null, do nothing"
+else
+	#STARTLINE=`expr $STARTLINE + 0`
+
+	#cat $TMPFILE | sed -e ''$STARTLINE','$ENDLINE'd' > $TMPFILE2
+	#cat $TMPFILE | sed -e ''$STARTLINE',$d' > $TMPFILE2
+#	cat $TMPFILE > $TMPFILE2
+#	LINENo=0
+#	>$TMPFILE
+#	while read LINE
+#	do
+	#       LINENo=`expr $LINENo + 1`
+        #	echo LINENo=$LINENo
+        #	if (( $LINENo == $STARTLINE )); then
+        #	        #echo break
+        #	        break
+        #	fi
+        #	echo $LINE >> $TMPFILE
+#	done < $TMPFILE2
+	cat $TMPFILE2 | head -n $STARTLINE > $TMPFILE
+fi
+
+# add Virtual host instruction comment
+cat >> $TMPFILE << myend
+# Almost any Apache directive may go into a VirtualHost container.
+# The first VirtualHost section is used for requests without a known
+# server name.
+#
+#<VirtualHost *:80>
+#    ServerAdmin webmaster@dummy-host.example.com
+#    DocumentRoot /www/docs/dummy-host.example.com
+#    ServerName dummy-host.example.com
+#    ErrorLog logs/dummy-host.example.com-error_log
+#    CustomLog logs/dummy-host.example.com-access_log common
+#</VirtualHost>
+myend
+
+
+# add Virtual host
+#check ip of MPC
+if checkipvalid $ipofmpc; then
+	addVirtualHost $ipofmpc "/opt/mcu/webroot" "MCU" $TMPFILE
+fi 
+
+#check ip of GK
+if checkipvalid $ipofgk; then
+	addVirtualHost $ipofgk "/opt/mcu/webroot2" "GK" $TMPFILE
+fi
+
+cat $TMPFILE > $FILE_HTTPD
+
+# restart apache
+/etc/init.d/httpd restart
+
+
+# delete tmp files
+rm -f $TMPFILE
+rm -f $TMPFILE2
+#exit 

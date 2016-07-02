@@ -1,0 +1,49 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+
+ARC_TARGET      := mmpagent
+
+## Define debugging symbols
+DEBUG = 0
+CFLAGS += -DMMP
+LINUX_COMPILER = _HHPPC_
+PWLIB_SUPPORT = 0
+
+## Object files that compose the target(s)
+
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))  
+	
+## Libraries to include in shared object file
+        
+## LIBS +=  dataswitch/
+##	osp/
+##	pthread
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(TOP)/include ../../../common/include ../../../../10-common/include/mcu ../../../../10-common/include/system1 ../../../../10-common/include/algorithm ../../../../10-common/include/platform ../../../../10-common/include/pwlib/ptlib ../../../../10-common/include/protocol ../../../common/include
+
+ifeq ($(PWLIB_SUPPORT),1)
+   INC_PATH += $(PWLIBDIR)/include/ptlib/unix $(PWLIBDIR)/include
+endif
+
+INSTALL_LIB_PATH = ../../../../10-common/lib/release/linux_ppc_82xx
+
+include $(COMM_DIR)/common.mk

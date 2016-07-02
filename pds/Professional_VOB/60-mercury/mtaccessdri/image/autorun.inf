@@ -1,0 +1,5 @@
+[autorun]
+app = /usr/bin/kdvdri; 
+type = 0;
+app = /usr/bin/detectee;
+type = 0;

@@ -1,0 +1,36 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := detectee
+
+## Define debugging symbols
+DEBUG = 1
+LINUX_COMPILER = _HHPPC_
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS :=  kdvipdt kdvsys rt dl pthread
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../common/include ../../../10-common/include/mt
+LIB_PATH += ../../../10-common/lib/debug/linux_ppc_82xx ../../../10-common/lib/debug/linux_ppc_82xx/nip ../../../10-common/lib/debugﬂ/linux_ppc_82xx/nipdebug
+
+include $(COMM_DIR)/common.mk

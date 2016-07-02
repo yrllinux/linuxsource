@@ -1,0 +1,50 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ..
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+
+ARC_TARGET      := watchdogclient
+
+## Define debugging symbols
+DEBUG = 1
+LINUX_COMPILER=_LINUX_
+PWLIB_SUPPORT = 0
+
+## Object files that compose the target(s)
+
+OBJS :=  $(SRC_DIR)/watchdog	\
+        $(SRC_DIR)/watchdogssn
+
+## Libraries to include in shared object file
+        
+#LIBS :=  
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(CURDIR) $(CURDIR)/../include/ \
+                   $(CURDIR)/../../common/include   \
+	    $(CURDIR)/../../../10-common/include/platform \
+	    $(CURDIR)/../../../10-common/include/system1  \
+	    $(CURDIR)/../../../10-common/include/mcu8000e \
+	    $(CURDIR)/../../../10-common/include/mcu \
+	    $(CURDIR)/../../../10-common/include/protocol 
+
+INSTALL_LIB_PATH = ../../../10-common/lib/debug/linux
+
+include ./common.mk
+
+

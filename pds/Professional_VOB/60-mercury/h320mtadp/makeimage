@@ -1,0 +1,41 @@
+file0=../../10-common/lib/release/linux_ppc_82xx/nipdebug/ppc82xx_debugmisc.ko
+file00=../../10-common/lib/release/linux_ppc_85xx/nipdebug/ppc85xx_debugmisc.ko
+file1=./image/module.cfg
+file2=./image/autorun.inf
+file3=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file4=../../10-common/version/release/os_linux/dri/8260/bcsr.ko
+file5=../../10-common/version/release/os_linux/dri/8260/led_k.ko
+file6=../../10-common/version/release/linux_ppc_82xx/h320mtadp
+
+f1=1
+for file in $file0 $file00 $file1 $file2 $file3 $file4 $file5 $file6
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+for file in $file1 $file2 $file3 $file4 $file5 $file6
+do
+cp -f $file ./app/
+done
+cp -f $file0 ./app/debugmisc.ko
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o h320mtadp.image
+mv -f h320mtadp.image    ../../10-common/version/release/os_linux/dri/8260
+
+rm -fr app
+
+fi

@@ -1,0 +1,304 @@
+file0=../../10-common/lib/release/linux_ppc_82xx/nipdebug/ppc82xx_debugmisc.ko
+file00=../../10-common/lib/release/linux_ppc_85xx/nipdebug/ppc85xx_debugmisc.ko
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=./image/module.cfg
+file3=./image/autorun.inf
+file4=../../10-common/version/release/os_linux/cri/8260/bcsr.ko
+file5=../../10-common/version/release/os_linux/cri/8260/led_k.ko
+file6=../../10-common/version/release/linux_ppc_82xx/mtaccesscri
+##file7=../../10-common/version/release/linux_ppc_82xx/kdvhdi
+##file8=./image/autorunhdi.inf
+file9=../../10-common/version/config/mcu/conf/mtcap.ini
+file10=../../10-common/version/release/linux_ppc_82xx/mtaccesscri12
+file11=../../10-common/version/release/linux_ppc_85xx/mtaccesscri12
+file12=../../10-common/version/release/os_linux/cri2/update.linux
+file13=../../10-common/version/release/os_linux/cri2/u-boot.bin
+file14=../../10-common/version/release/os_linux/is3-mpc8548/update.linux
+file15=../../10-common/version/release/os_linux/is3-mpc8548/u-boot.bin
+file16=../../10-common/version/release/os_linux/is3-mpc8313/update.linux
+file17=../../10-common/version/release/os_linux/is3-mpc8313/u-boot.bin
+##file18=../../10-common/version/release/linux_ppc_85xx/kdvhdi12
+##file19=../../10-common/version/release/linux_ppc_82xx/kdvhdi12
+file20=../../10-common/version/release/linux_ppc_82xx/mtaccesscri12_is21
+file101=../../10-common/version/release/linux_ppc_82xx/kdvlogserver
+file102=../../10-common/version/release/linux_ppc_85xx/kdvlogserver
+file103=../../10-common/version/release/linux_ppc_85xx/apploader/apploader
+file21=../../10-common/version/release/linux_ppc_85xx/mtaccessmtadp
+file22=../../10-common/version/release/linux_ppc_82xx/detectee
+file23=../../10-common/version/release/linux_ppc_82xx/detectee12
+
+f1=1
+for file in $file0 $file1 $file2 $file3 $file4 $file5 $file6 $file9 $file10 $file11 $file12 $file13 $file14 $file15 $file16 $file17 $file20 $file101 $file102 $file103 $file104 $file21 $file22 $file23
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ./image/module.cfg ./app/
+cp -f ./image/autorun.inf ./app/
+cp -f ../../10-common/version/release/os_linux/cri/8260/bcsr.ko ./app/
+cp -f ../../10-common/version/release/os_linux/cri/8260/led_k.ko ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/mtaccesscri ./app/kdvcri
+cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+cp -f $file0 ./app/debugmisc.ko
+cp -f $file101 ./app/logs
+cp -f $file22 ./app/
+
+chmod 777 -R app/*
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o kdvcri.image
+
+mv -f kdvcri.image    ../../10-common/version/release/os_linux/cri/8260
+
+rm -fr app
+
+#copy kdvcri.image to kdvhdi.image
+cp ../../10-common/version/release/os_linux/cri/8260/kdvcri.image ../../10-common/version/release/os_linux/cri/8260/kdvhdi.image
+
+
+##mkdir app
+
+##cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+##cp -f ./image/module.cfg ./app/
+##cp -f ./image/autorunhdi.inf ./app/autorun.inf
+##cp -f ../../10-common/version/release/os_linux/cri/8260/bcsr.ko ./app/
+##cp -f ../../10-common/version/release/os_linux/cri/8260/led_k.ko ./app/
+##cp -f ../../10-common/version/release/linux_ppc_82xx/kdvhdi ./app/kdvhdi
+##cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+##cp -f $file0 ./app/debugmisc.ko
+
+##chmod 777 -R app/*
+##mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o kdvhdi.image
+
+##mv -f kdvhdi.image    ../../10-common/version/release/os_linux/cri/8260
+
+##rm -fr app
+
+
+#----make kdvcri2.bin----85xx----no need
+#mkdir app
+
+#cp -f ../../10-common/version/release/linux_ppc_85xx/apploader/apploader  ./app/
+#cp -f ./image/module.cfg ./app/
+#cp -f ./image/autorun.inf ./app/
+#cp -f ../../10-common/version/release/linux_ppc_85xx/mtaccesscri12 ./app/
+#cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+
+#chmod 777 -R app/*
+#./mkyaffs2image ./app kdvcri2.image convert
+
+#chmod 777 kdvcri2.image
+
+#sleep 3
+#./mkos -i $file12 -a kdvcri2.image -b $file13 -v "$4.6.1" -o kdvcri2.bin
+#cp -f kdvcri2.bin ../../10-common/version/release/os_linux/cri2
+#rm -f kdvcri2.image
+#mv -f kdvcri2.image    ../../10-common/version/release/os_linux/cri2
+
+#rm -fr app
+#####################################################################################
+#####################################################################################
+#----make kdvsipcri2.bin----82xx
+mkdir app
+#
+##apploader and config file
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader ./app/
+cp -f ./image/module.cfg ./app/
+cp -f ./image/autorun.inf ./app/
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/mcugk_8313 ./app/mcugk
+cp -f ../../10-common/version/release/linux_ppc_82xx/mcuregserver_8313 ./app/mcuregserver
+cp -f ../../10-common/version/release/linux_ppc_82xx/mcuinterworking_8313 ./app/mcuinterworking
+
+##change file attrib
+chmod 777 -R ./app/*
+
+./mkyaffs2image ./app cri_iw_82xx.image convert
+
+chmod 777 cri_iw_82xx.image
+
+./mkos -i $file12 -a cri_iw_82xx.image -b $file13 -v "$4.6.1 cri2 version:@pid:0x043E" -o kdvsipcri2.bin
+cp -f kdvsipcri2.bin ../../10-common/version/release/os_linux/cri2/
+
+rm -fr app
+
+#####################################################################################
+#####################################################################################
+#----make kdvcri2.bin----82xx
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ./image/module.cfg ./app/
+cp -f ./image/autorun.inf ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/mtaccesscri12 ./app/kdvcri
+cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+cp -f $file101 ./app/logs
+cp -f $file23 ./app/detectee
+
+chmod 777 -R app/*
+./mkyaffs2image ./app kdvcri2.image convert
+
+chmod 777 kdvcri2.image
+
+sleep 3
+./mkos -i $file12 -a kdvcri2.image -b $file13 -v "$4.6.1 cri2 version:@pid:0x043E" -o kdvcri2.bin
+cp -f kdvcri2.bin ../../10-common/version/release/os_linux/cri2
+
+#mv -f kdvcri2.image    ../../10-common/version/release/os_linux/cri2
+
+rm -fr app
+
+#####################################################################################
+#----make kdvcri2-h.bin----85xx---no need
+#mkdir app
+
+#cp -f ../../10-common/version/release/linux_ppc_85xx/apploader/apploader  ./app/
+#cp -f ./image/module.cfg ./app/
+#cp -f ./image/autorun.inf ./app/
+#cp -f ../../10-common/version/release/linux_ppc_85xx/kdvhdi12 ./app/
+#cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+
+#chmod 777 -R app/*
+#./mkyaffs2image ./app kdvhdi2.image convert
+
+#chmod 777 kdvhdi2.image
+
+#sleep 3
+#./mkos -i $file12 -a kdvhdi2.image -b $file13 -v "$4.6.1" -o kdvcri2-h.bin
+#cp -f kdvcri2-h.bin ../../10-common/version/release/os_linux/cri2
+#rm -f kdvhdi2.image
+#mv -f kdvhdi2.image    ../../10-common/version/release/os_linux/hdi2/85xx
+
+#rm -fr app
+
+#####################################################################################
+#----make kdvhdi2.bin----82xx
+##mkdir app
+
+##cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+##cp -f ./image/module.cfg ./app/
+##cp -f ./image/autorunhdi.inf ./app/autorun.inf
+##cp -f ../../10-common/version/release/linux_ppc_82xx/kdvhdi12 ./app/kdvhdi
+##cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+
+##chmod 777 -R app/*
+##./mkyaffs2image ./app kdvhdi2.image convert
+
+##chmod 777 kdvhdi2.image
+
+##sleep 3
+##./mkos -i $file12 -a kdvhdi2.image -b $file13 -v "$4.6.1" -o kdvcri2-h.bin
+##cp -f kdvcri2-h.bin ../../10-common/version/release/os_linux/cri2
+##rm -f kdvhdi2.image
+
+##rm -fr app
+
+#####################################################################################
+#----make is22.bin----(85xx)
+#		----make kdvis22.bin
+mkdir app
+
+cp -f ../../10-common/version/release/linux_ppc_85xx/apploader/apploader  ./app/
+cp -f ./image/module.cfg ./app/
+cp -f ./image/autorun.inf ./app/
+cp -f ../../10-common/version/release/linux_ppc_85xx/mtaccessmtadp ./app/
+cp -f ../../10-common/version/release/linux_ppc_85xx/mcuinterworking ./app/
+cp -f ../../10-common/version/release/linux_ppc_85xx/mcuregserver ./app/
+cp -f ../../10-common/version/release/linux_ppc_85xx/mtaccesscri12 ./app/kdvcri
+cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+cp -f ../../10-common/version/config/mcu/conf/modcfg.ini ./app/
+cp -f ../../10-common/version/config/mcu/conf/mtadpdebug.ini ./app/
+cp -f ../../10-common/version/release/linux_ppc_85xx/mcugk_nand	./app/mcugk
+cp -f ../../10-common/version/release/linux_ppc_85xx/pxyserverapp_12	./app/
+cp -f $file102 ./app/logs
+cp -f ../../10-common/version/release/linux_ppc_85xx/detectee12 ./app/detectee
+echo "-------------------"
+ls -l ./app
+echo "-------------------"
+chmod 777 -R app/*
+./mkyaffs2image ./app kdvcri12.image convert
+
+chmod 777 kdvcri12.image
+
+sleep 3
+./mkos -i $file14 -a kdvcri12.image -b $file15 -v "$4.6.1 is22 version:@pid:0x0441" -o kdvis22.bin
+cp -f kdvis22.bin ../../10-common/version/release/os_linux/is2-8548/
+
+#mv -f kdvcri12.image    ../../10-common/version/release/os_linux/cri/85xx
+rm -f kdvcri12.image
+rm -fr app
+
+#######################################################
+#		----make kdvis22-h.bin
+##mkdir app
+
+##cp -f ../../10-common/version/release/linux_ppc_85xx/apploader/apploader  ./app/
+##cp -f ./image/module.cfg ./app/
+##cp -f ./image/autorunhdi.inf ./app/autorun.inf
+##cp -f ../../10-common/version/release/linux_ppc_85xx/kdvhdi12 ./app/kdvhdi
+##cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+##cp -f ../../10-common/version/config/mcu/conf/modcfg.ini ./app/
+##cp -f ../../10-common/version/config/mcu/conf/mtadpdebug.ini ./app/
+##cp -f ../../10-common/version/release/linux_ppc_85xx/mcugk_nand	./app/mcugk
+##cp -f ../../10-common/version/release/linux_ppc_85xx/pxyserverapp_8313	./app/
+##chmod 777 -R app/*
+##./mkyaffs2image ./app kdvhdi12.image convert
+
+##chmod 777 kdvhdi12.image
+
+##sleep 3
+##./mkos -i $file14 -a kdvhdi12.image -b $file15 -v "$4.6.1" -o kdvis22-h.bin
+##cp -f kdvis22-h.bin ../../10-common/version/release/os_linux/is2-8548/
+
+#mv -f kdvcri12.image    ../../10-common/version/release/os_linux/cri/85xx
+##rm -f kdvhdi12.image
+##rm -fr app
+
+#####################################################################################
+#----make is21.bin----
+mkdir app
+
+#cp -f ../../10-common/version/release/linux_ppc_85xx/apploader/apploader  ./app/
+#cp -f ./image/module.cfg ./app/
+#cp -f ./image/autorun.inf ./app/
+#cp -f ../../10-common/version/release/linux_ppc_85xx/mtaccesscri12 ./app/kdvcri
+#cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+
+cp -f ../../10-common/version/release/linux_ppc_82xx/apploader/apploader  ./app/
+cp -f ./image/module.cfg ./app/
+cp -f ./image/autorun.inf ./app/
+cp -f ../../10-common/version/release/linux_ppc_82xx/mtaccesscri12_is21 ./app/kdvcri
+cp -f ../../10-common/version/config/mcu/conf/mtcap.ini ./app/
+cp -f $file101 ./app/logs
+
+chmod 777 -R app/*
+./mkyaffs2image ./app kdvcri12.image convert
+
+chmod 777 kdvcri12.image
+
+sleep 3
+./mkos -i $file16 -a kdvcri12.image -b $file17 -v "$4.6.1 is21 version:@pid:0x0440" -o is21.bin
+#./mkos -i $file16 -b $file17 -v "$4.6.1" -o is21.bin
+cp -f is21.bin ../../10-common/version/release/os_linux/is2-8313
+
+rm -fr app
+
+fi
+
+ 
+ 
+ 
+ 
+ 

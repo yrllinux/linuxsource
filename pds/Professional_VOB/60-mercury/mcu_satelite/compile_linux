@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cd prj_linux
+
+./compile.bat
+cd ..
+
+./makeimage
+
+
+
+

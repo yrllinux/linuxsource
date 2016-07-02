@@ -1,0 +1,372 @@
+Document file - DO NOT EDIT
+
+<BEGIN> BUILD_BasicBoardAgentDebug_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_AR
+arppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_ARCHIVE
+$(PRJ_DIR)/../../../../10-common/lib/debug/8260/BasicBoardAgent.a
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_AS
+ccppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_CC
+ccppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_CFLAGS
+-g \
+	-mstrict-align \
+	-mlongcall \
+	-nostdinc \
+	-DRW_MULTI_THREAD \
+	-D_REENTRANT \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-msoft-float \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-I$(PRJ_DIR)/../include \
+	-I$(PRJ_DIR)/../../../common/include \
+	-I$(PRJ_DIR)/../../../../10-common/include/mcu \
+	-I$(PRJ_DIR)/../../../../10-common/include/platform \
+	-I$(PRJ_DIR)/../../../../10-common/include/system1 \
+	-I$(PRJ_DIR)/../../../../10-common/include/protocol \
+	-DCPU=PPCEC603 \
+	-D_VXWORKS_
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_CFLAGS_AS
+-g \
+	-mstrict-align \
+	-ansi \
+	-nostdinc \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-P \
+	-x \
+	assembler-with-cpp \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-DCPU=PPCEC603
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_CPP
+ccppc -E -P -xc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_LD
+ldppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_LDDEPS
+
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_LDFLAGS
+-X -N
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_LD_PARTIAL_FLAGS
+-X -r
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} {$(WIND_BASE)/target/src/} {$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentDebug_TC
+::tc_PPCEC603gnu
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_AR
+arppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_ARCHIVE
+$(PRJ_DIR)/../../../../10-common/lib/release/8260/BasicBoardAgent.a
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_AS
+ccppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_CC
+ccppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_CFLAGS
+-O2 \
+	-mstrict-align \
+	-mlongcall \
+	-nostdinc \
+	-DRW_MULTI_THREAD \
+	-D_REENTRANT \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-msoft-float \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-I$(PRJ_DIR)/../include \
+	-I$(PRJ_DIR)/../../../common/include \
+	-I$(PRJ_DIR)/../../../../10-common/include/mcu \
+	-I$(PRJ_DIR)/../../../../10-common/include/platform \
+	-I$(PRJ_DIR)/../../../../10-common/include/system1 \
+	-I$(PRJ_DIR)/../../../../10-common/include/protocol \
+	-DCPU=PPCEC603 \
+	-D_VXWORKS_
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_CFLAGS_AS
+-g \
+	-mstrict-align \
+	-ansi \
+	-nostdinc \
+	-fvolatile \
+	-fno-builtin \
+	-fno-for-scope \
+	-P \
+	-x \
+	assembler-with-cpp \
+	-I. \
+	-I$(WIND_BASE)/target/h \
+	-DCPU=PPCEC603
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_CPP
+ccppc -E -P -xc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_LD
+ldppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_LDDEPS
+
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_LDFLAGS
+-X -N
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_LD_PARTIAL_FLAGS
+-X -r
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} {$(WIND_BASE)/target/src/} {$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_BasicBoardAgentRelease_TC
+::tc_PPCEC603gnu
+<END>
+
+<BEGIN> BUILD_RULE_BasicBoardAgent.out
+
+<END>
+
+<BEGIN> BUILD_RULE_archive
+
+<END>
+
+<BEGIN> BUILD_RULE_objects
+
+<END>
+
+<BEGIN> BUILD__CURRENT
+BasicBoardAgentRelease
+<END>
+
+<BEGIN> BUILD__LIST
+BasicBoardAgentDebug BasicBoardAgentRelease
+<END>
+
+<BEGIN> CORE_INFO_TYPE
+::prj_vxApp
+<END>
+
+<BEGIN> CORE_INFO_VERSION
+2.0
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardagentbasic.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardagentbasic.cpp_dependencies
+$(PRJ_DIR)/../../../../10-common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brddrvlib.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../../common/include/evagtsvc.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/vccommon.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvdef.h \
+	$(PRJ_DIR)/../../../common/include/boardagentbasic.h \
+	$(PRJ_DIR)/../../../common/include/agentcommon.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/agtcomm.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/kdvsys.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcustruct.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvDef.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/ummessagestruct.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/umconst.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/md5.h \
+	$(PRJ_DIR)/../../../common/include/boardconfigbasic.h \
+	$(PRJ_DIR)/../../../common/include/mcuagtstruct.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/eqpcfg.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brddrvLib.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brdDrvLib.h
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardagentbasic.cpp_objects
+boardagentbasic.o
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardagentbasic.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardconfigbasic.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardconfigbasic.cpp_dependencies
+$(PRJ_DIR)/../../../../10-common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brddrvlib.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../../common/include/boardconfigbasic.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/vccommon.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvdef.h \
+	$(PRJ_DIR)/../../../common/include/mcuagtstruct.h \
+	$(PRJ_DIR)/../../../common/include/agentcommon.h \
+	$(PRJ_DIR)/../../../common/include/evagtsvc.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/agtcomm.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/kdvsys.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcustruct.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvDef.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/ummessagestruct.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/umconst.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/md5.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/eqpcfg.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brddrvLib.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brdDrvLib.h
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardconfigbasic.cpp_objects
+boardconfigbasic.o
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardconfigbasic.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardguardbasic.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardguardbasic.cpp_dependencies
+$(PRJ_DIR)/../../../common/include/boardguardbasic.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/osp.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brddrvlib.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvtype.h \
+	$(PRJ_DIR)/../../../common/include/mcuagtstruct.h \
+	$(PRJ_DIR)/../../../common/include/agentcommon.h \
+	$(PRJ_DIR)/../../../common/include/evagtsvc.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/eventid.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/agtcomm.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/kdvsys.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcuconst.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/vccommon.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvdef.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/mcustruct.h \
+	$(PRJ_DIR)/../../../../10-common/include/system1/kdvDef.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/ummessagestruct.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/umconst.h \
+	$(PRJ_DIR)/../../../../10-common/include/protocol/md5.h \
+	$(PRJ_DIR)/../../../common/include/boardagentbasic.h \
+	$(PRJ_DIR)/../../../common/include/boardconfigbasic.h \
+	$(PRJ_DIR)/../../../../10-common/include/mcu/eqpcfg.h \
+	$(PRJ_DIR)/../../../../10-common/include/platform/brddrvLib.h
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardguardbasic.cpp_objects
+boardguardbasic.o
+<END>
+
+<BEGIN> FILE_E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardguardbasic.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> PROJECT_FILES
+E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardagentbasic.cpp \
+	E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardconfigbasic.cpp \
+	E:/ccroot/zhouguangcheng_kdv40_dev/kdv40_vob/60-service2/boardagentnewlib/basicboardagent/source/boardguardbasic.cpp
+<END>
+
+<BEGIN> userComments
+<Enter description here>
+<END>
+

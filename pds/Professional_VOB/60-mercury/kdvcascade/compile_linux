@@ -1,0 +1,101 @@
+#!/bin/sh
+
+OPTION=`echo $1 | tr "A-Z" "a-z"`
+
+cd prj_linux
+
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_d clean;
+fi
+
+make -f makefile_linux_d 1> ../../../10-common/version/compileinfo/kdvcascade_linux_d.txt 2>&1
+echo makefile_linux_d completed!
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_r clean;
+fi
+
+make -f makefile_linux_r 1> ../../../10-common/version/compileinfo/kdvcascade_linux_r.txt 2>&1
+echo makefile_linux_r completed!
+
+
+
+
+
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_ppc_82xx_d clean;
+fi
+
+make -f makefile_linux_ppc_82xx_d 1> ../../../10-common/version/compileinfo/kdvcascade_linux_ppc_82xx_d.txt 2>&1
+echo makefile_linux_ppc_82xx_d completed!
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_ppc_82xx_r clean;
+fi
+
+make -f makefile_linux_ppc_82xx_r 1> ../../../10-common/version/compileinfo/kdvcascade_linux_ppc_82xx_r.txt 2>&1
+echo makefile_linux_ppc_82xx_r completed!
+
+
+
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_ppc_85xx_d clean;
+fi
+
+make -f makefile_linux_ppc_85xx_d 1> ../../../10-common/version/compileinfo/kdvcascade_linux_ppc_85xx_d.txt 2>&1
+echo makefile_linux_ppc_85xx_d completed!
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_ppc_85xx_r clean;
+fi
+
+make -f makefile_linux_ppc_85xx_r 1> ../../../10-common/version/compileinfo/kdvcascade_linux_ppc_85xx_r.txt 2>&1
+echo makefile_linux_ppc_85xx_r completed!
+
+
+
+
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_eqt_d clean;
+fi
+
+make -f makefile_linux_eqt_d 1> ../../../10-common/version/compileinfo/kdvcascade_linux_eqt_d.txt 2>&1
+echo makefile_linux_eqt_d completed!
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_eqt_r clean;
+fi
+
+make -f makefile_linux_eqt_r 1> ../../../10-common/version/compileinfo/kdvcascade_linux_eqt_r.txt 2>&1
+echo makefile_linux_eqt_r completed!
+
+
+
+
+
+
+
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_arm_d6446_d clean;
+fi
+
+make -f makefile_linux_arm_d6446_d 1> ../../../10-common/version/compileinfo/kdvcascade_linux_arm_d6446_d.txt 2>&1
+echo makefile_linux_arm_d6446_d completed!
+
+if [ "$OPTION" != "noclean" ]; then
+           make -f makefile_linux_arm_d6446_r clean;
+fi
+
+make -f makefile_linux_arm_d6446_r 1> ../../../10-common/version/compileinfo/kdvcascade_linux_arm_d6446_r.txt 2>&1
+echo makefile_linux_arm_d6446_r completed!
+
+
+
+
+
+cd ..

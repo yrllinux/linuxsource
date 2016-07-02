@@ -1,0 +1,43 @@
+###
+### Copyright (c) 2006 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in mcu linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := mcu_8000e
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER = 
+CFLAGS += -D_8KE_ -DRV_RELEASE -DRV_CFLAG_NOTHREADS -DRV_CFLAG_IPV6
+CFLAGS += -D_UTF8 
+#-D-fno-stack-protector
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+
+## Libraries to include in shared object file
+LIBS := mcuagent8ke mtadp8ke6 lanman mp8ke6 h460pinholelib readlicenselib  rockey2 watchdog ftpc snmpadp_mcu x86_snmpagent x86_snmp x86_nip_api simbrdwrapper commonlib kdvum kdvaddrbook kdv323adp_4.2_v6 kdv323_4.2_v6 kdvnetbuf kdvdatanet dataswitch_v6 kdvmedianet fcnet enfc kdvencrypt kdvcascade kdvlog osp kdvsys rt dl pthread
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../../10-common/include/t120 ../../../10-common/include/nms1 ../../../10-common/include/cbb/license
+
+LIB_PATH += ../../../10-common/lib/release/linux
+
+include $(COMM_DIR)/common.mk
+
+LDFLAGS += --static

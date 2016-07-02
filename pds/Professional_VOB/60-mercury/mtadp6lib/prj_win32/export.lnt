@@ -1,0 +1,22 @@
+
+/* Generated from file: prjmtadpwin32.dsp */
+-i..\..\..\10-common\include\mcu
+-i..\..\..\10-common\include\mt
+-i..\..\..\10-common\include\platform
+-i..\..\..\10-common\include\radstack
+-i..\include
+-i..\..\common\include
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\protocol\h323stack
+-i..\..\..\10-common\include\protocol
+-i..\..\..\10-common\include\cbb\license
+-dWIN32
+-d_DEBUG
+-d_MBCS
+-d_LIB
+-d_AFXDLL /* which then implies */ -d_MT -d_DLL 
+-d_CONFIG_FROM_FILE
+..\source\gk.cpp
+..\source\mtadp.cpp
+..\source\mtadpd.cpp
+..\source\mtadputils.cpp

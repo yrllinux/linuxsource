@@ -1,0 +1,8 @@
+#define ELE_SEC_READ_ONLY       0//readable-only
+#define ELE_SEC_READ_WRITE      2//readable-writable
+#define ELE_SEC_WRITE_ONLY_ONCE 6//writeable-only-once
+
+#pragma segment(".text", code, ELE_SEC_READ_WRITE, 0x8000)
+unsigned char v1[8];
+
+ 

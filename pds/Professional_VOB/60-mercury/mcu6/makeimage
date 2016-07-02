@@ -1,0 +1,52 @@
+#mcu6 can not run on MPC, due to its unmatch kernal
+
+
+#for 8000a_MPC2 -- not support by now
+file0=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file1=./image/module.cfg
+file2=./image/autorun.inf
+file3=../../10-common/version/release/linux_ppc_82xx/v6/mcu2
+#just replace update.linux
+file4=../../10-common/version/release/os_linux/mpc2/update.linux
+file5=../../10-common/version/release/os_linux/mpc2/u-boot.bin
+file6=../../10-common/version/release/linux_ppc_82xx/detectee12
+file101=../../10-common/version/release/linux_ppc_82xx/kdvlogserver
+f1=1
+for file in $file0 $file1 $file2 $file3 $file4 $file5 $file6 $file101
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist >> err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+ 
+rm -fr app
+
+mkdir app
+
+for file in $file0 $file1 $file2
+do
+cp -f $file ./app/
+done
+cp -f $file3 ./app/mcu
+cp -f &file6 ./app/detectee
+cp -f $file101 ./app/logs
+
+chmod 777 -R app/*
+./mkyaffs2image ./app mcu2.image convert
+
+chmod 777 mcu2.image
+
+sleep 3
+./mkos -i $file4 -a mcu2.image -b $file5 -v "$4.6.1 mcu version:@pid:0x043D" -o mcu2.bin
+cp -f mcu2.bin ../../10-common/version/release/os_linux/mcu/mcu2_v6.bin
+
+rm -fr app
+
+fi

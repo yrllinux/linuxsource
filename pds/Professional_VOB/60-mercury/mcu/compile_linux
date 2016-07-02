@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cd prj_linux
+
+./compile.bat
+cd ..
+
+./makeimage
+
+cd ../8kelinuxcab
+./compile_linux
+
+#2012-10-29 pengguofeng: 8000H、800L、8000H-M所有bin包均统一成一个包：kdv8000h.bin
+#2013-7-4 800L,8000H-M单独生成BIN包
+cd ../8khlinuxcab
+./compile_linux
+
+
+cd ../8kilinuxcab
+./compile_linux
+
+

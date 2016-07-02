@@ -1,0 +1,155 @@
+
+
+-- 上面留空行是为了和mcuerrstr.txt连接，请勿删除
+/*****************************************************************************
+模   块   名: 会议控制台业务功能库
+文   件   名: mcsliblanguage.txt
+相 关  文 件: 无
+文件实现功能: 多语言字符串文字描述
+作        者: 王昊
+版        本: V4.0  Copyright(C) 2003-2005 KDC, All rights reserved.
+-------------------------------------------------------------------------------
+修改记录:
+日      期  版本    修改人      修改内容
+2005/06/20  4.0     王昊        创建
+2005/11/09  4.0     顾振华      保留中文，其他放到多语言包中
+2005/12/17  4.0     顾振华      会议组->条目组
+*****************************************************************************/
+
+[mcslib]
+--mcslib错误
+MCSLIB_ERROR_OSP_ALREADY_INIT	= Osp已经初始化
+MCSLIB_ERROR_OSP_INIT			= Osp初始化失败
+MCSLIB_ERROR_OSP_NO_INIT		= Osp没有初始化
+MCSLIB_ERROR_CREATE_APP			= 创建应用失败
+MCSLIB_NO_MEMORY				= 分配内存出错
+MCSLIB_INVALID_WINDOW			= 无效的窗口句柄
+MCSLIB_NOT_IN_IDLE_STATE		= 会控已经连接上MCU
+MCSLIB_NOT_REGISTER_WINDOW		= 会控没有注册窗口
+MCSLIB_MUST_WAIT				= 会控正在处理前一请求
+MCSLIB_INVALID_PARAM			= 无效的参数
+MCSLIB_FAIL_CONNECT_MCU			= 连接MCU失败
+MCSLIB_FAIL_POSTMSG_TO_MCU		= 向MCU发送消息失败
+MCSLIB_FAIL_ALREADY_CREATE		= 对象已经创建
+MCSLIB_FAIL_REG_SESSION			= 注册MCU对象失败
+MCSLIB_FAIL_UNREG_SESSION		= 注销MCU对象失败
+MCSLIB_NOT_IN_NORMAL_STATE		= 会控还没有连接上MCU
+MCSLIB_MAXNUM_MCU				= 已连接最大数目MCU
+--H320ID字符串显示，含有三个数字
+H320ID_D_D_D			= H320终端,层号:%d,槽号:%d,通道号:%d
+--连接MCU
+emTimerWaitConnectMcu				= 连接MCU
+emTimerWaitLoginUm					= 向用户管理模块注册
+emTimerWaitSyncTime					= 时间同步
+emTimerWaitGetMcuStatus				= 获取MCU状态
+emTimerWaitGetMcuEqpCfg				= 获取MCU外设配置
+emTimerWaitGetMcuBrdCfg				= 获取MCU单板配置
+emTimerWaitGetMcuGeneralCfg			= 获取MCU基本配置
+emTimerWaitAddrReg					= 注册地址簿
+emTimerWaitAddrGetEntryNum			= 获取地址簿条目总数
+emTimerWaitAddrGetEntry				= 获取地址簿条目
+emTimerWaitAddrGetGroupNum			= 获取地址簿条目组总数
+emTimerWaitAddrGetGroup				= 获取地址簿条目组
+emTimerWaitGetUserList				= 获取用户列表
+emTimerWaitListAllConf				= 获取所有会议列表
+emTimerWaitGetPeriEqpStatus			= 获取外设状态
+emTimerWaitGetLockInfo				= 获取会议锁定信息
+emTimerWaitGetAllMtStatus			= 获取所有终端状态
+emTimerWaitGetAllMtAlias			= 获取所有终端别名
+emTimerWaitGetAllMcuMediaSrc		= 获取所有MCU媒体源
+emTimerWaitGetAllSMcuLockStatus		= 获取所有下级MCU锁定情况
+emTimerWaitGetAllSMcuMixParam		= 获取所有下级MCU混音参数
+emTimerWaitGetVmpStyle				= 获取画面合成方案
+--MCU操作
+emTimerWaitGetMcuMsStatus			= 请求MCU主备状态
+emTimerWaitGetMcuCpuStatus			= 请求MCU CPU使用率
+emTimerWaitModifyMcuEqpCfg			= 修改MCU外设配置
+emTimerWaitModifyMcuBrdCfg			= 修改MCU单板配置
+emTimerWaitModifyMcuGeneralCfg		= 修改MCU基本配置
+emTimerWaitGetMcuTime				= 获取MCU系统时间
+emTimerWaitModifyMcuTime			= 修改MCU系统时间
+emTimerWaitRebootBrd			= 重启单板
+--会议管理
+emTimerWaitCreateConf				= 创建会议
+emTimerWaitCreateConfByTemplate		= 根据模板创建会议
+emTimerWaitReleaseConf				= 结束会议
+emTimerWaitChangeConfLockMode		= 修改会议锁定模式
+emTimerWaitChangeConfPwd			= 修改会议密码
+emTimerWaitSaveConf					= 保存会议
+emTimerWaitModifyConf				= 修改会议
+emTimerWaitDelayConf				= 会议延时
+--会议操作
+emTimerWaitSpecChairman				= 指定主席
+emTimerWaitCancelChairman			= 取消主席
+emTimerWaitSpecSpeaker				= 指定发言人
+emTimerWaitCancelSpeaker			= 取消发言
+emTimerWaitAddMt					= 添加终端
+emTimerWaitDelMt					= 删除终端
+emTimerWaitStartMonitor				= 开始监控
+emTimerWaitStopMonitor				= 停止监控
+--会议控制
+emTimerWaitGetPollParam				= 获取会议轮询参数
+emTimerWaitGetTwPollParam				= 获取电视墙轮询参数
+emTimerWaitChangeVacHoldTime		= 修改语音激励时间
+emTimerWaitMixDelay			= 混音延时设置
+--终端操作
+emTimerWaitCallMt					= 呼叫终端
+emTimerWaitSetMtCallMode			= 设置终端呼叫方式
+emTimerWaitDropMt					= 挂断终端
+emTimerWaitStartSee					= 终端选看
+emTimerWaitStopSee					= 停止选看
+emTimerWaitGetMtAlias				= 获取终端别名
+emTimerWaitGetMtBitrate				= 获取终端码率
+emTimerWaitAudMute					= 静音哑音
+emTimerWaitGetMatrix				= 获取终端矩阵
+emTimerWaitGetMatrixScheme			= 获取矩阵方案
+emTimerWaitGetMatrixExPort			= 获取外置矩阵连接端口
+emTimerWaitLockSMcu					= 锁定下级MCU
+--录像
+emTimerWaitStartRec					= 开始录像
+emTimerWaitPauseRec					= 暂停录像
+emTimerWaitResumeRec				= 恢复录像
+emTimerWaitStopRec					= 停止录像
+emTimerWaitStartPlay				= 开始放像
+emTimerWaitPausePlay				= 暂停放像
+emTimerWaitResumePlay				= 恢复放像
+emTimerWaitStopPlay					= 停止放像
+emTimerWaitSeekPlay					= 放像进度调节
+--emTimerWaitGetAllRecFile			= 获取录像文件
+emTimerWaitDeleteRecFile			= 删除录像文件
+emTimerWaitChangeRecFileName		= 修改录像文件名
+emTimerWaitPublishRecFile			= 发布录像文件
+emTimerWaitCancelPub				= 取消发布
+emTimerWaitModifyRecFile			= 修改录像文件名
+--混音
+emTimerWaitStartMix					= 开始混音
+emTimerWaitStopMix					= 停止混音
+emTimerWaitStartVac					= 开始语音激励
+emTimerWaitStopVac					= 停止语音激励
+--画面合成
+emTimerWaitStartVmp					= 开始画面合成
+emTimerWaitStopVmp					= 停止画面合成
+emTimerWaitChangeVmpParam			= 修改画面合成参数
+emTimerWaitStartVmpBrdst			= 开始画面合成广播
+emTimerWaitStopVmpBrdst				= 停止画面合成广播
+--电视墙
+emTimerWaitStartTW					= 开始电视墙
+emTimerWaitStopTW					= 停止电视墙
+--多画面电视墙
+emTimerWaitStartMultiTW				= 开始多画面电视墙
+emTimerWaitChangeMultiTWParam		= 修改多画面电视墙参数
+emTimerWaitStopMultiTW				= 停止多画面电视墙
+--用户
+emTimerWaitAddUser					= 添加用户
+emTimerWaitDelUser					= 删除用户
+emTimerWaitModifyUser				= 修改用户
+--地址簿
+emTimerWaitAddrUnreg				= 注销地址簿
+emTimerWaitAddrAddEntry				= 增加地址簿条目
+emTimerWaitAddrDelEntry				= 删除地址簿条目
+emTimerWaitAddrModifyEntry			= 修改地址簿条目
+emTimerWaitAddrAddGroup				= 增加地址簿条目组
+emTimerWaitAddrDelGroup				= 删除地址簿条目组
+emTimerWaitAddrModifyGroup			= 修改地址簿会议组
+emTimerWaitAddrGroupAddEntry		= 向地址簿条目组增加条目
+emTimerWaitAddrGroupDelEntry		= 从地址簿条目组删除条目

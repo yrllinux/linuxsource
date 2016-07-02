@@ -1,0 +1,13 @@
+
+/* tvwalllib */
+-i..\..\common\include
+-i..\..\..\10-common\include\platform
+-i..\..\..\10-common\include\mcu
+-i..\..\..\10-common\include\system1
+-i..\..\..\10-common\include\nms1
+-i..\include
+-i..\..\..\10-common\include\protocol
+-d_PPC_
+-dHARD_CODEC
+..\source\TvWall.cpp
+..\source\TWInst.cpp

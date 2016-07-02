@@ -1,0 +1,349 @@
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            
+//   File Name:   Setup.rul                                                   
+//                                                                            
+//   Description: InstallShield script                                        
+//                                                                            
+//   Comments:    This script was generated based on the selections you made in
+//                the Project Wizard.  Refer to the help topic entitled "Modify      
+//                the script that the Project Wizard generates" for information
+//                on possible next steps.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+// Include header files
+    
+#include "ifx.h"
+    
+////////////////////// string defines ////////////////////////////
+
+//////////////////// installation declarations ///////////////////
+
+// ----- DLL function prototypes -----
+
+
+    // your DLL function prototypes
+
+
+// ---- script function prototypes -----
+
+
+    // your script function prototypes
+
+    // your global variables
+    
+// 安装的拷贝数
+number  nCopies; 
+                 
+prototype InstallLoader (BOOL);
+prototype RemoveAll ();
+prototype ReInstall ();
+
+function InstallLoader(bInstall)   
+	string  szCommand;    
+	string  szCmdLine;
+	string  szCopies;
+begin
+	ChangeDirectory (TARGETDIR);
+	 
+	szCommand = "RecLoader.exe";
+	NumToStr(szCopies, nCopies);       
+	if (bInstall) then
+		szCmdLine = "install " + szCopies;
+	else
+		szCmdLine = "remove";	
+	endif;
+	// 顾振华,暂时不做
+	// LaunchApp (szCommand, szCmdLine);
+
+end;
+
+function RemoveAll()
+begin	
+	InstallLoader(FALSE);         
+	
+	ComponentRemoveAll();
+end;
+
+function ReInstall()
+begin
+	ComponentReinstall();
+end;
+
+                        
+//////////////////////////////////////////////////////////////////////////////
+//                                                                           
+//  FUNCTION:   OnFirstUIBefore                                            
+//                                                                           
+//  EVENT:      FirstUIBefore event is sent when installation is run for the first
+//              time on given machine. In the handler installation usually displays
+//              UI allowing end user to specify installation parameters. After this
+//              function returns, ComponentTransferData is called to perform file
+//              transfer.
+//                                                                           
+///////////////////////////////////////////////////////////////////////////////
+function OnFirstUIBefore()
+    number  nResult;
+    string  szTitle, szMsg;
+    string  szName, szCompany;
+    string  szDir;
+    string  szComponents, szTargetdir;
+    number  nLevel;
+    LIST    listStartCopy;       
+    string  szCopies;
+    
+begin	
+	nCopies = 1;	// 安装的Copy数
+	
+    // TO DO: if you want to enable background, window title, and caption bar title                                                                     
+     SetTitle( @TITLE_MAIN, 24, WHITE );                                        
+     SetTitle( @TITLE_CAPTIONBAR, 0, BACKGROUNDCAPTION ); 	                   
+    // Enable( FULLWINDOWMODE );						   
+    // Enable( BACKGROUND );							  
+    // SetColor( BACKGROUND, RGB( 0, 128, 128 ) );					   
+   
+    TARGETDIR = PROGRAMFILES ^ @COMPANY_NAME ^ @PRODUCT_NAME;	
+    szDir = TARGETDIR;
+    szName = "";
+    szCompany = "";
+
+Dlg_Start:
+    // beginning of dialogs label
+
+Dlg_SdWelcome:
+    szTitle = "";
+    szMsg = "";
+    nResult = SdWelcome( szTitle, szMsg );
+   if (nResult = BACK) goto Dlg_Start;
+
+Dlg_SdRegisterUser:
+    szMsg = "";
+    szTitle = "";	
+    nResult = SdRegisterUser( szTitle, szMsg, szName, szCompany );
+    if (nResult = BACK) goto Dlg_SdWelcome;
+
+Dlg_SdAskDestPath:
+    szTitle = "";
+    szMsg = "";
+        nResult = SdAskDestPath( szTitle, szMsg, szDir, 0 );
+        TARGETDIR = szDir;
+        if (nResult = BACK) goto Dlg_SdRegisterUser;
+
+Dlg_SdComponentTree: 
+    szTitle = "";
+    szMsg = "";
+    szTargetdir = TARGETDIR;
+    szComponents = "";
+    nLevel = 2;
+        nResult = SdComponentTree( szTitle, szMsg, szTargetdir, szComponents, nLevel );
+        if (nResult = BACK) goto Dlg_SdAskDestPath;        
+        
+        
+/*                   
+Dlg_AskCopies:	   
+
+	NumToStr(szCopies, nCopies);  
+	szMsg = @STR_ENTERCOPIES;
+		nResult = AskText(szMsg, szCopies, szCopies);
+	 	if (nResult = BACK) goto Dlg_SdComponentTree; 
+	StrToNum(nCopies, szCopies);
+	if (nCopies = 0) goto Dlg_AskCopies;
+*/
+                    
+Dlg_ObjDialogs:
+    nResult = ShowObjWizardPages( nResult );
+    if (nResult = BACK) goto Dlg_SdComponentTree; //Dlg_AskCopies
+    
+Dlg_SdStartCopy:
+    szTitle = "";
+    szMsg = "";
+    listStartCopy = ListCreate( STRINGLIST );
+    //The following is an example of how to add a string (szName) to a list (listStartCopy).
+    //e.g. ListAddString( listStartCopy, szName, AFTER );
+    nResult = SdStartCopy( szTitle, szMsg, listStartCopy );	
+    ListDestroy( listStartCopy );
+    if (nResult = BACK) goto Dlg_ObjDialogs;
+
+    // set up default status
+    SetStatusWindow( 0, "" );
+    Enable( STATUSEX );
+    StatusUpdate( ON, 100 );
+
+    return 0;
+end;
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCTION:   OnMoving
+//
+//  EVENT:      Moving event is sent when file transfer is started as a result of
+//              ComponentTransferData call, before any file transfer operations 
+//              are performed.
+//
+///////////////////////////////////////////////////////////////////////////////
+function OnMoving()
+    string szAppPath;
+begin
+    // Set Logo Compliance Application Path 
+    szAppPath = TARGETDIR;
+    // TO DO: if your application's main executable file is in a subfolder of TARGETDIR then append this subfolder to szAppPath 
+    RegDBSetItem( REGDB_APPPATH, szAppPath );
+    RegDBSetItem( REGDB_APPPATH_DEFAULT, szAppPath ^ @PRODUCT_KEY );
+end;
+ 
+///////////////////////////////////////////////////////////////////////////////
+
+ 
+///////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCTION:   OnFirstUIAfter
+//
+//  EVENT:      FirstUIAfter event is sent after file transfer, when installation 
+//              is run for the first time on given machine. In this event handler 
+//              installation usually displays UI that will inform end user that
+//              installation has been completed successfully.
+//
+///////////////////////////////////////////////////////////////////////////////
+function OnFirstUIAfter()
+    STRING szTitle, szMsg1, szMsg2, szOption1, szOption2;
+    NUMBER bOpt1, bOpt2;
+                                                                         
+begin  
+	// 启动复制程序
+	InstallLoader(TRUE);   
+	
+	// 调用 AddFolderIcon 可以创建额外的快捷方式 
+	                      
+	// 完成	                      
+    Disable(STATUSEX);
+
+    ShowObjWizardPages(NEXT);
+
+	bOpt1  = FALSE;
+    bOpt2  = FALSE;
+    szMsg1 = SdLoadString(IFX_SDFINISH_MSG1);
+    SdFinishEx(szTitle, szMsg1, szMsg2, szOption1, szOption2, bOpt1, bOpt2);
+end;
+ 
+ 
+///////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCTION:   OnMaintUIBefore
+//
+//  EVENT:      MaintUIBefore event is sent when end user runs installation that
+//              has already been installed on the machine. Usually this happens 
+//              through Add/Remove Programs applet. In the handler installation 
+//              usually displays UI allowing end user to modify existing installation
+//              or uninstall application. After this function returns, 
+//              ComponentTransferData is called to perform file transfer.
+//
+///////////////////////////////////////////////////////////////////////////////  
+
+function OnMaintUIBefore()
+    NUMBER nResult, nType;
+    STRING szTitle, szMsg, svDir, svResult, szCaption;
+    string  szCopies;
+begin
+	// TO DO: if you want to enable background, window title, and caption bar title   								
+	// SetTitle( @TITLE_MAIN, 24, WHITE );					
+	// SetTitle( @TITLE_CAPTIONBAR, 0, BACKGROUNDCAPTION );  			
+	// SetColor(BACKGROUND,RGB (0, 128, 128));					
+	// Enable( FULLWINDOWMODE );						
+	// Enable( BACKGROUND );							
+
+Dlg_Start:
+	nCopies = 1;
+	
+	Disable(BACKBUTTON);
+	nType = SdWelcomeMaint(szTitle, szMsg, MODIFY);
+	Enable(BACKBUTTON);
+	
+    if (nType = REMOVEALL) then
+		svResult = SdLoadString(IFX_MAINTUI_MSG);
+		szCaption = SdLoadString(IFX_ONMAINTUI_CAPTION);
+		nResult = SprintfBox(MB_OKCANCEL,szCaption,"%s",svResult);
+		if (nResult = IDCANCEL) goto Dlg_Start;
+	endif;
+
+    nResult = NEXT;
+
+Dlg_SdComponentTree:
+	if (nType = MODIFY) then
+		szTitle = "";
+		szMsg = "";
+		nResult = SdComponentTree(szTitle, szMsg, TARGETDIR, "", 2);
+		if (nResult = BACK) goto Dlg_Start;
+    endif; 
+    
+/*
+Dlg_AskCopies:	          
+	if (nType = MODIFY) then	
+		NumToStr(szCopies, nCopies);  
+		szMsg = @STR_ENTERCOPIES;
+			nResult = AskText(szMsg, szCopies, szCopies);
+		 	if (nResult = BACK) goto Dlg_SdComponentTree; 
+		StrToNum(nCopies, szCopies);
+		if (nCopies = 0) goto Dlg_AskCopies;       
+	else
+		// 如果是重新安装，标记为-1
+		nCopies = -1;		
+	endif;
+*/
+	
+Dlg_ObjDialogs:
+    nResult = ShowObjWizardPages(nResult);
+    if (nResult = BACK) then
+    	if (nType = MODIFY) then
+    		goto Dlg_SdComponentTree; //Dlg_AskCopies;
+    	else 
+    		goto Dlg_Start;
+    	endif;
+    endif;
+    	 
+
+	switch(nType)
+        case REMOVEALL: RemoveAll();
+        case REPAIR:    ReInstall();
+    endswitch;
+    
+    // setup default status 
+ 	SetStatusWindow(0, "");
+	Enable(STATUSEX);
+	StatusUpdate(ON, 100);
+end;
+                    
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCTION:   OnMaintUIAfter
+//
+//  EVENT:      MaintUIAfter event is sent after file transfer, when end user runs 
+//              installation that has already been installed on the machine. Usually 
+//              this happens through Add/Remove Programs applet. 
+//              In the handler installation usually displays UI that will inform 
+//              end user that maintenance/uninstallation has been completed successfully.
+//
+///////////////////////////////////////////////////////////////////////////////
+function OnMaintUIAfter()
+    STRING szTitle, szMsg1, szMsg2, szOption1, szOption2;
+    NUMBER bOpt1, bOpt2;
+begin       
+	// 重新安装后，重新设置       
+	InstallLoader(TRUE);
+		
+	Disable(STATUSEX);
+
+    ShowObjWizardPages(NEXT);
+
+	bOpt1   = FALSE;
+    bOpt2   = FALSE;
+    szMsg1  = SdLoadString(IFX_SDFINISH_MAINT_MSG1);
+	szTitle = SdLoadString(IFX_SDFINISH_MAINT_TITLE);
+    SdFinishEx(szTitle, szMsg1, szMsg2, szOption1, szOption2, bOpt1, bOpt2);
+end;
+                    
+// --- include script file section ---
+
+

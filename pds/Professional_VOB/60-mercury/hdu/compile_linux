@@ -1,0 +1,23 @@
+#!/bin/sh
+
+cd prj_linux
+
+./compile.bat
+cd ..
+
+echo making image...
+./makeimage
+
+
+echo making image_b...
+./makeimage_b
+
+echo making image_400a...
+./makeimage_400a
+
+echo making image_dvi_b...
+./makeimage_dvi_b
+
+
+
+

@@ -1,0 +1,13 @@
+[autorun]
+app = /usr/bin/kdvcri; 
+type = 0;
+app = /usr/bin/mcugk; 
+type = 0;
+app = /usr/bin/logs;
+type = 0;
+app = /usr/bin/mcuinterworking; 
+type = 0;
+app = /usr/bin/mcuregserver;
+type = 0;
+app = /usr/bin/detectee;
+type = 0;

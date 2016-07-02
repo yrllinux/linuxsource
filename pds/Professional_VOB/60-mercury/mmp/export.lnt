@@ -1,0 +1,20 @@
+/* mmp */
+
+
+//pclint think "uc_mcontext.regs" should be uc_mcontext.gregs". however, in PPC, regs is correct. At present we suppress this error.
+-esym(1013,regs)	
+
+-i.\include
+-i..\common\include
+-i..\common\include\platform_sdk\include
+-i..\..\10-common\include\system1
+-i..\..\10-common\include\platform
+-i..\..\10-common\include\protocol
+-i..\..\10-common\include\mcu
+-i..\..\10-common\include\algorithm
+-i..\..\10-common\include\pwlib\ptlib
+-d_PPC_
+-dMCUEQPMMP 
+-dHARD_CODEC
+.\source\mmp.cpp
+

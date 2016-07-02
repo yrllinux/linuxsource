@@ -1,0 +1,69 @@
+
+file1=../../10-common/version/release/linux_arm_dm81xx/apploader/apploader
+file2=./image/autorun.inf
+file3=./image/sysconfig.sh
+file4=./image/hdu2.sh
+file5=../../10-common/version/release/os_linux/hdu2/hdu2
+file6=../../10-common/version/release/os_linux/hdu2_s/update.linux
+file7=../../10-common/version/release/os_linux/hdu2_s/u-boot.bin
+
+file9=./image/dft_16to9.bmp
+file10=./image/dft_vga.bmp
+file11=./kdvlog.ini
+file12=../../10-common/version/release/linux_arm_dm81xx/kdvlogserver
+file13=../../10-common/version/release/os_linux/hdu2_s/cmemk.ko
+file14=../../10-common/version/release/linux_arm_dm81xx/ti816x.xe674
+file15=../../10-common/version/release/linux_arm_dm81xx/ti816x_hdvpss_server.xem3
+file16=../../10-common/version/release/linux_arm_dm81xx/vc3_m3video_debug.xem3
+file17=../../10-common/version/release/linux_arm_dm81xx/loadmodules_ti8168.sh
+file18=../../10-common/version/release/linux_arm_dm81xx/prcm_config_app
+file19=../../10-common/version/release/linux_arm_dm81xx/staticpic.bmp
+file20=../../10-common/version/release/os_linux/hdu2_s/syslink.ko
+file21=../../10-common/version/release/os_linux/hdu2_s/hdu2_s_fpga.bin.gz
+file22=../../10-common/version/release/linux_arm_dm81xx/detectee12
+f1=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file9 $file10 $file11 $file12 $file13 $file14 $file15 $file16 $file17 $file18 $file19 $file20 $file21 $file22
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+mkdir app
+
+
+for file in $file1 $file2 $file3 $file4 $file5 $file9 $file10 $file13 $file14 $file15 $file16 $file17  $file18 $file19 $file20
+do
+cp -f $file ./app/
+done
+
+cp -f $file11 ./app/kdvlog_hdu2.ini
+cp -f $file12 ./app/logs
+cp -f $file22 ./app/detectee
+
+chmod 777 -R app/*
+
+
+./mkyaffs2image ./app kdvhdu2_s.image
+sleep 3
+./mkos -i $file6 -a kdvhdu2_s.image -s $file21 -b $file7 -v "$4.7.2.1 hdu2_s version:@pid:0x0464" -o  kdvhdu2_s.bin
+
+cp -f kdvhdu2_s.bin  ../../10-common/version/release/os_linux/hdu2_s/
+
+gzip kdvhdu2_s.bin
+mv -f kdvhdu2_s.bin.gz  ../../10-common/version/release/os_linux/hdu2_s/
+
+rm -fr app
+rm -f kdvhdu2_s.image
+rm -f update.linux
+rm -f u-boot.bin
+
+fi

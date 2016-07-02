@@ -1,0 +1,5 @@
+[autorun]
+app = /usr/bin/isslavesys; 
+type = 0;
+app = /usr/bin/logs;
+type = 0;

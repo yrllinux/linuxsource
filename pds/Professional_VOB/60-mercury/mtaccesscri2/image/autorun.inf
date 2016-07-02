@@ -1,0 +1,11 @@
+[autorun]
+app = /usr/bin/kdvcri; 
+type = 0;
+app = /usr/bin/kdvgk; 
+type = 0;
+app = /usr/bin/logs;
+type = 0;
+app = /usr/bin/interworking; 
+type = 0;
+app = /usr/bin/regserver;
+type = 0;

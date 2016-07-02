@@ -1,0 +1,3 @@
+dri_agent.o 
+dri_config.o 
+driinit.o 

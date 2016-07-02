@@ -1,0 +1,39 @@
+#=====================================================================
+# 说明：本 Makefile 用来编译 linux 版本的 MPU2 程序
+#---------------------------------------------------------------------
+
+#[指定当前路径为工作路径]
+#---------------------------------------------------------------------
+
+TOP := ..
+
+COMMMK_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := mpu2
+WORKSPACE  := $(shell pwd)
+
+
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER = _ARM_DM81_
+CFLAGS += -D_LINUX12_ -D_MEDIACTRL_DM816x_ -D_MPUB_256_
+
+## Object files that compose the target(s)
+OBJS := $(SRC_DIR)/mpu2 \
+$(SRC_DIR)/mpu2agent \
+
+## Libraries to include in shared object file
+LIBS := mpu2lib commonlib drawbmp lanman freetype basicboardagent12 fileencoder osp nipwrapper netra_nip_api kdvlog kdvmedianet kdvencrypt kdvsys \
+	mpu2codecwrapper memcpy_a8opt smoothsending codeccomponent codeclib mca mediadrv mediacommon vpssctrl brdwrapper vicpcodec \
+	osp audiodrv dm_audio syslink nipdebug \
+	dspcci audproc_ubuntu_arm extexp_ubuntu_arm mixer_ubuntu_arm resample_ubuntu_arm videomanage_ubuntu_arm
+
+## Add driver-specific include directory to the search path
+INC_PATH +=  $(WORKSPACE)/../../../60-mercury/mpu2/include $(WORKSPACE)/../../../60-mercury/mpu2lib/include
+
+include $(COMMMK_DIR)/common.mk
+

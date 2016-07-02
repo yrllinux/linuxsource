@@ -1,0 +1,94 @@
+#!/bin/bash
+
+#mod by pengguofeng  2012-9-14: only to add virtualHost
+
+#usage: checkipvalid ip
+checkipvalid()
+{
+	_STRIP=$1
+	# check null
+	if [ "$_STRIP" = "" ]; then	
+		return 1
+	fi
+
+	# check length:[7,15]
+	_LENGTH=`echo $_STRIP |awk '{print length($0)}'`
+	if [ $_LENGTH -gt 15 ]; then
+		return 1
+	fi
+	if [ $_LENGTH -lt 7 ]; then
+		return 1
+	fi
+	
+	# check ip should have 3 dots(4 column)
+	_COLUMN_NUM=`echo $_STRIP | awk -F. '{print NF}'`
+	if [ $_COLUMN_NUM != 4 ]; then
+		return 1
+	fi
+	
+	# check no a-z,A-Z
+	_HASALPHA=`echo $_STRIP | awk '{ if($0~/[a-z]/) {print "1"}}'`
+	if [ "$_HASALPHA" = "1" ]; then
+		return 1
+	fi
+	
+	return 0	
+}
+
+#varibles
+file=/etc/httpd/conf/httpd.conf
+mcucfg=/opt/mcu/conf/mcucfg.ini
+mpcip=""
+gkip=""
+
+if [ -f $mcucfg ]
+then
+	mpcip=`cat $mcucfg | grep MPC | awk '{print $7}' | sed '/^$/d'`
+	gkip=`cat $mcucfg | grep GkIpAddr | awk '{print $3}' | sed '/^$/d'`
+fi
+
+#checkipvalid $mpcip
+#replacement should be started at the beginning
+if [ -f $file ]
+then
+	#add index.htm to ^DirectoryIndex if need
+	if cat $file | grep ^DirectoryIndex | grep "\<index.htm\>" > /dev/null
+	then
+		:
+	else
+		sed -i 's/^DirectoryIndex .*/& index.htm/' $file
+	fi
+	
+	#add VirtualHost of MCS
+	if checkipvalid $mpcip
+	then
+		grep '^#VirtualHostMpc' $file &>/dev/null || 
+echo -e '
+#VirtualHostMpc
+<VirtualHost '"$mpcip"'>
+\tDocumentRoot "/opt/mcu/webroot"
+\tServerName MCU
+</VirtualHost>
+' >> $file
+		
+		sed -i '/#VirtualHostMpc/,+2s/<VirtualHost .*/<VirtualHost '"$mpcip"'>/' $file
+	fi
+	
+	#add VirtualHost of GKC
+	if checkipvalid $gkip
+	then
+		grep '^#VirtualHostGk' $file &>/dev/null || 
+		    echo -e '
+#VirtualHostGk
+<VirtualHost '"$gkip"'>
+\tDocumentRoot "/opt/mcu/webroot2"
+\tServerName GK
+</VirtualHost>
+' >> $file
+		
+		sed -i '/#VirtualHostGk/,+2s/<VirtualHost .*/<VirtualHost '"$gkip"'>/' $file
+	fi
+fi
+
+#restart service 
+/etc/init.d/httpd restart	

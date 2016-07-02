@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd prj_linux
+
+./compile.bat
+cd ..
+
+./makeimage
+
+cd ../8kelinuxcab
+./compile_linux_v6
+
+#cd ../8khlinuxcab
+#./compile_linux
+
+
+

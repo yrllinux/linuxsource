@@ -1,0 +1,193 @@
+#!/bin/bash
+
+echo "make kdv8000I start ..."
+
+mkdir mcu
+mkdir mcu/webroot
+mkdir mcu/webroot2
+mkdir mcu/conf
+mkdir mcu/tool
+mkdir mcu/ftp
+mkdir mcu/etc
+
+#All  files check
+#Exec files
+file1=../../10-common/lib/release/linux/8khlib/snmpd
+file2=../../10-common/version/release/linux/mcu_8000i
+file3=../../10-common/version/release/linux/mmp_8000i
+file4=../../10-common/version/release/linux/prs_8000i
+file5=../../10-common/version/release/linux/kdvlogserver
+file6=../../10-common/version/release/linux/mcugk_redhat
+file7=../../10-common/version/release/linux/pxyserverapp_redhat
+file8=../../10-common/version/release/linux/mcuinterworking
+file9=../../10-common/version/release/linux/mcuregserver
+file10=../../10-common/version/release/linux/detectee
+file11=../../10-common/version/release/linux/gpudecoder.out
+
+file12=../../10-common/version/release/linux/mcu_8000i_usb
+file13=../../10-common/version/release/linux/bcsr.ko
+
+#web files
+#Web files, If English version, notice to modify here!
+webrootfile1=../../10-common/version/release/win32/mcs/Mcs.cab
+webrootfile2=../../10-common/version/release/win32/mcs/index.htm
+webrootfile3=../../10-common/version/release/win32/gkcuiocx/GKCUIOcx.cab
+webrootfile4=../../10-common/version/release/win32/gkcuiocx/index.htm
+webrootfile5=../../10-common/version/release/win32/McsOutlookAddin/McsOutlookAddinSetup.exe
+#script files
+script1=../../60-mercury/8kilinuxcab/guard.sh
+#to start 8000I
+script2=../../60-mercury/8kilinuxcab/ethdetect.sh
+script3=../../60-mercury/8kilinuxcab/kdvlog.ini
+script4=../../60-mercury/8kilinuxcab/apachesvrcfg
+script5=../../60-mercury/8kilinuxcab/add_iflink.sh
+script6=../../60-mercury/8kilinuxcab/adp_route.sh
+#net caputure
+script7=../../60-mercury/8kilinuxcab/NetCap.sh
+#check mac address add by pengguofeng@2013-8-29
+script8=../../60-mercury/8kilinuxcab/check_mac.sh
+
+
+
+canmakebin=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file8 $file9 $file10 $file11 $file12 $file13\
+ $webrootfile1 $webrootfile2 $webrootfile3 $webrootfile4 $webrootfile5 \
+ $script1 $script2 $script4 $script5 $script6 $script7 $script8
+do
+if [ ! -f $file ]
+then
+echo err : $file not exist
+	if [ $canmakebin -eq 0 ];then
+		echo err : $file not exist >> err.txt
+	else #first time in for 
+		canmakebin=0
+	  echo err : $file not exist > err.txt
+	fi	
+
+fi
+done
+
+if [ $canmakebin -eq 0 ];then
+echo neccessary file needed ,cannot makebin
+echo neccessary file needed ,cannot makebin exit >> err.txt
+exit -1
+else
+for appfile in $file1 $file2 $file3 $file4 $file5  $file6  $file7 $file8 $file9 $file10 $file11 $file13
+do
+	cp $appfile  mcu
+done
+
+
+
+#All SO Libs
+cp ../../10-common/lib/release/linux/*.so mcu
+cp ../../10-common/lib/release/linux/libintlc.so.5 mcu
+
+#All font
+cp ../../60-mercury/8khfont/*.bin mcu
+cp ../font/kdvuni.ttf mcu
+
+#add by pgf in 2012-8-17
+#take mcu/*.conf also
+#all is same as old linux version in /etc/inittab
+cp mcucfg/mcu_8ki.conf   	mcu/etc/
+
+
+#webroot files:MCS
+for webrootfile in $webrootfile1 $webrootfile2 
+do
+	cp $webrootfile  mcu/webroot
+done
+# copy mcs index.htm
+cp $webrootfile2 mcu/webroot/mcs.htm
+
+#copy  McsOutlookAddinSetup.exe to webroot
+cp $webrootfile5 mcu/webroot/outlook.exe
+
+#webroot2 files:GK
+for gkwebrootfile in $webrootfile3 $webrootfile4
+do
+	cp $gkwebrootfile  mcu/webroot2
+done
+#copy gk files to webroot,index.htm to gk.htm
+cp $webrootfile4 mcu/webroot/gkc.htm
+cp $webrootfile3 mcu/webroot
+
+#script 
+for scriptfile in $script1 $script2 $script3 $script4 $script5 $script6 $script7 $script8
+do
+	cp $scriptfile mcu
+done
+
+
+
+
+
+#image
+cp ../../60-mercury/vmp8kelib/image/FILE_DTF_PATH_BMP_4v3.bmp mcu/ftp
+cp ../../60-mercury/vmp8kelib/image/FILE_DTF_PATH_BMP_16v9.bmp mcu/ftp
+
+#tool
+#cp ../../60-mercury/8khlinuxcab/vsftpd-2.0.5-16.el5.i386.rpm mcu/tool
+
+chmod a+x mcu/snmpd
+chmod a+x mcu/mcu_8000i
+chmod a+x mcu/mmp_8000i
+chmod a+x mcu/prs_8000i
+chmod a+x  mcu/mcugk_redhat
+chmod a+x  mcu/pxyserverapp_redhat
+chmod a+x  mcu/kdvlogserver
+chmod a+x mcu/mcuinterworking
+chmod a+x mcu/mcuregserver
+chmod a+x mcu/detectee
+
+#chmod a+w  mcu/conf/gkconfig.ini
+#chmod a+w	 mcu/conf/pxysrvCfg.ini
+
+#chmod a+x  mcu/tool/vsftpd-2.0.5-16.el5.i386.rpm
+
+chmod a+x  mcu/apachesvrcfg
+chmod a+x  mcu/guard.sh
+#chmod a+x  mcu/netcfg.sh
+chmod a+x  mcu/ethdetect.sh
+chmod a+x  mcu/NetCap.sh
+chmod a+x  mcu/check_mac.sh
+
+
+
+#tar
+tar zcvf mcu.tar.gz ./mcu
+
+#make BINary
+
+cat selfupdate.sh mcu.tar.gz > kdv8000i.bin
+
+chmod a+x kdv8000i.bin
+
+
+cp  kdv8000i.bin ../../10-common/version/release/linux/kdv8000i.bin
+
+#cp $file2 ../../10-common/version/release/linux/mcu_800l
+#cp kdv8000h.bin ../../10-common/version/release/linux/kdv800l.bin
+#cp kdv8000h.bin ../../10-common/version/release/linux/kdv8000h.bin
+
+echo "make 8000I complete!"
+
+rm -f kdv8000i.bin
+rm -f mcu.tar.gz
+
+
+rm -rf mcu/mcu_8000i
+cp $file12 mcu/mcu_8000i
+tar zcvf mcu.tar.gz ./mcu
+cat selfupdate.sh mcu.tar.gz > kdv8000iusbkey.bin
+chmod a+x kdv8000iusbkey.bin
+cp  kdv8000iusbkey.bin ../../10-common/version/release/linux/kdv8000iusbkey.bin
+
+
+rm -fr mcu
+
+#echo make mcu self-extr-cab and update-cab completed! 
+echo "make 8000Iusbkey complete!"
+
+fi

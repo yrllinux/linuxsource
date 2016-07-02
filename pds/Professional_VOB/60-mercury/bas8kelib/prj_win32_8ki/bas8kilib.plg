@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: bas8kilib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP3B.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\common\include\platform_sdk\include" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\platform" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\protocol" /I "..\..\..\10-common\include\algorithm" /D "_8KI_" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_AFXDLL" /FR"Debug/" /Fp"Debug/bas8kilib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\bas8kelib\source\bascfg.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\bas8kelib\source\basinst.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\bas8kelib\source\main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP3B.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\10-common\lib\Debug\win32_8000i\bas_8000i.lib"  ".\Debug\bascfg.obj" ".\Debug\basinst.obj" ".\Debug\main.obj" "
+<h3>Output Window</h3>
+Compiling...
+bascfg.cpp
+basinst.cpp
+e:\svn_root\pds\professional_vob\60-mercury\bas8kelib\source\basinst.cpp(1112) : warning C4244: 'initializing' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\bas8kelib\source\basinst.cpp(1223) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\bas8kelib\source\basinst.cpp(1287) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\bas8kelib\source\basinst.cpp(1521) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\bas8kelib\source\basinst.cpp(1552) : warning C4244: 'argument' : conversion from 'unsigned short' to 'unsigned char', possible loss of data
+main.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+bas_8000i.lib - 0 error(s), 5 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,62 @@
+file1=../../10-common/version/release/linux_ppc_82xx/apploader/apploader
+file2=./image/autorun.inf
+file3=./image/sysconfig.sh
+file4=../../10-common/version/release/os_linux/vpuhd/kdvvmphd
+file5=../../10-common/version/release/os_linux/mt/7810/fpga_enc.bin
+file6=../../10-common/version/release/os_linux/mt/7810/fpga_dec.bin
+file7=../../10-common/version/release/ti_d6437/mainctrl_vpu_hd.out
+file11=../../10-common/version/release/os_linux/mt/7810/update.linux
+file12=../../10-common/version/release/os_linux/mt/7810/u-boot.bin
+file13=../../10-common/version/release/os_linux/mt/7810/fpga_intf.bin.gz
+
+
+f1=1
+for file in $file1 $file2 $file3 $file4 $file5 $file6 $file7 $file11 $file12 $file13
+do
+
+if [ ! -f $file ]
+then
+f1=0
+echo err : $file not exist
+echo err : $file not exist > err.txt
+fi
+done
+
+
+if [ $f1 = 1 ]
+then
+
+rm -fr app
+mkdir app
+
+for file in $file1 $file2 $file3 $file4 $file5 $file6 
+do
+cp -f $file ./app/
+done
+
+cp -f ../../10-common/version/release/ti_d6437/mainctrl_vpu_hd.out ./app/mainctrl_hd.out
+
+chmod 777 -R app/*
+
+mkfs.jffs2 -e 0x40000 -b --disable-compressor=rtime --compressor-priority=60:zlib -r ./app -o kdvvmphd.image
+cp -f kdvvmphd.image  ../../10-common/version/release/os_linux/vpuhd/
+
+for file in $file11 $file12 $file13
+do
+cp -f $file ./
+done
+
+./mkos -i $file11 -a kdvvmphd.image -b $file12 -s $file13 -v "$4.5.1" -o  kdvvmphd.bin
+
+cp -f kdvvmphd.bin  ../../10-common/version/release/os_linux/vpuhd/
+gzip kdvvmphd.bin
+mv -f kdvvmphd.bin.gz  ../../10-common/version/release/os_linux/vpuhd/
+
+
+rm -fr app
+rm -f kdvvmphd.image
+rm -f update.linux
+rm -f u-boot.bin
+rm -f fpga_intf.bin.gz
+
+fi

@@ -1,0 +1,3 @@
+[autorun]
+app = /usr/bin/hdu.sh; 
+type = 0;

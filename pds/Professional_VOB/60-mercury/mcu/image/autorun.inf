@@ -1,0 +1,7 @@
+[autorun]
+app = /usr/bin/mcu; 
+type = 0;
+app = /usr/bin/logs;
+type = 0;
+app = /usr/bin/detectee;
+type = 0;

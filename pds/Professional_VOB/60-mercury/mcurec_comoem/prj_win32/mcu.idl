@@ -1,0 +1,124 @@
+// mcu.idl : IDL source for mcu.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (mcu.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(1375137E-40EF-4536-A3D7-401884059B0D),
+		dual,
+		helpstring("IMCCtrl Interface"),
+		pointer_default(unique)
+	]
+	interface IMCCtrl : IDispatch
+	{
+		[id(1), helpstring("method Init")] HRESULT Init([in] long ptCfgInfo);
+		[id(2), helpstring("method Term")] HRESULT Term();
+		[id(3), helpstring("method ReconfigMcuIpAddr")] HRESULT ReconfigMcuIpAddr([in] unsigned long dwNewIpAddr);
+		[id(4), helpstring("method ReconfigMcuIpPort")] HRESULT ReconfigMcuIpPort([in] unsigned short wNewIpPort);
+		[id(5), helpstring("method ReconfigRecId")] HRESULT ReconfigRecId([in] unsigned char byNewId);
+		[id(6), helpstring("method GetLastError")] HRESULT GetLastError([in] long ptMcuStatus);
+	};
+	[
+		object,
+		uuid(F6FD53F4-CF7D-450B-8668-F8F2F107D7AD),
+		dual,
+		helpstring("IMCStatusCallback Interface"),
+		pointer_default(unique)
+	]
+	interface IMCStatusCallback : IDispatch
+	{
+	};
+
+[
+	uuid(46BA0407-84A5-4B30-B184-78B583ACD320),
+	version(1.0),
+	helpstring("mcu 1.0 Type Library")
+]
+library MCULib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(034399CE-4728-46F0-87AB-9A009C40046F),
+		helpstring("MCCtrl Class")
+	]
+	coclass MCCtrl
+	{
+		[default] interface IMCCtrl;
+	};
+	[
+		uuid(0FBAA3C6-BDA2-41F1-A9BB-B10A66C069DD),
+		helpstring("_IMCStatusCallbackEvents Interface")
+	]
+	dispinterface _IMCStatusCallbackEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("method OnStatus")] HRESULT OnStatus([in] long ptStatus);
+	};
+	[
+		object,
+		uuid(98FF0B5D-31BC-464B-89AA-302A6E0FAC1B),
+		dual,
+		helpstring("IMCStreamCallback Interface"),
+		pointer_default(unique)
+	]
+	interface IMCStreamCallback : IDispatch
+	{
+	};
+
+	[
+		uuid(6ECC9307-B056-4050-9E1B-5855D98C11D1),
+		helpstring("MCStatusCallback Class")
+	]
+	coclass MCStatusCallback
+	{
+		[default] interface IMCStatusCallback;
+		[default, source] dispinterface _IMCStatusCallbackEvents;
+	};
+	[
+		uuid(B7F26409-3EA7-4161-90C4-FCFBB3B59E7D),
+		helpstring("_IMCStreamCallbackEvents Interface")
+	]
+	dispinterface _IMCStreamCallbackEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("method OnStreamSample")] HRESULT OnStreamSample([in] long ptStreamProperty);
+	};
+	[
+		object,
+		uuid(DB23CD33-D30E-4569-8321-AEEE381091D0),
+		dual,
+		helpstring("IConfProperty Interface"),
+		pointer_default(unique)
+	]
+	interface IConfProperty : IDispatch
+	{
+		[id(1), helpstring("method GetConfAttrib")] HRESULT GetConfAttrib([in] DWORD dwConfIndex, [in] long ptConfProperty);
+		[id(2), helpstring("method GetRecAttrib")] HRESULT GetRecAttrib([in] DWORD dwConfIndex, [in] long ptRecProperty);
+	};
+
+	[
+		uuid(14072E5E-64DD-4D16-AB78-7325B66E87D2),
+		helpstring("MCStreamCallback Class")
+	]
+	coclass MCStreamCallback
+	{
+		[default] interface IMCStreamCallback;
+		[default, source] dispinterface _IMCStreamCallbackEvents;
+	};
+	[
+		uuid(D292CBFC-1D4C-4335-9475-3E44F6A6DF6C),
+		helpstring("ConfProperty Class")
+	]
+	coclass ConfProperty
+	{
+		[default] interface IConfProperty;
+	};
+};

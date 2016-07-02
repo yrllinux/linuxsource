@@ -1,0 +1,57 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ./
+
+SRC_DIR := $(TOP)/source
+
+CURDIR := ./
+
+## Name and type of the target for this Makefile
+
+ARC_TARGET      := kdvcascade
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER= _ARM_D6446_
+PWLIB_SUPPORT = 0
+
+CFLAGS += -DNOTHREADS -D_RADVISION_V4
+
+## Object files that compose the target(s)
+
+OBJS := $(SRC_DIR)/h323mcuconn	\
+        $(SRC_DIR)/tcpsocket	\
+        $(SRC_DIR)/xmlcodec
+	
+## Libraries to include in shared object file
+        
+#LIBS :=  
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(CURDIR) $(CURDIR)/../include \
+	    $(CURDIR)/../../../10-common/include/platform \
+	    $(CURDIR)/../../../10-common/include/system1 \
+	    $(CURDIR)/../../../10-common/include/protocol \
+	    $(CURDIR)/../../../10-common/include/protocol/h323stack \
+      $(CURDIR)/../../../10-common/include/mcu
+
+ifeq ($(PWLIB_SUPPORT),1)
+   INC_PATH += $(PWLIBDIR)/include/ptlib/unix $(PWLIBDIR)/include
+endif
+
+INSTALL_LIB_PATH = ../../../10-common/lib/release/linux_arm_d6446
+
+include $(COMM_DIR)/common.mk
+

@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: vmp8kilib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP3C.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\common\include" /I "..\..\common\include\platform_sdk\include" /I "..\..\..\10-common\include\mcu8000e" /I "..\..\..\10-common\include\mcu" /I "..\..\..\10-common\include\platform" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\protocol" /I "..\..\..\10-common\include\algorithm" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "_AFXDLL" /D "_8KI_" /FR"Debug/" /Fp"Debug/vmp8kilib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\svn_root\pds\Professional_VOB\60-mercury\vmp8kelib\source\main.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\vmp8kelib\source\vmpcfg.cpp"
+"E:\svn_root\pds\Professional_VOB\60-mercury\vmp8kelib\source\vmpinst.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\YANRIL~1\LOCALS~1\Temp\RSP3C.tmp" 
+Creating command line "link.exe -lib /nologo /out:"..\..\..\10-common\lib\Debug\win32_8000i\vmp_8000i.lib"  ".\Debug\main.obj" ".\Debug\vmpcfg.obj" ".\Debug\vmpinst.obj" "
+<h3>Output Window</h3>
+Compiling...
+main.cpp
+e:\svn_root\pds\professional_vob\60-mercury\vmp8kelib\include\vmpcfg.h(266) : warning C4244: 'argument' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\vmp8kelib\include\vmpcfg.h(274) : warning C4244: 'argument' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+vmpcfg.cpp
+e:\svn_root\pds\professional_vob\60-mercury\vmp8kelib\include\vmpcfg.h(266) : warning C4244: 'argument' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\vmp8kelib\include\vmpcfg.h(274) : warning C4244: 'argument' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+vmpinst.cpp
+e:\svn_root\pds\professional_vob\60-mercury\vmp8kelib\include\vmpcfg.h(266) : warning C4244: 'argument' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+e:\svn_root\pds\professional_vob\60-mercury\vmp8kelib\include\vmpcfg.h(274) : warning C4244: 'argument' : conversion from 'unsigned long' to 'unsigned char', possible loss of data
+Creating library...
+
+
+
+<h3>Results</h3>
+vmp_8000i.lib - 0 error(s), 6 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,8 @@
+[General]
+Type=FILELIST
+Version=1.10.000
+
+[TopDir]
+file0=..\..\..\10-Common\version\release\win32\Recorder.exe
+file1=..\conf\NetDebugCfg.ini
+

@@ -1,0 +1,68 @@
+###
+### Copyright (c) 2006 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in mcu linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := mmp_8000i
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER = 
+CFLAGS += -D_8KI_
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS := mix_8000i bas_8000i vmp_8000i codecwrapper_gpu drawbmp commonx86_gpu drawbmp freetype lanman\
+mixer_linux   \
+speechexcit_linux   \
+audproc_plus_linux   \
+audcodec_kdv_linux   \
+audcommonlib_linux   \
+extexp_linux   \
+adpcm_linux  \
+aaclcdec_linux  \
+aaclcenc_linux  \
+aaclddec_linux \
+aacldenc_linux \
+g711_linux   \
+g7221c_kdv_linux   \
+g728_linux   \
+g729_linux   \
+g719_linux   \
+g722_linux   \
+mp3dec_linux \
+mp3enc_linux  \
+resample_linux   \
+imagelib_linux   \
+imageunit_linux   \
+vidcomlib_linux   \
+videomanage_linux   \
+videounit_linux   \
+kdvmedianet fcnet enfc   \
+watchdogclient commonlib  kdvencrypt kdvsys kdvlog osp imf svml intlc gthread-2.0 glib-2.0 rt dl pthread 
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../../10-common/include/mcu8000i ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../common/include ../../../10-common/include/t120 ../../../10-common/include/nms1 ../../../10-common/include/cbb/license ../../../10-common/include/algorithm
+
+LIB_PATH += ../../../10-common/lib/release/linux ../../../10-common/lib/release/linux/8kilib
+
+
+include $(COMM_DIR)/common.mk
+
+

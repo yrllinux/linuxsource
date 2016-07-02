@@ -1,0 +1,528 @@
+
+ /*****************************************************************************
+   Mode_Name                  : mcu
+   Implementation File Name   : mcuerrstr_english.txt
+   Interrelated File          : 
+   Function                   : Error Code Description
+   Author                     : krorain
+   Version                    : V4.0  Copyright(C) 2002-2008 KDC, All rights reserved.
+-----------------------------------------------------------------------------
+   Modification Log:
+   Date        Ver         Editor      Modification Description
+   2005/11/11  4.0         krorain     Create
+   2007/11/06  4.0         gotwhat     Modify
+******************************************************************************/
+
+[ERROR-en]
+
+
+-- Conference Console Error
+
+12001 = Read the configuration file failed
+12002 = Authenticate User failed
+12003 = Not pass the user Authentification
+12004 = Not registered
+12005 = Connect to MCU failed
+12006 = Link fault! Send the message failed
+12007 = The operation can be performed only when the conference console doesn't connect to the MCU
+12008 = The operation can be performed only when the conference console  connects to the MCU
+12009 = Initialized already
+12010 = The window handle does not represent a valid window
+12011 = Not initialized
+12012 = The MCU is busy and processing the previous request
+
+12100 = Request the document interface failed
+12101 = Load document failed
+12102 = Analyze document failed
+12103 = The conference doesn't exist
+12104 = The terminal doesn't exist
+12105 = The peripheral doesn't exist
+
+--User_Manager_Mode Error
+
+19001 = The specified user not exist
+19002 = Invalid username or password
+19003 = Wrong user rights
+19004 = The username has already existed
+19005 = The designated user doesn't exist
+19006 = The user number has reached to the maximum value
+19007 = The current user can't be deleted by itself
+19008 = No authority for specified operation. Contact system admin please
+19901 = The user group number has reached to the maximum value
+19902 = The user group already existed
+19903 = The user group not exist
+19904 = The user group ID already existed
+19905 = Invalid user group ID
+
+--MCU Error
+
+20001 = Time out while The MCU waits for response
+20002 = The MCU is initializing
+20003 = The MCU is busy and processing the previous request
+20004 = The MCU is waiting for response of previous request
+20005 = Operation denied
+20006 = The address book is initializing
+20017 = Connect request denied for different communication version
+
+20051 = The designated peripheral is offline
+20052 = The designated peripheral is invalid
+20053 = Illegal registered peripheral
+20054 = Getting the mt logical channal is failure
+20055 = The Mcu periequipment switched by High Decode Unit is not exist
+20056 = Can not switch CP or meeting terminal while hdu is in polling
+20057 = Do not change hdu volume or set mute with different CConfIdx
+20058 = Some Channels are in use, please release it
+20059 = Have no invited MT in current conference
+20060 = Net capture already started!
+20061 = Net capture has not started yet!
+
+
+20101 = Not enough resources for new conference. Please create it later
+20102 = Maximum conference number exceeded. Create the conference failed
+20103 = Not room for extra conf template
+20104 = The conference create failed due to no registered MP or MtAdp.
+20105 = The conference name already existed
+20106 = Repeated conference number
+20107 = This E164 number is already in an existing conference!
+20108 = The specified conf template not exists
+20109 = The designated terminal is your MMCU and call failed
+20111 = No adaptor available. Create the dual mode media conference or reserve the adaptor conference failed
+20112 = No audio mixer available. Create the audio-mixing conference failed
+20113 = No PRS available. Create the loss packet resent conference failed
+20114 = The conference encryption property is not consist with the encryption settings. Create the conference failed
+20115 = No TV Wall available. Create the conference having the TV Wall failed
+20116 = Specified recorder not available now, conference with recorder create failed
+20117 = No idle DCS, data conference create fail 
+20118 = There is no terminal in the conference, conference create failed
+20119 = The conference end time should be later than the current time
+20120 = The conference bitrate not supported
+20121 = Specified media format not supported
+20122 = Invalid multicast address
+20123 = Multicast address occupied
+20124 = Invalid distributed conference multicast address
+20125 = Distributed conference unsupported for dual mode or dual format
+20126 = Distributed conference multicast address occupied
+20127 = Reach to the maximum upload terminal number
+20128 = No multicast for low stream supported for this kind of conference
+20129 = No record low stream supported for this conference
+
+20151 = No permission to save conf as the default, conf saved correctly
+
+20161 = Conf ID is Null
+
+20162 = Call the lower MCU failure, the MCU is Convene other conference
+20163 = The call of the upper level MCU is refused, please stop the current conference frist
+20164 = Reached the max number of conferences, can't create other conference
+20165 = The current conference can't support the preservation of the default conference
+20166 = Call the lower MCU failure, The MCU have been called by other high-level call
+20167 = Current time is later than the latest start time of circle schedule conference 
+20168 = Circle schedule conference's earliest starttime is later than latest starttime
+20169 = Circle schedule conference's starttime is conflict with valid durationtime
+20170 = Circle schedule conference auto release 
+
+20301 = The number of connecting terminal reached max capbility of connection of mcu
+20302 = The Mp is running over
+20303 = No CP support while in voice activation mode
+20304 = No voice activation support in CP mode
+20305 = No CP support in this conference
+20306 = Specified style of CP not supported while in audio mixing
+20307 = Specified style of audio mixing not supported in an adapting conference
+20308 = Specified style of audio mixing not supported in CP mode
+20309 = The number of conference terminals is over the maxium to carry on audio mixing
+20310 = The number of conference terminals is over the maxium to carry on voice activation mode
+20311 = The number of terminals is over the maxium to carry on voice activation while adapting
+20312 = No adapt support while a number of terminal are in voice activation mode
+20313 = No adapt support while a number of terminal are in audio mixing
+20314 = No more terminals supported to carry on discuss, discuss is stopped or changed to mix
+20315 = The number of mixing terminal reached to max capbility of mixer
+20316 = No idle audio mixer available
+20317 = The voice activation mode and mixing mode can't use together
+20318 = The voice activation mode and mixing mode can't use together£¬the upper level MCU carry out cascade mixing failed.
+20319 = Cannot play record while mandata broadcasting
+20320 = The voice activation mode has been cancelled due to the upper level Mcu starting cascade specific mixing.
+20321 = Cannot mixing while mandata broadcasting
+
+20331 = MCU DO has idle CP unit right now, but all of them not support the CP layout needed.
+20332 = The CP unit which used by the conference now not support the layout needed, while there's still another do. Just stop and retry
+20333 = Unsupported CP Layout
+20334 = CP resource already in use for another on-going conf and is currently not available!
+20335 = There's no enough high definition adapter resource left, might cause conference create failure
+20336 = There's no enough high definition adapter resource left just now, create conference failure
+20337 = There's a failure during ocuppy high definition adapter resource needed.
+20338 = Picture composition with chairman-follow member type is not allowed 
+
+20341 = No voice activation while in polling
+20342 = The conference is in discussion mode. Can't enable the voice activation
+20343 = The conference is in voice activation mode. Can't enable the discussion
+20344 = The conference is under the voice activation mode. Can't cancel the speaker
+20345 = The conference is under the discussion mode. Can't designate the speaker
+20346 = The conference is under the voice activation mode. Can't designate the speaker
+20347 = The conference is under the mandatory broadcasting mode. Can't view the CP or terminal
+20348 = The time switching interval of the two speakers is less than the minimum time interval. Can't designate the speaker
+20349 = The conference mode of specific mixing will be cancelled due to the operation.
+20350 = The conference mode of automatic mixing will be cancelled due to the operation.
+
+20352 = The Request to do the adapt recording failed, for Adapt resources are not enough.
+20353 = The conference is AACLC's single and double mode, please choose audio recoding adpat.
+20354 = There's no enough audio adapter resource left just now, create conference failure
+
+20371 = Invalid BAS Channel
+
+20381 = Unsupport operation in distributed conference
+
+20382 = Mt fail to call Mcu due to access point full
+20383 = Fail to call MT because the capacity of HD Mt is full
+20384 = The bandwidth reserved for high defection CP or high defection BAS has been overflew, you'd better reassign mp(s).
+20385 = Fail to call pcmt due to lack of ability 
+20386 = Mt access denied due to mcu license for calling-mt num
+20387 = Invalid license data in USBKEY
+20388 = Fail to call voice mt due to lack of ability
+20389 = Encrypted Conf reject no-encrypted mt
+
+20401 = The designated terminal unreachable
+20402 = The designated terminal refuses to join in the conference
+20403 = The designated terminal has already been in conference
+20404 = The un-chair terminal can't perform this operation
+20405 = The called terminal has already been in the conference
+20406 = The called terminal has no usable calling address(i.e IP address) information
+20407 = Wrong password! Can't cascade the lower level MCU
+20408 = No response from the upper level MCU
+20409 = Can't call the conference itself
+20410 = The designated terminal is busy. It may be in another conference
+20411 = Timeout while keep the linkage to the designated terminal
+20412 = This conference is unpublic. Need the chairman's approval
+20413 = The request has submitted to the chairman
+20414 = There is upper level MCU in the conference
+20415 = Mt is already in uploading channel
+
+20421 = The calling terminal's type is not match with mcu type
+20422 = The MT is out of range for available dispatching resource
+
+20431 = The designated terminal is a receiving only terminal
+20432 = The designated terminal has already been the conference chairman
+20433 = The conference is under non-chair mode. Can't designate the chairman
+20434 = There is no chairman in the conference
+20435 = The designated terminal is not in the conference
+20436 = The designated MCU is not in the conference
+20437 = The designated terminal has already been the speaker
+20438 = There is speaker in the conference
+20439 = There is no speaker in the conference
+20440 = Not a cascade conference
+20441 = This operation only can be for the local terminals
+20442 = The designated lower level MCU not exist. Lock the operation failed
+20443 = The mt's version is too old to response version ID.
+20444 = The mt's media capability isn't fit for this operation. 
+
+
+20501 = The media type of the source is different from the target's
+20502 = Need to adapt bitrate for the terminal. Can¡¯t Inspect the terminal
+20503 = Can't select the audio when audio mixing
+20504 = The audio select will be failed if you select both audio and video while audio mixing 
+20505 = Inspect failed because either terminal do not has corresponding media ability
+20506 = The video monitoring to MCS failed
+20507 = Can't select the audio, so change the select mode 
+20508 = Can't select the video, so change the select mode
+20509 = There's no enough video adpter resources left, select failure
+20510 = There's no enough audio adpter resources left, select failure
+
+
+20521 = The conference control rights is monopolized by the other conference console
+20522 = Invalid conference protecting mode
+20523 = Invalid terminal call strategy
+
+20524 = Polling stopped, maybe all of the terminal polled are offline or video lose
+20525 = Specify the polling position failed, the terminal is not in the table
+20526 = Specify the polling position failed, the terminal is not in the conference
+20527 = Specify the polling position failed, the conference is not polling
+20528 = Delete the current polling terminal not supported
+
+20529 = Roll call mode error.
+20530 = The message length of this roll call operation is unexpected.
+20531 = The SMcu's mt can not be the roll caller.
+20532 = The roll caller can't be null.
+20533 = The roll callee can't be null.
+20534 = The roll call can not be started under the conference mode of must see speaker.
+20535 = The roll call operation will change the member and style of CP.
+20536 = The roll call operation will stop the voice activation.
+20537 = The roll call operation will change the member of specific mixing.
+20538 = The roll call operation will stop the conference discuss.
+20539 = The roll call operation will stop CP.
+20540 = The roll call operation will change select situation.
+20541 = The roll call can't be started due to it is polling now.
+20542 = The roll call has been stoped due to the caller left.
+20543 = The roll call has been stoped due to the callee left.
+20544 = The roll call has been stoped due to the audio mixer left.
+20545 = The roll call has been stoped due to the CP left.
+20546 = Part of the MTs been chosen willn't join in picture composition due to unknow reason.
+20547 = The roll call will not be continue due to no idle audio mixer.
+20548 = The roll call will not be continue due to no idle CP.
+20549 = The roll call will not be continue due to CP's ability is not enough.
+20550 = The roll call style of CP will change due to CP's ability is not enouth.
+20551 = The conference has to be released due to it is failed to get satelite frequence.
+
+20561 = The casecade poll feedback has been stoped due to the master mcu require new single channel feedback.
+20562 = The Chairman poll is not allowed to see the screen when the synthesis, see Election of the President and Chairman of switching operations.
+20563 = Can't start Chaiman's Polling because the Chairman is SMCU.
+20564 = Last roll call is not finished yet
+
+20801 = It is on the conference video recording
+20802 = It is not on the conference video recording
+20803 = The conference video recording currently is not paused
+20804 = It is on the conference video playing
+20805 = It is not on the conference video playing
+20806 = The conference video playing currently is not paused
+20807 = The designated terminal is in video recording state
+20808 = The designated terminal is not in video recording state
+20809 = The designated terminal is not in video recording pause state
+
+20811 = It is on the conference audio mixing
+20812 = It is not on the conference audio mixing
+20813 = The conference audio mixing currently is not paused
+20814 = The designated terminal is not the member of the audio mixing group
+
+20816 = The conference is under the voice activation speaking state. Can't start the conference again
+20817 = The conference is not under the voice activation speaking state. Can't stop the conference
+20818 = The conference is under the discussion mode. Can't start the conference again
+20819 = The conference is not under the discussion mode. stop the failed
+
+
+20821 = Can't set as the dynamic screen split under CP template
+20822 = The CP has already started
+20823 = The CP not start. Can't carry on this operation
+20824 = The CP not broadcast code streaming
+20825 = It should be the auto CP mode when the dynamic screen splitting
+20826 = Repeat selection of a MT members are not allowed in CP mode!
+20827 = Multiple CP members being set Speaker-follow type is not allowed in current conference 
+20828 = Multiple CP members being set Poll-follow type is not allowed in current conference
+20829 = CP's Speaker-Follow/Poll-Follow member types conflict due to confenrence polling with audio
+20830 = CP is too busy handling the previous request to respond this command, please try again.
+20831 = Only new version of CP supports this function
+20832 = The lower mcu not support multiple cascade version, the mt can only occupy one channel
+20833 = Decoder ability is not enough
+20834 = The Vip Hd channel of CP is full,terminal is not allowed into CP channel
+20835 = CP vicp Resources is not enough,CP open failure
+20836 = This terminal is not allowed into the CP multiple channels
+20837 = Multiple CP members being set DoubleStream-follow type is not allowed in current conference 
+20838 = Repeat selection of your MMCU members are not allowed in current conference
+20839 = In order to have a good video quality for speaker, some MT may be affected, Please understanding
+
+--N+1 Backup
+21401 = No permission to create conf template or conf in N+1 mode
+21402 = No permission to edit user or user group information in N+1 mode
+21403 = Auto rollback is configurated
+21404 = The MCU which need rollback not connected yet
+21405 = The master MCU has No idle CP unit. Can't restore the CP mode which had been carried on in the backup MCU.
+21406 = The master MCU DO has idle CP unit, but all of which couldn't support the picture composition style needed now, and the restore of the CP will fail.
+
+--GK & Radius
+21501 = The gatekeeper resource is used up
+21504 = Not enough bandwidth
+21505 = The call is rejected by the gatekeeper
+21506 = Invalid call singaling address
+21508 = The alias or E164 number has been already registered by the other network entity
+21509 = The remote is busy
+21510 = Unkown factor
+21511 = MT Hung up normally
+21513 = GK RAS timed out
+21521 = MCU not registered to GK
+21522 = Internal error occured while calling out
+
+21531 = The user name of GK is unexist
+21532 = The password of GK is unexist
+21533 = The operation to DataBase of GK is failure
+21534 = The conference to stop charge is not exist on GK
+21535 = The request of starting charge to GK is time out
+21536 = The request of stopping charge to GK is time out
+21537 = Unknow error of GK
+21538 = The charged conference might be fail to create due to GK unexist
+21539 = The charged conference create failed due to GK unexist
+21540 = Register to gk charge server failed, the conference is going to be released
+21541 = Charge service is unavailable, conference is going to be released
+21542 = Charge service has been disconnected, the conference is going to be released
+21543 = The charged conference created failed due to NO radius server on GK.
+21544 = The operation of GK to Radius server has got failed, the conference is going to be released
+21545 = The charge accounts has been used by someone else, the conference is going to be released
+21546 = The charged conference might be fail to create due to the charged function of the GK has not been enabled by MCU
+21547 = The charged conference create failed due to the the charged function of the GK has not been enabled by MCU
+21548 = Stop conference charge failed because charge service is currently unavailable
+21549 = The GK charge service is full load
+
+
+-- MCU config
+21601 = Illegal configuration parameter of the single board
+21602 = Illegal configuration parameter of the audio mixer
+21603 = Illegal configuration parameter of the video recorder
+21604 = Illegal configuration parameter of the picture composition unit
+21605 = Illegal configuration parameter of the TV Wall
+21606 = Illegal configuration parameter of the code streaming adaptor
+21607 = Illegal configuration parameter of the loss packet resender
+21608 = Illegal configuration parameter of the continous presence TV Wall
+
+21609 = Illegal configuration of the MCU equipment config is illegal
+21610 = Illegal configuration of the MCU basic information (such as QoS, etc.
+21611 = Illegal configuration of the main mtadp address
+21612 = Illegal configuration parameter of HD-Bas
+21613 = Illegal configuration parameter of HDU
+21614 = Illegal configuration parameter of single CP
+21615 = Illegal configuration parameter of double CP
+21616 = Illegal configuration parameter of Mpu Bas
+21617 = Illegal configuration parameter of Ebap
+21618 = Illegal configuration parameter of Evpu
+
+21621 = Write configuration of the single board  failed
+21622 = Write configuration of the audio mixer failed
+21623 = Write configuration of the video recorder failed
+21624 = Write configuration of the picture composition unit failed
+21625 = Write configuration of the TV Wall failed
+21626 = Write configuration of the code streaming adaptor failed
+21627 = Write configuration of the loss packet resender
+21628 = Write configuration of the continuous presence TV Wall failed
+21629 = Write the address information of the MCU failed
+21630 = Write configuration of the picture composition style failed
+21631 = Write the local configuration of the MCU failed
+21632 = Write the network configuration of the MCU failed
+21633 = Write the QoS configuration failed
+21634 = Write configuration of the network synchoronization failed
+21635 = Write the DCS configuration failed
+21636 = Write the Mcu configuration flag failed
+21637 = DSC IP configuration is not adapted to the actual situation of network, please modify the configuration
+21638 = Write the login info failed
+21639 = Write HD-Bas failed
+21640 = Write HDU failed
+21641 = Write Single CP failed
+21642 = Write Double CP failed
+21643 = Write Mpu-Bas failed
+21644 = Write Ebap failed
+21645 = Write Evpu failed
+
+21650 = Other MCS is configing now, please wait a moment and retry
+21651 = I/O Error when write config file
+21652 = The count of HDU scheme is too big
+21653 = Read HDU failed
+21654 = The Hdu Scheme is being used ,and can not be changed
+21655 = Can not add void scheme!
+21659 = Sending previous message,please try again later
+21660 = Multi-Manufactory network configuration encounter error!
+21661 = Current HDU don't Support HDU-VMP
+21662 = Current HDU2 don't Support start two HDU-VMP
+21663 = Change HDU-VMP param error
+21664 = Because resources not enough, HDU-VMP failed
+21701 = Tvwall equipment is not configured or offline
+21702 = CP equipment is not configured or offline
+21703 = The requesting conference mode is just current conference mode
+21704 = The requesting resource is not available
+21705 = Mode has been changed,operation is canceled
+21706 = Conference is being operated.Can't modify or delete conference.
+21707 = Audio select failed, mt to see not to receive Audio, or mt be seen not to send Audio
+21708 = Video select failed, mt to see not to receive Video, or mt be seen not to send Video
+21709 = Audio and Video select failed, mt to see not to receive Audio and Video, or mt be seen not to send Audio and Video
+21710 = No idle mixer.Please check it.
+21711 = Can't operate MT due to chairman is offline
+21712 = The chairman can't receive video due to lack of ability
+21713 = The calling Mt can't receive video due to lack of ability
+21714 = The chairman can't receive audio due to lack of ability
+21715 = The calling Mt can't receive audio due to lack of ability
+21716 = Calling MT now
+21717 = Timeout while calling MT
+21718 = It is out of range for the max number of group call
+21719 = Chairman poll has been started
+21720 = The temporary calling number has reached its limit,please stop calling
+21721 = no permission to operate
+21722 = MCS and VCS can not login simultaneously
+21723 = the number of connected vcs is more than max number
+21724 = Fail to modify the software  name of vcs
+21725 = Can't hold VCS meeting and MCS meeting simultaneously
+21726 = The conference has been cascaded by other
+21727 = The conference can't cascaded by other due to being operated
+21728 = No idle mixer.Please check it.All member receive audio from speaker.
+21729 = MT is in other conference.Please decide whether to call forcibly.
+21730 = Return channel has been used by speaker, no extra return channel
+21731 = The plan name is already existed
+21732 = The length of plan name is unexpected
+21733 = The plan name does not exist
+21734 = The TVWall is being called, please wait
+21735 = The plan is being modified, please wait
+21736 = Fail to add plan due to the plan num reaches its limit
+21737 = The plan is locked by other vcs
+21738 = The conference is be modified by other user,please wait
+21739 = The meeting does not support multiple return 
+21740 = The return bandwidth of the lower meeting is full
+21741 = The cascade bas of the lower is not enough
+21742 = The lower mcu not support multiple cascade version, the operation is invalid 
+21743 = The uploading bandwitdh is not enough to satisfing all dispatching operation
+21744 = The lower meeting return bandwidth is full, can not return mt
+21745 = Can't set 2th broadcasting source due to double stream has already been started
+21746 = Can't start double stream due to existence of 2th broadcasting source
+21747 = Conf without template not support plan operation
+21748 = Update error,you can try to update software to v4.7.1,after that you update software to the curren version!
+
+--MT Error
+22002 = The original conference does not allow the terminal to quit the conference to join in the new conference
+22003 = Terminal state error. Can't perform the command
+22004 = The designated terminal is not in the conference
+22005 = The terminal is a video receiving terminal! Can't send te media data
+22006 = The terminal is a video receiving terminal! Can't carry on this operation
+22007 = Detect hardware failed! Can't carry on the remote site mute operation
+22008 = The device doesn't exist! Can't carry on this operation
+22009 = The terminal can't quit the original conference to join in a new conference
+22010 = The terminal is busy! Can't process this command
+22011 = Wait for MCU reply timed out
+22012 = The terminal is querying for the topology
+22013 = The MCU connected doesn't support this operation
+22014 = The MCU operation is rejected
+
+--Recorder Error
+24002 = No records
+24003 = Open record failed
+24004 = Unmatched commanded
+24005 = Invalid channel
+24006 = Recording now
+24007 = Playing now
+24008 = The video playing channel is not playing video
+24009 = The video recording channel is not recording video
+24010 = Process the designated request failed
+24011 = The requested operation is under processing
+24012 = A command of the video playing channel is sent to the video recording channel
+24013 = A command of the video channel is sent to the video playing channel
+24014 = The disk is full
+24015 = The file is damaged
+24016 = The file is empty
+24017 = The designated file is under processing
+24018 = The designated file does not exist
+24019 = Not support for release or release failed
+24020 = The file have existed£¬ fail to rename the file
+24021 = The file have existed, fail to record
+24022 = The file's media type is not matched with conf media type
+24023 = Invoke RPLib failed! Please reinstall application
+24024 = Fail to set record method
+24025 = The file's resolution is not matched with conference resolution
+24026 = The length of the file name is too long, please rename it again!
+24027 = The char "_" can't be usred in file name
+24028 = The Recorder Write file failed when recording
+24029 = Player create socket failed in sending module
+24030 = conf doesn't support the high profile attribute of the playfile 
+
+
+--Audio Mixer Error
+24502 = The designated audio-mixing group does not exist
+24503 = The designated audio-mixing member does not exist
+24504 = No leisure audio-mixing group available
+24505 = No leisure audio-mixing channel available
+24506 = Illegal message format
+24507 = Call underlying function failed
+24508 = On audio-mixing
+24509 = Not audio-mixing
+24510 = Invalid conference ID
+
+--Address Book Error
+25001 = Memory access error
+25002 = Invalid pointer
+25003 = This entry doesn't exist in the address book
+25004 = Exceed the maximum capacity of the address book
+25005 = The capacity of the address book is 0
+25006 = No free space available in the current address book
+25007 = File access error
+25008 = This entry has already existed in the address book
+25009 = Address book registeration failed
+
+

@@ -1,0 +1,26 @@
+HKCR
+{
+	Mcu.MCCtrl.1 = s 'MCCtrl Class'
+	{
+		CLSID = s '{034399CE-4728-46F0-87AB-9A009C40046F}'
+	}
+	Mcu.MCCtrl = s 'MCCtrl Class'
+	{
+		CLSID = s '{034399CE-4728-46F0-87AB-9A009C40046F}'
+		CurVer = s 'Mcu.MCCtrl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {034399CE-4728-46F0-87AB-9A009C40046F} = s 'MCCtrl Class'
+		{
+			ProgID = s 'Mcu.MCCtrl.1'
+			VersionIndependentProgID = s 'Mcu.MCCtrl'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{46BA0407-84A5-4B30-B184-78B583ACD320}'
+		}
+	}
+}

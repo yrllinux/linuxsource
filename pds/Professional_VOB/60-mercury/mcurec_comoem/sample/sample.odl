@@ -1,0 +1,42 @@
+// sample.odl : type library source for sample.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (sample.tlb).
+
+[ uuid(43728FC5-EC01-4DE8-B806-5397A533B833), version(1.0) ]
+library Sample
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CSampleDoc
+	
+	[ uuid(F9DD4EEA-F225-445C-8FB5-FF698150AFB5) ]
+	dispinterface ISample
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CSampleDlgAutoProxy)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CSampleDlgAutoProxy)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CSampleDoc
+	
+	[ uuid(94CE244D-4220-42C3-93D4-4E48D1524F6E) ]
+	coclass Sample
+	{
+		[default] dispinterface ISample;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

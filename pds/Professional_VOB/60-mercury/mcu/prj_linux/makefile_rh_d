@@ -1,0 +1,37 @@
+###
+### Copyright (c) 2006 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in mcu linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := mcu
+
+## Define debugging symbols
+DEBUG = 2
+LINUX_COMPILER = 
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS := mtadp mcuprs readlicenselib  rockey2 watchdog ftpc snmpadp_mcu x86_snmpagent x86_snmp x86_nip_api simbrdwrapper commonlib kdvum kdvaddrbook kdv323adp kdv323 kdvnetbuf kdvdatanet dataswitch kdvmedianet fcnet enfc kdvencrypt kdvcascade kdvlog osp kdvsys rt dl pthread
+
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/mcu ../../../10-common/include/system1 ../../../10-common/include/platform ../../../10-common/include/protocol ../../../10-common/include/t120 ../../../10-common/include/nms1 ../../../10-common/include/cbb/license
+
+LIB_PATH += ../../../10-common/lib/debug/linux
+
+include $(COMM_DIR)/common.mk

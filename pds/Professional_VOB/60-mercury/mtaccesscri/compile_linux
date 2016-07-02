@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd prj_linux
+
+./compile.bat
+cd ..
+
+cd ../mtaccessmtadp
+./compile_linux
+
+cd ../mtaccesscri
+
+./makeimage
+
+
+
+

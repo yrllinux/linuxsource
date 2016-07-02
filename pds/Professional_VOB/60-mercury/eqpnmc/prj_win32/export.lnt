@@ -1,0 +1,16 @@
+
+/* Generated from file: eqpnmc.dsp */
+-i..\include\\
+-i..\..\common\include\\
+-i..\..\..\10-common\include\platform\\
+-i..\..\..\10-common\include\system1\\
+-i..\..\..\60-mercury\eqpagt\eqpagtsysinfolib\include\\
+-i..\..\..\60-mercury\eqpagt\eqpagtcommbaselib\include\\
+-i..\..\..\10-common\include\snmp\\
+-i..\..\..\10-common\include\protocol\\
+-dWIN32
+-d_DEBUG
+-d_CONSOLE
+-d_MBCS
+..\source\eqpagt.cpp
+..\source\eqpnmc.cpp

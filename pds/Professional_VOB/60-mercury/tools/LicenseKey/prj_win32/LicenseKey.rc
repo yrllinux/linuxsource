@@ -1,0 +1,322 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\LicenseKey.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\LicenseKey.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MCU_PROPPAGE DIALOG DISCARDABLE  0, 0, 270, 220
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "MCU"
+FONT 10, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_ACCESSNUM,154,31,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DEVICEID,74,71,128,16,ES_AUTOHSCROLL
+    CONTROL         "",IDC_CHECK_DATE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    72,143,8,8
+    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER_EXPIREDATE,
+                    "SysDateTimePick32",DTS_RIGHTALIGN | DTS_UPDOWN | 
+                    WS_TABSTOP,90,139,109,16
+    COMBOBOX        IDC_COMBO_MCU_TYPE,39,31,81,47,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "设备ID输入格式为 00:aA:bB:03:04:05，不区分大小写",
+                    IDC_STATIC,37,94,196,12
+    PUSHBUTTON      "导入授权...",IDC_BTN_IMPORT,26,188,66,16
+    PUSHBUTTON      "生成授权...",IDC_BTN_GENERATE,103,188,66,16
+    GROUPBOX        "设备ID",IDC_STATIC,26,57,220,55
+    GROUPBOX        "MCU类型",IDC_STATIC,26,17,104,37
+    GROUPBOX        "接入能力",IDC_STATIC,142,17,104,37
+    GROUPBOX        "截止日期",IDC_STATIC,26,120,220,46
+    PUSHBUTTON      "清空",IDC_BTN_REFRESH,180,188,66,16
+    LTEXT           "",IDC_ST_USRSN,27,171,217,8
+END
+
+IDD_MT_PROPPAGE DIALOG DISCARDABLE  0, 0, 270, 220
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "MT"
+FONT 10, "宋体"
+BEGIN
+    COMBOBOX        IDC_COMBO_ACCESSNUM,134,122,74,49,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "是",IDC_RADIO_RUNKDMMT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,134,144,23,12
+    CONTROL         "否",IDC_RADIO_NOTRUNKDMMT,"Button",BS_AUTORADIOBUTTON,
+                    177,144,23,12
+    COMBOBOX        IDC_COMBO_MTMODAL,75,29,128,118,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "导入授权...",IDC_BTN_IMPORT,26,188,66,16
+    PUSHBUTTON      "生成授权...",IDC_BTN_GENERATE,103,188,66,16
+    GROUPBOX        "内置能力",IDC_STATIC,26,109,220,57
+    GROUPBOX        "终端型号",IDC_STATIC,26,14,220,35
+    PUSHBUTTON      "清空",IDC_BTN_REFRESH,180,188,66,16
+    EDITTEXT        IDC_EDIT_DEVICEID,74,63,128,16,ES_AUTOHSCROLL
+    LTEXT           "设备ID输入格式为 00-aA-bB-03-04-05，不区分大小写",
+                    IDC_STATIC,37,86,196,12
+    GROUPBOX        "设备ID",IDC_STATIC,26,53,220,50
+    LTEXT           "",IDC_ST_USRSN,27,171,217,8
+    LTEXT           "启用内置GK：",IDC_STATIC,38,129,82,8,NOT WS_VISIBLE
+    CONTROL         "是",IDC_RADIO_RUNGK,"Button",BS_AUTORADIOBUTTON | NOT 
+                    WS_VISIBLE | WS_GROUP,134,127,23,12
+    CONTROL         "否",IDC_RADIO_NOTRUNGK,"Button",BS_AUTORADIOBUTTON | 
+                    NOT WS_VISIBLE,177,127,23,12
+    LTEXT           "启用内置防火墙代理：",IDC_STATIC,38,129,82,8,NOT 
+                    WS_VISIBLE
+    CONTROL         "是",IDC_RADIO_RUNPROXY,"Button",BS_AUTORADIOBUTTON | 
+                    NOT WS_VISIBLE | WS_GROUP,134,127,23,12
+    CONTROL         "否",IDC_RADIO_NOTRUNPROXY,"Button",BS_AUTORADIOBUTTON | 
+                    NOT WS_VISIBLE,177,127,23,12
+    LTEXT           "支持KDM终端：",IDC_STATIC,38,146,82,8
+    LTEXT           "内置MC(GK/代理) 能力：",IDC_STATIC,38,124,88,8
+END
+
+IDD_T120_PROPPAGE DIALOG DISCARDABLE  0, 0, 270, 220
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "T120"
+FONT 10, "宋体"
+BEGIN
+    COMBOBOX        IDC_COMBO_ACCESSNUM,77,51,127,72,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_DEVICEID,78,108,127,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "导入授权...",IDC_BTN_IMPORT,26,188,66,16
+    PUSHBUTTON      "生成授权...",IDC_BTN_GENERATE,103,188,66,16
+    GROUPBOX        "终端接入能力",IDC_STATIC,26,27,220,55
+    PUSHBUTTON      "清空",IDC_BTN_REFRESH,180,188,66,16
+    GROUPBOX        "设备ID",IDC_STATIC,26,92,220,55
+    LTEXT           "设备ID输入格式为 00:aA:bB:03:04:05，不区分大小写",
+                    IDC_STATIC,40,131,200,13
+    LTEXT           "",IDC_ST_USRSN,27,171,217,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "LicenseKey Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "LicenseKey\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2007\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "LicenseKey.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "LicenseKey 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MCU_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 263
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 212
+    END
+
+    IDD_MT_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 263
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 212
+    END
+
+    IDD_T120_PROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 263
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 212
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MCU_PROPPAGE DLGINIT
+BEGIN
+    IDC_COMBO_MCU_TYPE, 0x403, 5, 0
+0x3038, 0x3030, "\000" 
+    IDC_COMBO_MCU_TYPE, 0x403, 6, 0
+0x3038, 0x3030, 0x0042, 
+    IDC_COMBO_MCU_TYPE, 0x403, 6, 0
+0x3038, 0x3030, 0x0043, 
+    0
+END
+
+IDD_MT_PROPPAGE DLGINIT
+BEGIN
+    IDC_COMBO_ACCESSNUM, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO_ACCESSNUM, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO_MTMODAL, 0x403, 11, 0
+0x3038, 0x3031, 0x2041, 0xb5cf, 0xd0c1, "\000" 
+    IDC_COMBO_MTMODAL, 0x403, 7, 0
+0x5354, 0x3636, 0x3031, "\000" 
+    0
+END
+
+IDD_T120_PROPPAGE DLGINIT
+BEGIN
+    IDC_COMBO_ACCESSNUM, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO_ACCESSNUM, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO_ACCESSNUM, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO_ACCESSNUM, 0x403, 3, 0
+0x3432, "\000" 
+    IDC_COMBO_ACCESSNUM, 0x403, 3, 0
+0x3233, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 LicenseKey(&A)..."
+    IDS_PROPSHT_CAPTION     "Property Sheet"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\LicenseKey.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
