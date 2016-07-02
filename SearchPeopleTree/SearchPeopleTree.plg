@@ -1,0 +1,52 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SearchPeopleTree - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Release/SearchPeopleTree.res" /d "NDEBUG" /d "_AFXDLL" "D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTree.rc"" 
+Creating temporary file "C:\Users\yrl\AppData\Local\Temp\RSPB9EF.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/SearchPeopleTree.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTree.cpp"
+"D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\yrl\AppData\Local\Temp\RSPB9EF.tmp" 
+Creating temporary file "C:\Users\yrl\AppData\Local\Temp\RSPB9F0.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/SearchPeopleTree.pdb" /machine:I386 /out:"Release/SearchPeopleTree.exe" 
+.\Release\SearchPeopleTree.obj
+.\Release\SearchPeopleTreeDlg.obj
+.\Release\StdAfx.obj
+.\Release\SearchPeopleTree.res
+]
+Creating command line "link.exe @C:\Users\yrl\AppData\Local\Temp\RSPB9F0.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+SearchPeopleTree.cpp
+SearchPeopleTreeDlg.cpp
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(284) : warning C4305: 'argument' : truncation from 'const int' to 'unsigned char'
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(284) : warning C4309: 'argument' : truncation of constant value
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(288) : warning C4305: 'argument' : truncation from 'const int' to 'unsigned char'
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(288) : warning C4309: 'argument' : truncation of constant value
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(292) : warning C4305: 'argument' : truncation from 'const int' to 'unsigned char'
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(292) : warning C4309: 'argument' : truncation of constant value
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(296) : warning C4305: 'argument' : truncation from 'const int' to 'unsigned char'
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(296) : warning C4309: 'argument' : truncation of constant value
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(300) : warning C4305: 'argument' : truncation from 'const int' to 'unsigned char'
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(300) : warning C4309: 'argument' : truncation of constant value
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(304) : warning C4305: 'argument' : truncation from 'const int' to 'unsigned char'
+D:\VC6\MSDev98\MyProjects\SearchPeopleTree\SearchPeopleTreeDlg.cpp(304) : warning C4309: 'argument' : truncation of constant value
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SearchPeopleTree.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
