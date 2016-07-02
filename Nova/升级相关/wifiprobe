@@ -1,0 +1,73 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org 
+
+WIFIBIN=wifi-probe
+
+CFG_FILES=/var/run/wifiprobe.ini
+
+SERVICE_DAEMONIZE=1
+
+
+START=99
+
+LOGGER=
+
+config_wifi_mode(){
+        wlanconfig ath0 destroy
+        sleep 1
+        wlanconfig ath0 create wlandev wifi0 wlanmode monitor
+        sleep 1
+        ifconfig ath0 up
+}
+
+probe_stop(){
+        service_stop /usr/sbin/$WIFIBIN
+}
+
+load_probe_file(){
+        config_load probe
+        config_get CHANNEL config channel "1-13"                                                         
+        config_get SWTIME config swtime "10"                                            
+        config_get SLOTTIME config slottime "10"
+        config_get QQPORT config qqport "80,8080,433,14000"
+
+        echo "CHANNEL = $CHANNEL" >$CFG_FILES
+        echo "SWTIME = $SWTIME" >> $CFG_FILES
+        echo "SLOTTIME = $SLOTTIME" >>$CFG_FILES
+        echo "QQPORT = $QQPORT" >>$CFG_FILES
+        cat $CFG_FILES
+}
+
+start() {
+
+        load_probe_file;
+
+        mode=`iwconfig ath0 | grep Mode | awk -F ":" '{printf $2}' | awk -F " " '{printf $1}'`
+        #killall $WIFIBIN 2>/dev/null
+        probe_stop;
+        if [ "$mode" != "Monitor" ]; then
+                config_wifi_mode;
+                mode=`iwconfig ath0 | grep Mode | awk -F ":" '{printf $2}' | awk -F " " '{printf $1}'`  
+        fi
+
+	flag=`grep UPGRADE $CFG_FILES | cut -d ' ' -f3`
+        if [ "$mode" = "Monitor" ]; then
+
+		if [ "$falg" = "0" ]; then
+                	/usr/sbin/$WIFIBIN -i ath0 -s 0 -f $CFG_FILES &
+	                #service_start /usr/sbin/$WIFIBIN -i ath0 -s 0 -f $CFG_FILES
+		else
+			cp /usr/sbin/$WIFIBIN.bak /usr/sbin/$WIFIBIN -rvf
+			chmod +x /usr/sbin/$WIFIBIN
+			#set UPGRADE = 0
+			sed -i '/UPGRADE/c'"UPGRADE = 0" $CFG_FILES
+			reboot
+		fi
+        fi
+}
+
+stop(){
+        #service_stop $WIFIBIN
+        #killall $WIFIBIN 2>/dev/null
+        probe_stop;
+}

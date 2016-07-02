@@ -1,0 +1,274 @@
+#include <stdio.h>
+#include <string.h>
+
+#include "uci_cfg.h"
+#include "ap_log.h"
+
+static struct uci_context *uci_ctx = NULL;
+static struct uci_package *uci_cwmp = NULL;
+
+static inline struct uci_package *
+            uci_lookup_package0 ( struct uci_context *ctx, const char *name )
+{
+    struct uci_element *e = NULL;
+    if ( uci_lookup_next ( ctx, &e, &ctx->root, name ) == 0 )
+        return uci_to_package ( e );
+    else
+        return NULL;
+}
+
+static struct uci_package *
+            config_init_package ( const char *config )
+{
+    struct uci_context *ctx = uci_ctx;
+    struct uci_package *p = NULL;
+
+    if ( !ctx )
+    {
+        ctx = uci_alloc_context();
+        if ( !ctx ) return NULL;
+        uci_ctx = ctx;
+    }
+    else
+    {
+        p = uci_lookup_package0 ( ctx, config );
+        if ( p )
+            uci_unload ( ctx, p );
+    }
+
+    if ( uci_load ( ctx, config, &p ) )
+    {
+        uci_free_context ( ctx );
+        return NULL;
+    }
+
+    return p;
+}
+
+INT8 uci_update_cfg ( char *option, char *value )
+{
+
+    INT8 status;
+
+    struct uci_context *ctx = uci_alloc_context();
+
+    struct uci_ptr ptr;
+    char str[256];
+
+    memset ( str, 0, sizeof ( str ) );
+    sprintf ( str, "%s=%s", option, value );
+
+    if ( uci_lookup_ptr ( ctx, &ptr, str, true ) == UCI_OK )
+    {
+       // printf ( "uci_lookup_ptr ok, %s-%s-%s-%s\n", ptr.package, ptr.section, ptr.option, ptr.value );
+
+        uci_set ( ctx, &ptr );
+
+        uci_save ( ctx, ptr.p );
+
+        uci_commit ( ctx, &ptr.p, false );
+
+        status =  FC_SUCCESS;
+    }
+    else
+        status =  FC_ERROR;
+
+    uci_free_context ( ctx );
+
+    return status;
+}
+
+
+INT8 uci_del_cfg ( char *option )
+{
+    INT8 status;
+
+    struct uci_context *ctx = uci_alloc_context();
+
+    struct uci_ptr ptr;
+    char str[256];
+
+    memset ( str, 0, sizeof ( str ) );
+
+    if ( uci_lookup_ptr ( ctx, &ptr, str, true ) == UCI_OK )
+    {
+       // printf ( "uci_lookup_ptr ok, %s-%s-%s-%s\n", ptr.package, ptr.section, ptr.option, ptr.value );
+
+        uci_delete ( ctx, &ptr );
+
+        uci_save ( ctx, ptr.p );
+
+        uci_commit ( ctx, &ptr.p, 1 );
+
+        status =  FC_SUCCESS;
+    }
+    else
+        status =  FC_ERROR;
+
+    uci_free_context ( ctx );
+
+    return status;
+}
+
+
+/*
+
+*/
+INT8 get_uci_config ( char *option, char *value, int len )
+{
+    int ret = 0;
+
+    struct uci_context *ctx = uci_alloc_context();
+    struct uci_element *e;
+    struct uci_ptr ptr;
+    char str[256];
+
+    memset ( str, 0, sizeof ( str ) );
+    sprintf ( str, "%s", option );
+    *value = 0;
+    
+    if ( uci_lookup_ptr ( ctx, &ptr, str, true ) == UCI_OK )
+    {
+        e = ptr.last;
+		
+		#if 0
+        if ( e->type == UCI_TYPE_SECTION )
+        {
+            printf ( "SECTION %s\n", ptr.s->type );
+        }
+		#endif
+		
+        if ( e->type == UCI_TYPE_OPTION )
+        {
+            if ( ptr.o->type == UCI_TYPE_STRING )
+                ret = snprintf ( value, len, "%s", ptr.o->v.string );
+        }
+    }
+
+
+    uci_free_context ( ctx );
+
+    return ret;
+}
+
+#define MAX_UCI_LIST_MEMBER 16
+#define MAX_UCI_LIST_MEMBER_VAL 64
+INT8 get_uci_list ( char *option, char *value, int len, int pos )
+{
+    int ret = -1;
+    int i = 0;
+    struct uci_context *ctx = uci_alloc_context();
+    struct uci_element *e;
+    struct uci_ptr ptr;
+    char str[256];
+    char* p = value;
+    
+    memset ( str, 0, sizeof ( str ) );
+    sprintf ( str, "%s", option );
+
+    if ( uci_lookup_ptr ( ctx, &ptr, str, true ) == UCI_OK )
+    {
+        e = ptr.last;
+        if ( e->type == UCI_TYPE_OPTION )
+        {
+            if ( ptr.o->type == UCI_TYPE_LIST )
+            {
+        		uci_foreach_element(&ptr.o->v.list, e) 
+                {
+                    if(i++ == pos)
+                    {
+                        snprintf ( value, len, "%s", e->name );
+                        ret = 0;
+
+                        break;
+                    }
+        		}
+            }
+        }
+    }
+
+    uci_free_context ( ctx );
+    
+    return ret;
+}
+
+INT8 get_uci_list_all ( char *option, char *value, int len )
+{
+    int ret = -1;
+    int i = 0;
+    struct uci_context *ctx = uci_alloc_context();
+    struct uci_element *e;
+    struct uci_ptr ptr;
+    char str[256];
+    char* p = value;
+    
+    memset ( str, 0, sizeof ( str ) );
+    sprintf ( str, "%s", option );
+
+    if ( uci_lookup_ptr ( ctx, &ptr, str, true ) == UCI_OK )
+    {
+        e = ptr.last;
+        if ( e->type == UCI_TYPE_OPTION )
+        {
+            if ( ptr.o->type == UCI_TYPE_LIST )
+            {
+        		uci_foreach_element(&ptr.o->v.list, e) 
+                {
+                    snprintf ( p, len, "%s", e->name );
+                    p+=MAX_UCI_LIST_MEMBER_VAL;
+                    i++;
+        		}
+            }
+        }
+        ret = 0;
+    }
+
+    uci_free_context ( ctx );
+    
+    return ret;
+}
+
+
+INT8 set_uci_list ( char *option, char *value, int pos)
+{
+    INT8 status;
+    struct uci_ptr ptr;
+    char str[256];
+    char buffer[16][64];
+    struct uci_context *ctx = uci_alloc_context();
+    int i;
+
+    memset(buffer, 0, MAX_UCI_LIST_MEMBER*MAX_UCI_LIST_MEMBER_VAL);
+    get_uci_list_all(option, buffer[0], MAX_UCI_LIST_MEMBER_VAL);
+
+    sprintf ( str, "%s", option);
+    if ( uci_lookup_ptr ( ctx, &ptr, str, true ) == UCI_OK )
+    {
+        uci_delete(ctx, &ptr);
+    }
+
+    for(i=0;i<MAX_UCI_LIST_MEMBER;i++)
+    {
+        if(buffer[i][0] == 0)
+            break;
+
+        if(pos == i)
+            sprintf ( str, "%s=%s", option, value );
+        else
+            sprintf ( str, "%s=%s", option, buffer[i] );
+
+        if ( uci_lookup_ptr ( ctx, &ptr, str, true ) == UCI_OK )
+        {
+            uci_add_list ( ctx, &ptr );
+        }
+    }
+
+    uci_save(ctx, ptr.p);
+    uci_commit ( ctx, &ptr.p, false );    
+    status =  FC_SUCCESS;
+
+cleanup:  
+    uci_free_context ( ctx );
+    return status;
+}
+

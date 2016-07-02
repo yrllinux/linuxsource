@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if [ ! -n "$1" ] || [ ! -n "$2" ];then
+
+	echo "pls input arg1 or arg2!"
+	echo "$0 <tarFile> <Type>"
+
+else
+	
+	MD5=`md5sum $1 | cut -d ' ' -f1`
+	#echo $MD5
+
+	echo "" > md5-$2-$MD5
+
+	filename=$(basename "md5-$2-$MD5") 
+	#echo $filename
+
+	tar zcvf $1.tar.gz $1 $filename
+
+fi
+

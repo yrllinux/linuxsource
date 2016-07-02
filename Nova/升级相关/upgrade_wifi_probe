@@ -1,0 +1,71 @@
+#!/bin/sh
+
+if [ ! -n "$1" ];then
+{
+	echo "pls input arg1!"
+	echo "$0 <tarFile>"
+}
+else
+{
+	DIR=tmpdir
+	
+	#uzip && check
+	mkdir -p $DIR
+	tar zxvf $1 -C $DIR/
+	
+	if [ "0" != "$?" ];then
+	{	
+		echo "$0 $1 fail!"
+	}	
+	else
+	{
+		#check MD5
+		CURMD5=`basename $DIR/md5* | cut -b 7-`
+		#echo "CURMD5 = $CURMD5"
+		
+		NAME=`find $DIR/* | sed -n '/md5/!p'`
+		GETMD5=`md5sum $NAME | cut -d ' ' -f1`
+		#echo "GETMD5 = $GETMD5"
+		
+		if [ "$GETMD5" != "$CURMD5" ];then
+		{
+			echo "check md5 fail!"
+		}
+		else
+		{
+			#if 1£¬upgrade
+			TYPE=`basename $DIR/md5* | cut -b 5`
+			#echo "TYPE = $TYPE"
+			
+			if [ "0" != "$TYPE" ];then
+			{
+				#upgrade $DIR/$NAME
+				echo "upgrade $NAME!"
+			}
+			else
+			{
+				#if 0£¬cp to /usr/sbin/wifi-probe.bak£»
+				WIFIBIN=`basename $NAME | cut -d '/' -f2`
+				#echo "WIFIBIN = $WIFIBIN"
+				
+				cp $DIR/$WIFIBIN /usr/sbin/$WIFIBIN.bak -rvf
+				
+				#set UPGRADE = 1£¬busy£»
+				CONF_FILE=/var/run/wifiprobe.ini
+				sed -i '/UPGRADE/c'"UPGRADE = 1" $CONF_FILE
+				
+				cp /usr/sbin/$WIFIBIN.bak /usr/sbin/$WIFIBIN -rvf
+				chmod +x /usr/sbin/$WIFIBIN
+				
+				#set UPGRADE = 0£¬idle.
+				sed -i '/UPGRADE/c'"UPGRADE = 0" $CONF_FILE
+				
+				#reboot
+			}
+			fi
+		}	
+		fi
+	}	
+	fi
+}	
+fi

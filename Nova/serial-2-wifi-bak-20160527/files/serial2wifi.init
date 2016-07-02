@@ -1,0 +1,80 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org 
+
+WIFIBIN=serial-wifi
+
+CFG_FILES=/var/run/serial2wifi.ini
+
+SERVICE_DAEMONIZE=1
+
+START=99
+
+LOGGER=
+
+config_serial2wifi_mode(){
+	wlanconfig ath0 destroy
+	sleep 1
+	wlanconfig ath0 create wlandev wifi0 wlanmode monitor
+	sleep 1
+	ifconfig ath0 up
+}
+
+serial2wifi_stop(){
+        service_stop /usr/sbin/$WIFIBIN
+}
+
+load_serial2wifi_file(){
+	config_load serial2wificfg
+
+	config_get NETIP_MODE config netip_mode
+	config_get NETIP_IP config netip_ip
+	config_get NETIP_MASK config netip_mask
+	config_get NETIP_DGW config netip_dgw
+	config_get NETIP_DNS config netip_dns
+	config_get NETPORT_TYPE config netport_type
+	
+	config_get SERIAL_RATE config serial_rate
+	config_get SERIAL_DB config serial_db
+	config_get SERIAL_SB config serial_sb
+	config_get SERIAL_PARITY config serial_parity
+	
+	config_get SOCKET_MODE config socket_mode
+	config_get SOCKET_PROTO config socket_proto
+	config_get SOCKET_CS config socket_cs
+	config_get SOCKET_HOST config socket_host
+	config_get SOCKET_CPORT config socket_cport
+	config_get SOCKET_SPORT config socket_sport
+	config_get SOCKET_TIMEOUT config socket_timeout
+
+	echo "NETIP_MODE = $NETIP_MODE" > $CFG_FILES
+	echo "NETIP_IP = $NETIP_IP" >> $CFG_FILES
+	echo "NETIP_MASK = $NETIP_MASK" >> $CFG_FILES
+	echo "NETIP_DGW = $NETIP_DGW" >> $CFG_FILES
+	echo "NETIP_DNS = $NETIP_DNS" >> $CFG_FILES
+	echo "NETPORT_TYPE = $NETPORT_TYPE" >> $CFG_FILES
+	
+	echo "SERIAL_RATE = $SERIAL_RATE" >> $CFG_FILES
+	echo "SERIAL_DB = $SERIAL_DB" >> $CFG_FILES
+	echo "SERIAL_SB = $SERIAL_SB" >> $CFG_FILES
+	echo "SERIAL_PARITY = $SERIAL_PARITY" >> $CFG_FILES
+	
+	echo "SOCKET_MODE = $SOCKET_MODE" >> $CFG_FILES
+	echo "SOCKET_PROTO = $SOCKET_PROTO" >> $CFG_FILES
+	echo "SOCKET_CS = $SOCKET_CS" >> $CFG_FILES
+	echo "SOCKET_HOST = $SOCKET_HOST" >> $CFG_FILES
+	echo "SOCKET_CPORT = $SOCKET_CPORT" >> $CFG_FILES
+	echo "SOCKET_SPORT = $SOCKET_SPORT" >> $CFG_FILES
+	echo "SOCKET_TIMEOUT = $SOCKET_TIMEOUT" >> $CFG_FILES
+
+	cat $CFG_FILES
+}
+
+start() {
+	load_serial2wifi_file;
+}
+
+stop(){
+	#service_stop $WIFIBIN
+	#killall $WIFIBIN 2>/dev/null
+	serial2wifi_stop;
+}
