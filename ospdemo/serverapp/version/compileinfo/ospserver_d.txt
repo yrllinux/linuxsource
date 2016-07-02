@@ -1,0 +1,21 @@
+	if not exist ".\Debug/" mkdir ".\Debug"
+	cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nma03480.
+StdAfx.cpp
+	cl.exe /nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\ospcommon" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp".\Debug\ospserver.pch" /Yu"stdafx.h" /Fo".\Debug\\" /Fd".\Debug\\" /FD /GZ /c ..\source\serverinstance.cpp
+serverinstance.cpp
+	cl.exe /nologo /MTd /W3 /Gm /GX /ZI /Od /I "..\include" /I "..\..\ospcommon" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp".\Debug\ospserver.pch" /Yu"stdafx.h" /Fo".\Debug\\" /Fd".\Debug\\" /FD /GZ /c ..\source\serverospapp.cpp
+serverospapp.cpp
+	cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nmb03480.
+Skipping... (no relevant changes detected)
+StdAfx.cpp
+	rc.exe /l 0x804 /fo".\Debug\ospserver.res" /d "_DEBUG" .\ospserver.rc
+	cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nmc03480.
+ospserver.cpp
+ospserverdlg.cpp
+Generating Code...
+	link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nmd03480.
+   Creating library ../version/debug/ospserver.lib and object ../version/debug/ospserver.exp
+	del ..\version\debug\ospserver.exp
+	del ..\version\debug\ospserver.lib
+	del ..\version\debug\ospserver.ilk
+	echo Helper for Post-build step > ".\Debug\postbld.dep"

@@ -1,0 +1,22 @@
+# Microsoft Developer Studio Generated Dependency File, included by ospserver.mak
+
+.\ospserver.cpp : \
+	".\ospserver.h"\
+	".\ospserverdlg.h"\
+	".\StdAfx.h"\
+	
+
+.\ospserver.rc : \
+	".\res\ospserver.ico"\
+	".\res\ospserver.rc2"\
+	
+
+.\ospserverdlg.cpp : \
+	".\ospserver.h"\
+	".\ospserverdlg.h"\
+	".\StdAfx.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

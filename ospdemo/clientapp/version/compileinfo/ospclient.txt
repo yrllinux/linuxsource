@@ -1,0 +1,20 @@
+	if not exist ".\Release/" mkdir ".\Release"
+	cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nma03192.
+StdAfx.cpp
+	cl.exe /nologo /MT /W3 /GX /O2 /I "..\include" /I "..\..\ospcommon" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp".\Release\ospclient.pch" /Yu"stdafx.h" /Fo".\Release\\" /Fd".\Release\\" /FD /c ..\source\clientinstance.cpp
+clientinstance.cpp
+	cl.exe /nologo /MT /W3 /GX /O2 /I "..\include" /I "..\..\ospcommon" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp".\Release\ospclient.pch" /Yu"stdafx.h" /Fo".\Release\\" /Fd".\Release\\" /FD /c ..\source\clientospapp.cpp
+clientospapp.cpp
+	cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nmb03192.
+StdAfx.cpp
+	rc.exe /l 0x804 /fo".\Release\ospclient.res" /d "NDEBUG" .\ospclient.rc
+	cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nmc03192.
+ospclient.cpp
+ospclientdlg.cpp
+Generating Code...
+	link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nmd03192.
+   Creating library ..\version\release\ospclient.lib and object ..\version\release\ospclient.exp
+LINK : warning LNK4089: all references to "SHELL32.dll" discarded by /OPT:REF
+	del ..\version\release\ospclient.lib
+	del ..\version\release\ospclient.exp
+	echo Helper for Post-build step > ".\Release\postbld.dep"

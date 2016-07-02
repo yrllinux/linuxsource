@@ -1,0 +1,52 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ospserver - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\riliang\AppData\Local\Temp\RSP88ED.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /I "..\include" /I "..\..\ospcommon" /I ".\\" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/ospserver.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\ospdemo\serverapp\ospserver\ospserverdlg.cpp"
+"F:\ospdemo\serverapp\source\serverinstance.cpp"
+"F:\ospdemo\serverapp\source\serverospapp.cpp"
+]
+Creating command line "cl.exe @C:\Users\riliang\AppData\Local\Temp\RSP88ED.tmp" 
+Creating temporary file "C:\Users\riliang\AppData\Local\Temp\RSP88EE.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/ospserver.pdb" /machine:I386 /out:"../version/release/ospserver.exe" 
+.\Release\ospserver.obj
+.\Release\ospserverdlg.obj
+.\Release\serverinstance.obj
+.\Release\serverospapp.obj
+.\Release\StdAfx.obj
+.\Release\ospserver.res
+.\OspDll.lib
+]
+Creating command line "link.exe @C:\Users\riliang\AppData\Local\Temp\RSP88EE.tmp"
+<h3>Output Window</h3>
+Compiling...
+ospserverdlg.cpp
+serverinstance.cpp
+serverospapp.cpp
+Generating Code...
+Linking...
+   Creating library ../version/release/ospserver.lib and object ../version/release/ospserver.exp
+Creating temporary file "C:\Users\riliang\AppData\Local\Temp\RSP8EEA.bat" with contents
+[
+@echo off
+del ..\version\release\ospserver.lib
+del ..\version\release\ospserver.exp
+]
+Creating command line "C:\Users\riliang\AppData\Local\Temp\RSP8EEA.bat"
+
+
+
+
+<h3>Results</h3>
+ospserver.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

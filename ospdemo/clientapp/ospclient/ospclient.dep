@@ -1,0 +1,42 @@
+# Microsoft Developer Studio Generated Dependency File, included by ospclient.mak
+
+..\source\clientinstance.cpp : \
+	"..\..\ospcommon\kdvtype.h"\
+	"..\..\ospcommon\osp.h"\
+	"..\..\ospcommon\ospcomm.h"\
+	"..\include\ClientInstance.h"\
+	"..\include\clientospapp.h"\
+	
+
+..\source\clientospapp.cpp : \
+	"..\..\ospcommon\kdvtype.h"\
+	"..\..\ospcommon\osp.h"\
+	"..\..\ospcommon\ospcomm.h"\
+	"..\include\ClientInstance.h"\
+	"..\include\clientospapp.h"\
+	
+
+.\ospclient.cpp : \
+	".\ospclient.h"\
+	".\ospclientDlg.h"\
+	
+
+.\ospclient.rc : \
+	".\res\ospclient.ico"\
+	".\res\ospclient.rc2"\
+	
+
+.\ospclientdlg.cpp : \
+	"..\..\ospcommon\kdvtype.h"\
+	"..\..\ospcommon\osp.h"\
+	"..\..\ospcommon\ospcomm.h"\
+	"..\include\ClientInstance.h"\
+	"..\include\clientospapp.h"\
+	".\ospclient.h"\
+	".\ospclientDlg.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	"d:\microsoft visual studio\vc98\include\basetsd.h"\
+	

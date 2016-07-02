@@ -1,0 +1,8 @@
+	if not exist ".\Release/" mkdir ".\Release"
+	cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\nma03128.
+StdAfx.cpp
+	cl.exe /nologo /MT /W3 /GX /O2 /I "..\include" /I "..\..\ospcommon" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp".\Release\ospserver.pch" /Yu"stdafx.h" /Fo".\Release\\" /Fd".\Release\\" /FD /c ..\source\serverinstance.cpp
+serverinstance.cpp
+	cl.exe /nologo /MT /W3 /GX /O2 /I "..\include" /I "..\..\ospcommon" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp".\Release\ospserver.pch" /Yu"stdafx.h" /Fo".\Release\\" /Fd".\Release\\" /FD /c ..\source\serverospapp.cpp
+serverospapp.cpp
+..\source\serverospapp.cpp(68) : error C2065: 'setloglevel' : undeclared identifier

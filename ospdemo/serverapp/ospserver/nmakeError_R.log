@@ -1,0 +1,2 @@
+NMAKE : fatal error U1077: 'cl.exe' : return code '0x2'
+Stop.
